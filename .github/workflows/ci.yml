@@ -59,6 +59,13 @@ jobs:
       - name: Browser acceptance and actual screenshots
         working-directory: web
         run: npm run test:e2e
+      - name: Bounded 100K/1M source-record and real command baselines
+        run: backend/.venv/bin/python scripts/benchmark.py
+      - name: Dependency audits and source secret guard
+        run: |
+          uv run --project backend pip-audit --local --format=json --output evidence/python-audit.json
+          npm audit --prefix web --json > evidence/npm-audit.json
+          python scripts/check_secrets.py
       - name: Core container build and startup smoke
         run: |
           python scripts/bootstrap.py
@@ -66,6 +73,8 @@ jobs:
           docker compose up --build -d --wait --wait-timeout 180
           curl --fail http://localhost:8080/api/health/ready
           docker compose ps > evidence/compose-state.txt
+          docker compose stats --no-stream --format json > evidence/compose-resources.json
+          bash scripts/backup_restore.sh > evidence/restore-drill.txt
           docker compose down
       - uses: actions/upload-artifact@v4
         if: always()

@@ -1,0 +1,9 @@
+{
+  "source": "Bank of Canada Valet",
+  "url": "https://www.bankofcanada.ca/valet/observations/FXUSDCAD/json?start_date=2026-10-16&end_date=2026-10-16",
+  "captured_at": "2026-10-17T15:04:22.160392+00:00",
+  "sha256": "79c25d3d98b9cefc668601e0b9ddbe9ab7ae2b742d2ceb29abc69dbe50db83e1",
+  "classification": "Public reference data",
+  "terms": "https://www.bankofcanada.ca/terms/",
+  "convention": "CAD per 1 USD; indicative daily average, not an executable quote"
+}

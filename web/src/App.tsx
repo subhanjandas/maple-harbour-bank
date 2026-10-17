@@ -21,7 +21,7 @@ export default function App(){
  async function login(persona:string){try{await api('/auth/development/'+persona,'POST');await load();navigate('home');}catch(e){setError((e as Error).message);}}
  async function logout(){try{await api('/auth/logout','POST');setActor(null);navigate('home');}catch(e){setError((e as Error).message);}}
  const personal=actor?.role==='customer';const ops=actor?.role==='operations';const engineer=actor?.role==='engineer';
- const nav=[{id:'home',label:actor?roles[actor.role]:'Welcome',icon:<LayoutDashboard size={18}/>},
+ const nav=[{id:'home',label:actor?(actor.role==='customer'?'Accounts overview':actor.role==='operations'?'Operations overview':actor.role==='analyst'?'Analytics overview':'Platform overview'):'Welcome',icon:<LayoutDashboard size={18}/>},
  ...(personal?[{id:'payments',label:'Payments & activity',icon:<ArrowLeftRight size={18}/>}]:[]),
  ...(ops?[{id:'operations',label:'Payment workbench',icon:<BriefcaseBusiness size={18}/>}]:[]),
  ...(actor&&!personal?[{id:'analytics',label:'Business analytics',icon:<ChartNoAxesCombined size={18}/>}]:[]),
