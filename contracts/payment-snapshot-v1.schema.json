@@ -1,0 +1,260 @@
+{
+  "$defs": {
+    "PaymentSnapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "tenant_id": {
+          "title": "Tenant Id",
+          "type": "string"
+        },
+        "owner_id": {
+          "title": "Owner Id",
+          "type": "string"
+        },
+        "source_id": {
+          "title": "Source Id",
+          "type": "string"
+        },
+        "destination_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Destination Id"
+        },
+        "beneficiary_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Beneficiary Id"
+        },
+        "kind": {
+          "enum": [
+            "OUTBOUND",
+            "INTERNAL"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "amount_minor": {
+          "exclusiveMinimum": 0,
+          "maximum": 100000000,
+          "title": "Amount Minor",
+          "type": "integer"
+        },
+        "currency": {
+          "const": "CAD",
+          "title": "Currency",
+          "type": "string"
+        },
+        "business_date": {
+          "format": "date",
+          "title": "Business Date",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "RECEIVED",
+            "VALIDATED",
+            "POSTED",
+            "SETTLED",
+            "PARTIALLY_RETURNED",
+            "RETURNED",
+            "REVERSED"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "version": {
+          "exclusiveMinimum": 0,
+          "title": "Version",
+          "type": "integer"
+        },
+        "returned_minor": {
+          "minimum": 0,
+          "title": "Returned Minor",
+          "type": "integer"
+        },
+        "correlation_id": {
+          "format": "uuid",
+          "title": "Correlation Id",
+          "type": "string"
+        },
+        "scope": {
+          "title": "Scope",
+          "type": "string"
+        },
+        "created_at": {
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        },
+        "returns": {
+          "items": {
+            "$ref": "#/$defs/ReturnSnapshot"
+          },
+          "title": "Returns",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "tenant_id",
+        "owner_id",
+        "source_id",
+        "destination_id",
+        "beneficiary_id",
+        "kind",
+        "amount_minor",
+        "currency",
+        "business_date",
+        "status",
+        "version",
+        "returned_minor",
+        "correlation_id",
+        "scope",
+        "created_at",
+        "returns"
+      ],
+      "title": "PaymentSnapshot",
+      "type": "object"
+    },
+    "ReturnSnapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "amount_minor": {
+          "exclusiveMinimum": 0,
+          "title": "Amount Minor",
+          "type": "integer"
+        },
+        "booked_date": {
+          "format": "date",
+          "title": "Booked Date",
+          "type": "string"
+        },
+        "reporting_date": {
+          "format": "date",
+          "title": "Reporting Date",
+          "type": "string"
+        },
+        "revision": {
+          "exclusiveMinimum": 0,
+          "title": "Revision",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "amount_minor",
+        "booked_date",
+        "reporting_date",
+        "revision"
+      ],
+      "title": "ReturnSnapshot",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "source_system": {
+      "const": "mhb-core",
+      "title": "Source System",
+      "type": "string"
+    },
+    "event_type": {
+      "const": "payment.snapshot",
+      "title": "Event Type",
+      "type": "string"
+    },
+    "reason": {
+      "title": "Reason",
+      "type": "string"
+    },
+    "event_id": {
+      "format": "uuid",
+      "title": "Event Id",
+      "type": "string"
+    },
+    "aggregate_id": {
+      "title": "Aggregate Id",
+      "type": "string"
+    },
+    "aggregate_version": {
+      "exclusiveMinimum": 0,
+      "title": "Aggregate Version",
+      "type": "integer"
+    },
+    "tenant_id": {
+      "title": "Tenant Id",
+      "type": "string"
+    },
+    "event_time": {
+      "format": "date-time",
+      "title": "Event Time",
+      "type": "string"
+    },
+    "correlation_id": {
+      "format": "uuid",
+      "title": "Correlation Id",
+      "type": "string"
+    },
+    "causation_id": {
+      "format": "uuid",
+      "title": "Causation Id",
+      "type": "string"
+    },
+    "currency": {
+      "const": "CAD",
+      "title": "Currency",
+      "type": "string"
+    },
+    "currency_exponent": {
+      "const": 2,
+      "title": "Currency Exponent",
+      "type": "integer"
+    },
+    "payload": {
+      "$ref": "#/$defs/PaymentSnapshot"
+    }
+  },
+  "required": [
+    "schema_version",
+    "source_system",
+    "event_type",
+    "reason",
+    "event_id",
+    "aggregate_id",
+    "aggregate_version",
+    "tenant_id",
+    "event_time",
+    "correlation_id",
+    "causation_id",
+    "currency",
+    "currency_exponent",
+    "payload"
+  ],
+  "title": "Envelope",
+  "type": "object"
+}

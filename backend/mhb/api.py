@@ -62,7 +62,7 @@ def create_app(settings=None):
         try:
             with database.transaction() as db:
                 migrations=db.execute('SELECT version FROM schema_migrations ORDER BY version').fetchall()
-                if [r['version'] for r in migrations]!=['001_core.sql']: raise RuntimeError('migration mismatch')
+                if [r['version'] for r in migrations]!=['001_core.sql','002_journal_trigger.sql']: raise RuntimeError('migration mismatch')
             return {'status':'ready'}
         except Exception: raise HTTPException(503,'DATABASE_OR_MIGRATION_NOT_READY') from None
 
