@@ -64,3 +64,7 @@ CI artifacts expire after 14 days. Committed evidence consists of synthetic scre
 ## Future CDC runbook requirements
 
 Before enabling Debezium: record slot/publication ownership, supported PostgreSQL/connector versions, snapshot/cutover cutoff and one active publisher. Monitor source lag, `confirmed_flush_lsn`, `restart_lsn`, retained WAL bytes and disk headroom. Test source restart, connector outage, slot recovery and poison records. A single Kafka broker is not HA; node/broker-failure tests need the exact tested multi-node topology.
+
+## Invited synthetic visitors
+
+Use the [visitor scenario runbook](VISITOR_SCENARIOS.md) with a protected operator connection. Repeated admission never refunds or reactivates. If capacity is exhausted, stop admission and review retained scenarios/storage; do not delete immutable ledger rows or lift limits blindly. Deactivation preserves financial/source evidence and blocks subsequent authentication. There is no automatic purge or reactivation job.

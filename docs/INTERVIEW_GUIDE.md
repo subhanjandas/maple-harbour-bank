@@ -10,7 +10,7 @@ Built with AI assistance. Explain the code and evidence yourself; do not present
 
 | Time | Show | Explain |
 |---|---|---|
-| 0:00–0:45 | Customer Alex's owned accounts and payment form | Synthetic CAD cents, booked vs available, backend authorization |
+| 0:00–0:45 | Customer Subhanjan's owned accounts and payment form | Synthetic CAD cents, booked vs available, backend authorization |
 | 0:45–1:40 | Post CAD 125; open trace | Two balanced lines, three lifecycle versions, stable idempotency response and committed outbox |
 | 1:40–2:30 | Taylor's operations workbench | Posting is not settlement; acknowledge simulator settlement, return CAD 30 with compensating journal |
 | 2:30–3:20 | Jordan's analytical publication | Unique instruction vs version count, return grain, source cutoff, last-good version and freshness |

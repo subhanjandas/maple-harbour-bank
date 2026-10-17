@@ -34,6 +34,7 @@ def dbs(urls):
     with psycopg.connect(urls['admin'],autocommit=True) as db:
         tables=[r[0] for r in db.execute("SELECT tablename FROM pg_tables WHERE schemaname='public' AND tablename<>'schema_migrations'")]
         db.execute(sql.SQL('TRUNCATE {} RESTART IDENTITY CASCADE').format(sql.SQL(',').join(map(sql.Identifier,tables))))
+        db.execute('INSERT INTO visitor_capacity(singleton) VALUES (true)')
     seed(urls['admin'])
     api=Database(urls['api']);worker=Database(urls['worker']);api.pool.open(wait=True);worker.pool.open(wait=True)
     try:yield api,worker

@@ -14,7 +14,7 @@ Gate sequence:
 
 1. Confirm ordinary database-owner migrations and service role support on the chosen provider.
 2. Configure a real OIDC issuer/client, exact callback URL, provisioned subject mapping, secure cookies and HTTPS; keep secrets in provider-managed runtime configuration.
-3. Implement per-visitor synthetic scenario isolation and quota/retention. Public users must not select shared employee/admin identities.
+3. Validate operator-provisioned [isolated visitor scenarios](VISITOR_SCENARIOS.md), quotas and expiry on the actual provider; implement off-host retention. Public users must not select shared employee/admin identities.
 4. Validate the entire HTTP payment/settlement/return/processing path and a backup restore using the deployment image.
 5. Record cost ceiling, network, backup, retention and shutdown instructions. Provision only after budget is authorized.
 6. Publish, run deployed smoke checks, record URLs and exact image/source identities in project state.

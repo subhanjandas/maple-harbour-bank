@@ -1,6 +1,10 @@
 # Acceptance evidence
 
-## Verified release checkpoint
+## Release 0.2 candidate
+
+New acceptance checks cover Subhanjan display-name upgrade, concurrent isolated OIDC visitor admission, quota/capacity rollback, two signed visitor sessions, expiry/deactivation and analytical row isolation. The full real-PostgreSQL/browser/container run is pending; local skipped database tests are not acceptance passes. No new hosted deployment is claimed.
+
+## Verified release 0.1 checkpoint
 
 [Successful run 39045330756](https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39045330756) tested source **`f7330756424c89f210cc98db08f6ba4490fb6ed5`**:
 

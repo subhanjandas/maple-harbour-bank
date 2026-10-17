@@ -57,3 +57,9 @@ API and worker are distinct non-owner roles. Operational RLS is enabled for the 
 ## ADR 007 · Bounded synthetic source history
 
 A scenario accepts at most 50K source events by default, with a 64KiB envelope limit and 100 return installments per payment. Exhaustion rolls back the complete command. A tenant counter introduces a serialization point; this is a deliberate small-demo resource policy, not a proposed production throughput technique. Keep it visible in benchmark versions and review it before scale work. No accepted event is discarded to satisfy retention.
+
+## ADR 008 · Operator-admitted, customer-only visitor scenarios
+
+A public visitor must not share the fixed development customer's money or select an employee role. The first hosted admission mechanism is an explicit schema-owner CLI that binds a provider-verified issuer/subject to a new synthetic tenant. Opening balances, identity, quota and audit evidence are atomic. A locked capacity row makes retries/capacity races predictable; provisioning is low-volume and serial admission is acceptable. All retained scenarios count toward capacity, so expiry cannot create unbounded stored history.
+
+Automatic registration from any valid OIDC token was considered and deferred: a valid identity alone does not supply abuse controls, operator approval or a storage budget. No additional provisioning service, scheduler or dependency is required. Replace the CLI with a restricted, authenticated enrollment service only when invitation volume, audited operator separation or self-service controls justify that cost. Expiry gates future requests; immutable financial/source history remains preserved until a separately designed archival policy exists. [Exact commands and guarantees](VISITOR_SCENARIOS.md).

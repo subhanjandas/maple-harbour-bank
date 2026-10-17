@@ -1,4 +1,4 @@
-# Project state · release 0.1
+# Project state · release 0.2 candidate
 
 ## Reproducible identity
 
@@ -23,7 +23,7 @@ The editing workspace has no Docker/unprivileged PostgreSQL runtime. Actual serv
 
 ## What is implemented
 
-Core services: React/TypeScript/nginx, FastAPI modular backend, PostgreSQL and separately runnable durable worker. Forward migrations 001–005, checksum gate, deterministic synthetic funding, separate schema/API/worker credentials and health checks.
+Core services: React/TypeScript/nginx, FastAPI modular backend, PostgreSQL and separately runnable durable worker. Forward migrations 001–008, checksum gate, deterministic synthetic funding, separate schema/API/worker credentials and health checks.
 
 Payment depth: owned CAD accounts, booked/available convention, idempotent command responses, locked funds, immutable balanced postings with account roll-forward checks, internal transfer/reversal, outbound posting, simulator settlement, partial returns and report-date correction. Role/scope/tenant enforcement, opaque revocable sessions, CSRF and OIDC code/PKCE relying-party tests.
 
@@ -35,7 +35,7 @@ Experience: customer accounts/payments, operations lifecycle/returns, approved a
 
 | Capability | Status | Exact coverage / next gap |
 |---|---|---|
-| Customer/party and onboarding | Modeled only | Synthetic principals seeded; interactive onboarding/identity verification not implemented |
+| Customer/party and onboarding | Modeled only | Synthetic principals seeded; operator-provisioned OIDC visitors implemented, acceptance pending; real identity verification not implemented |
 | Products and pricing | Modeled only | Atlas reference; no operational pricing catalog |
 | Deposit accounts | Implemented and tested | Owned seeded CAD deposits, booked/available; hold workflow and joint holders planned |
 | Payments and beneficiaries | Implemented and tested | Seeded beneficiary, own-account transfer, outbound command and lifecycle; beneficiary management planned |
@@ -49,7 +49,7 @@ Experience: customer accounts/payments, operations lifecycle/returns, approved a
 | Customer service | Modeled only | Atlas reference; case handling planned |
 | Fees, interest and statements | Modeled only | Atlas reference; no accrual/statement generation |
 | Reference data and FX | Implemented and tested | Actual BoC reference CLI/cache and recorded fixture; executable FX quotes/cross-border planned |
-| Identity and access | Implemented and tested | Trusted sessions, backend authorization, signed test-provider OIDC; deployed provider and visitor provisioning pending |
+| Identity and access | Implemented and tested | Trusted sessions, backend authorization, signed test-provider OIDC; isolated visitor provisioning implemented, acceptance pending; deployed provider pending |
 | Data platform operations | Implemented and tested | Polling/archive/projection/publication prototype, process recovery; full distributed lakehouse pending |
 | Real customers, actual money movement, licensed bank/regulatory certification | Out of scope | Never claimed |
 
@@ -83,13 +83,17 @@ bash scripts/backup_restore.sh
 docker compose down
 ```
 
-Migration order: `001_core.sql`, `002_journal_trigger.sql`, `003_scenario_bounds.sql`, `004_managed_owner.sql`, `005_outbox_access.sql`. Existing applied checksums must not be edited. Synthetic seed reruns do not re-fund accounts. [Full setup](LOCAL_SETUP.md).
+Migration order: `001_core.sql`, `002_journal_trigger.sql`, `003_scenario_bounds.sql`, `004_managed_owner.sql`, `005_outbox_access.sql`, `006_customer_name.sql`, `007_visitor_scenarios.sql`, `008_serving_isolation.sql`. Existing applied checksums must not be edited. Synthetic seed reruns do not re-fund accounts. [Full setup](LOCAL_SETUP.md).
 
 ## Next acceptance gate
 
-1. Current release acceptance is complete. Read `evidence/ci-summary.json`, the linked run, actual screenshots/demo and known limitations before extending the source.
-2. Public release: provision isolated synthetic visitor scenarios and a real OIDC provider, validate hosted permissions/restore/TLS/secrets, select the persistent topology within a user-provided monthly spending ceiling. Render was found as a deployment integration but is not connected or provisioned.
+1. Release 0.2 candidate adds Subhanjan, isolated visitor provisioning and analytical RLS; full CI acceptance is pending. Prior release acceptance is complete. Read `evidence/ci-summary.json`, the linked run, actual screenshots/demo and known limitations before extending the source.
+2. Public release: verify the new isolated visitor provisioning against a real deployed OIDC provider, validate hosted permissions/restore/TLS/secrets, select the persistent topology within a user-provided monthly spending ceiling. Render was found as a deployment integration but is not connected or provisioned.
 3. Streaming/lakehouse release: compatibility-pin Debezium/Kafka/Spark/Delta/storage/Airflow in manageable groups; preserve the v1 contract and one-publisher cutover; add independent batch manifests, replay/disposition and distributed failure evidence.
 4. Expand into business approvals or loans only after the connected slice and its performance/recovery claims remain demonstrable.
 
 Known first-profile limits: full-history analytical rebuilds; a tenant quota counter serializes source admission; one database failure domain; scale-lab override supplied but not yet executed as a separate Compose project; local persona simulation; no business maker/checker; no cloud production OIDC; no time-based off-host raw purge; no distributed telemetry backend or multi-node HA.
+
+## Current increment · 18 October 2026
+
+Branch `feat/customer-onboarding` starts at `dcdd2ea6c0a1f1e848e002be1137a12a47a339dd`. Customer display name is Subhanjan Das; legacy `harbour:alex` stays a stable internal identity. Migration 006 changes only the old seeded display names. New operator-only `python -m mhb.provision` creates bounded, expiring, customer-only scenarios. Repeating identity admission cannot refund, reset or reactivate. Analytical serving and metadata lineage now fail closed without a trusted tenant. See [visitor operations](VISITOR_SCENARIOS.md). No paid resources, new public URL or real identity provider has been created.

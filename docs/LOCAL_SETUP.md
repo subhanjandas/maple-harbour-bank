@@ -12,7 +12,7 @@ docker compose up --build -d --wait --wait-timeout 180
 curl --fail http://localhost:8080/api/health/ready
 ```
 
-Open `http://localhost:8080`. The default seeds Alex/Sam (customers), Taylor (Toronto operations), Morgan (Vancouver operations), Jordan (analyst) and Casey (engineer). Only selected personas are shown in the app. All records and funds are synthetic. The development selector is intentionally not production OIDC.
+Open `http://localhost:8080`. The default seeds Subhanjan/Sam (customers), Taylor (Toronto operations), Morgan (Vancouver operations), Jordan (analyst) and Casey (engineer). Only selected personas are shown in the app. All records and funds are synthetic. The development selector is intentionally not production OIDC.
 
 The migration runner applies checksum-verified forward SQL and rejects modified or unknown migrations. It creates separate no-login service roles; the bootstrap creates distinct login credentials. The API never uses the schema-owner credential. Funding is idempotent: restarting/migrating does not reset balances or duplicate opening journals.
 
@@ -78,3 +78,9 @@ The job records source-record query measurements separately from actual payment 
 - Future database version or checksum error: use the matching source; never edit the recorded applied migration.
 
 [Shutdown and restore](OPERATIONS_RUNBOOK.md). No Docker runtime exists in the assistant's editing workspace; container execution evidence comes from the linked GitHub Actions runner, not an invented local session.
+
+## Upgrading to Subhanjan and isolated visitors
+
+Rebuild/restart with `docker compose up --build -d --wait --wait-timeout 180`. The migration service applies 006–008; it does not require deleting the volume. Migration 006 changes the old Alex Morgan display name to Subhanjan Das without changing internal IDs or ledger history. The UI uses the `subhanjan` local persona alias; the old `alex` alias remains compatible with existing scripts. Do not manually rewrite foreign keys to rename a customer.
+
+[Visitor provisioning](VISITOR_SCENARIOS.md) is an additional operator command for separately configured OIDC identities. It does not require nor create a paid provider during local startup.
