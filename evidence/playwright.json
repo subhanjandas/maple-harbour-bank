@@ -18,24 +18,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/subhanjandas/maple-harbour-bank/commit/5159fcd81a3e568c336070d6168ea3d8a29d487c",
-        "commitHash": "5159fcd81a3e568c336070d6168ea3d8a29d487c",
-        "buildHref": "https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39044258802"
+        "commitHref": "https://github.com/subhanjandas/maple-harbour-bank/commit/f7330756424c89f210cc98db08f6ba4490fb6ed5",
+        "commitHash": "f7330756424c89f210cc98db08f6ba4490fb6ed5",
+        "buildHref": "https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39045330756"
       },
       "gitCommit": {
-        "shortHash": "5159fcd",
-        "hash": "5159fcd81a3e568c336070d6168ea3d8a29d487c",
-        "subject": "test: exercise signed OIDC, restore drill and measured workload baselines",
-        "body": "test: exercise signed OIDC, restore drill and measured workload baselines",
+        "shortHash": "f733075",
+        "hash": "f7330756424c89f210cc98db08f6ba4490fb6ed5",
+        "subject": "test: finish container payment/return restore journey and record real demonstration",
+        "body": "test: finish container payment/return restore journey and record real demonstration",
         "author": {
           "name": "Subhanjan Das",
           "email": "69835617+subhanjandas@users.noreply.github.com",
-          "time": 1792250132000
+          "time": 1792251009000
         },
         "committer": {
           "name": "Subhanjan Das",
           "email": "69835617+subhanjandas@users.noreply.github.com",
-          "time": 1792250132000
+          "time": 1792251009000
         },
         "branch": "feat/release-0-payment-core"
       },
@@ -49,24 +49,24 @@
         "retries": 0,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/subhanjandas/maple-harbour-bank/commit/5159fcd81a3e568c336070d6168ea3d8a29d487c",
-            "commitHash": "5159fcd81a3e568c336070d6168ea3d8a29d487c",
-            "buildHref": "https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39044258802"
+            "commitHref": "https://github.com/subhanjandas/maple-harbour-bank/commit/f7330756424c89f210cc98db08f6ba4490fb6ed5",
+            "commitHash": "f7330756424c89f210cc98db08f6ba4490fb6ed5",
+            "buildHref": "https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39045330756"
           },
           "gitCommit": {
-            "shortHash": "5159fcd",
-            "hash": "5159fcd81a3e568c336070d6168ea3d8a29d487c",
-            "subject": "test: exercise signed OIDC, restore drill and measured workload baselines",
-            "body": "test: exercise signed OIDC, restore drill and measured workload baselines",
+            "shortHash": "f733075",
+            "hash": "f7330756424c89f210cc98db08f6ba4490fb6ed5",
+            "subject": "test: finish container payment/return restore journey and record real demonstration",
+            "body": "test: finish container payment/return restore journey and record real demonstration",
             "author": {
               "name": "Subhanjan Das",
               "email": "69835617+subhanjandas@users.noreply.github.com",
-              "time": 1792250132000
+              "time": 1792251009000
             },
             "committer": {
               "name": "Subhanjan Das",
               "email": "69835617+subhanjandas@users.noreply.github.com",
-              "time": 1792250132000
+              "time": 1792251009000
             },
             "branch": "feat/release-0-payment-core"
           },
@@ -91,24 +91,24 @@
         "retries": 0,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/subhanjandas/maple-harbour-bank/commit/5159fcd81a3e568c336070d6168ea3d8a29d487c",
-            "commitHash": "5159fcd81a3e568c336070d6168ea3d8a29d487c",
-            "buildHref": "https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39044258802"
+            "commitHref": "https://github.com/subhanjandas/maple-harbour-bank/commit/f7330756424c89f210cc98db08f6ba4490fb6ed5",
+            "commitHash": "f7330756424c89f210cc98db08f6ba4490fb6ed5",
+            "buildHref": "https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39045330756"
           },
           "gitCommit": {
-            "shortHash": "5159fcd",
-            "hash": "5159fcd81a3e568c336070d6168ea3d8a29d487c",
-            "subject": "test: exercise signed OIDC, restore drill and measured workload baselines",
-            "body": "test: exercise signed OIDC, restore drill and measured workload baselines",
+            "shortHash": "f733075",
+            "hash": "f7330756424c89f210cc98db08f6ba4490fb6ed5",
+            "subject": "test: finish container payment/return restore journey and record real demonstration",
+            "body": "test: finish container payment/return restore journey and record real demonstration",
             "author": {
               "name": "Subhanjan Das",
               "email": "69835617+subhanjandas@users.noreply.github.com",
-              "time": 1792250132000
+              "time": 1792251009000
             },
             "committer": {
               "name": "Subhanjan Das",
               "email": "69835617+subhanjandas@users.noreply.github.com",
-              "time": 1792250132000
+              "time": 1792251009000
             },
             "branch": "feat/release-0-payment-core"
           },
@@ -123,6 +123,13 @@
         "use": {
           "baseURL": "http://localhost:5173",
           "headless": true,
+          "video": {
+            "mode": "on",
+            "size": {
+              "width": 1280,
+              "height": 720
+            }
+          },
           "trace": "retain-on-failure"
         },
         "dependencies": [],
@@ -182,14 +189,20 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 4855,
+                  "duration": 3598,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-17T15:16:49.927Z",
+                  "startTime": "2026-10-17T15:31:29.968Z",
                   "annotations": [],
-                  "attachments": []
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/home/runner/work/maple-harbour-bank/maple-harbour-bank/web/test-results/journey-customer-payment-→-59feb--analytics-→-actual-lineage/video.webm"
+                    }
+                  ]
                 }
               ],
               "status": "expected"
@@ -216,14 +229,20 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 924,
+                  "duration": 1108,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-17T15:16:54.990Z",
+                  "startTime": "2026-10-17T15:31:33.813Z",
                   "annotations": [],
-                  "attachments": []
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/home/runner/work/maple-harbour-bank/maple-harbour-bank/web/test-results/journey-mobile-navigation--b19f4--architecture-accessibility/video.webm"
+                    }
+                  ]
                 }
               ],
               "status": "expected"
@@ -231,7 +250,7 @@
           ],
           "id": "bf222bad70f76648f722-cc803fb1a0224dcc3b0e",
           "file": "journey.spec.ts",
-          "line": 45,
+          "line": 46,
           "column": 1
         }
       ]
@@ -239,8 +258,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-17T15:16:49.083Z",
-    "duration": 6901.508,
+    "startTime": "2026-10-17T15:31:29.024Z",
+    "duration": 5961.768,
     "expected": 2,
     "skipped": 0,
     "unexpected": 0,
