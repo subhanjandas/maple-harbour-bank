@@ -1,6 +1,6 @@
 {
-  "source_commit": "0c4ff71042011ab8a727c619cb136d56d85d47ab",
-  "capture_time": "2026-10-17T21:32:58.555Z",
+  "source_commit": "4d50366f09658992b6fed373e7269e76ebb6b892",
+  "capture_time": "2026-10-17T21:37:09.259Z",
   "environment": "GitHub Actions ephemeral PostgreSQL + API + worker",
   "note": "Actual browser screenshots, not mockups. Synthetic scenario."
 }

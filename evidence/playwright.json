@@ -18,24 +18,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/subhanjandas/maple-harbour-bank/commit/0c4ff71042011ab8a727c619cb136d56d85d47ab",
-        "commitHash": "0c4ff71042011ab8a727c619cb136d56d85d47ab",
-        "buildHref": "https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39071322917"
+        "commitHref": "https://github.com/subhanjandas/maple-harbour-bank/commit/4d50366f09658992b6fed373e7269e76ebb6b892",
+        "commitHash": "4d50366f09658992b6fed373e7269e76ebb6b892",
+        "buildHref": "https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39071616603"
       },
       "gitCommit": {
-        "shortHash": "0c4ff71",
-        "hash": "0c4ff71042011ab8a727c619cb136d56d85d47ab",
-        "subject": "feat: isolate OIDC visitor scenarios and personalize customer as Subhanjan",
-        "body": "feat: isolate OIDC visitor scenarios and personalize customer as Subhanjan",
+        "shortHash": "4d50366",
+        "hash": "4d50366f09658992b6fed373e7269e76ebb6b892",
+        "subject": "docs: align release 0.2 explorer and record verified visitor acceptance",
+        "body": "docs: align release 0.2 explorer and record verified visitor acceptance",
         "author": {
           "name": "Subhanjan Das",
           "email": "69835617+subhanjandas@users.noreply.github.com",
-          "time": 1792272695000
+          "time": 1792272946000
         },
         "committer": {
           "name": "Subhanjan Das",
           "email": "69835617+subhanjandas@users.noreply.github.com",
-          "time": 1792272695000
+          "time": 1792272946000
         },
         "branch": "feat/customer-onboarding"
       },
@@ -49,24 +49,24 @@
         "retries": 0,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/subhanjandas/maple-harbour-bank/commit/0c4ff71042011ab8a727c619cb136d56d85d47ab",
-            "commitHash": "0c4ff71042011ab8a727c619cb136d56d85d47ab",
-            "buildHref": "https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39071322917"
+            "commitHref": "https://github.com/subhanjandas/maple-harbour-bank/commit/4d50366f09658992b6fed373e7269e76ebb6b892",
+            "commitHash": "4d50366f09658992b6fed373e7269e76ebb6b892",
+            "buildHref": "https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39071616603"
           },
           "gitCommit": {
-            "shortHash": "0c4ff71",
-            "hash": "0c4ff71042011ab8a727c619cb136d56d85d47ab",
-            "subject": "feat: isolate OIDC visitor scenarios and personalize customer as Subhanjan",
-            "body": "feat: isolate OIDC visitor scenarios and personalize customer as Subhanjan",
+            "shortHash": "4d50366",
+            "hash": "4d50366f09658992b6fed373e7269e76ebb6b892",
+            "subject": "docs: align release 0.2 explorer and record verified visitor acceptance",
+            "body": "docs: align release 0.2 explorer and record verified visitor acceptance",
             "author": {
               "name": "Subhanjan Das",
               "email": "69835617+subhanjandas@users.noreply.github.com",
-              "time": 1792272695000
+              "time": 1792272946000
             },
             "committer": {
               "name": "Subhanjan Das",
               "email": "69835617+subhanjandas@users.noreply.github.com",
-              "time": 1792272695000
+              "time": 1792272946000
             },
             "branch": "feat/customer-onboarding"
           },
@@ -91,24 +91,24 @@
         "retries": 0,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/subhanjandas/maple-harbour-bank/commit/0c4ff71042011ab8a727c619cb136d56d85d47ab",
-            "commitHash": "0c4ff71042011ab8a727c619cb136d56d85d47ab",
-            "buildHref": "https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39071322917"
+            "commitHref": "https://github.com/subhanjandas/maple-harbour-bank/commit/4d50366f09658992b6fed373e7269e76ebb6b892",
+            "commitHash": "4d50366f09658992b6fed373e7269e76ebb6b892",
+            "buildHref": "https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39071616603"
           },
           "gitCommit": {
-            "shortHash": "0c4ff71",
-            "hash": "0c4ff71042011ab8a727c619cb136d56d85d47ab",
-            "subject": "feat: isolate OIDC visitor scenarios and personalize customer as Subhanjan",
-            "body": "feat: isolate OIDC visitor scenarios and personalize customer as Subhanjan",
+            "shortHash": "4d50366",
+            "hash": "4d50366f09658992b6fed373e7269e76ebb6b892",
+            "subject": "docs: align release 0.2 explorer and record verified visitor acceptance",
+            "body": "docs: align release 0.2 explorer and record verified visitor acceptance",
             "author": {
               "name": "Subhanjan Das",
               "email": "69835617+subhanjandas@users.noreply.github.com",
-              "time": 1792272695000
+              "time": 1792272946000
             },
             "committer": {
               "name": "Subhanjan Das",
               "email": "69835617+subhanjandas@users.noreply.github.com",
-              "time": 1792272695000
+              "time": 1792272946000
             },
             "branch": "feat/customer-onboarding"
           },
@@ -189,12 +189,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 4281,
+                  "duration": 5419,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-17T21:32:54.197Z",
+                  "startTime": "2026-10-17T21:37:03.760Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -229,12 +229,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1216,
+                  "duration": 1202,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-17T21:32:58.704Z",
+                  "startTime": "2026-10-17T21:37:09.419Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -258,8 +258,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-17T21:32:53.166Z",
-    "duration": 6837.103,
+    "startTime": "2026-10-17T21:37:02.738Z",
+    "duration": 7969.693000000001,
     "expected": 2,
     "skipped": 0,
     "unexpected": 0,
