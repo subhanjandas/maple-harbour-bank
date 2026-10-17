@@ -3,10 +3,10 @@
 ## Reproducible identity
 
 - Repository: https://github.com/subhanjandas/maple-harbour-bank
-- Implementation branch: `feat/release-0-payment-core`; initial base `81498870632b53d3e20ba9195830035f3d9c1941`.
+- Release merged into `main` in [PR #1](https://github.com/subhanjandas/maple-harbour-bank/pull/1), merge commit **`e27bc613f09b54319fe6105b1a1b6c3b64131408`**. Implementation branch: `feat/release-0-payment-core`; initial base `81498870632b53d3e20ba9195830035f3d9c1941`.
 - Atlas import/inspection: **`69586431f1ed0ed5bf3c7d698b246b0662542d6d`**, application 1.2.0/model 0.5.0, MIT. Atlas and other repositories were not modified.
 - Latest fully tested application source: **`f7330756424c89f210cc98db08f6ba4490fb6ed5`**, [successful run 39045330756](https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39045330756): **42 backend tests, two browser tests**, build, audits, actual container HTTP journey, restore and measured workloads.
-- Evidence/capture checkpoint: **`c0fd0922`** (resolve the full identity with `git log` or `evidence/ci-summary.json`'s tested parent). Final handoff changes are documentation only; verify `git diff f733075 -- backend db web architecture scripts compose.yaml infra .github` before assuming a later code change was tested.
+- Evidence/capture checkpoint: **`c0fd0924328d1e5b8010652784a9d9851f2bd4b8`**. Later handoff and merge changes contain documentation/evidence only; the application source matches the fully tested commit above.
 - `evidence/ci-summary.json` records the latest **successful tested source commit** and capture provenance; `git rev-parse HEAD` records the current checkout. Evidence commits follow tested code commits, avoiding a self-referencing commit hash.
 
 ## Running and hosted URLs
@@ -92,4 +92,4 @@ Migration order: `001_core.sql`, `002_journal_trigger.sql`, `003_scenario_bounds
 3. Streaming/lakehouse release: compatibility-pin Debezium/Kafka/Spark/Delta/storage/Airflow in manageable groups; preserve the v1 contract and one-publisher cutover; add independent batch manifests, replay/disposition and distributed failure evidence.
 4. Expand into business approvals or loans only after the connected slice and its performance/recovery claims remain demonstrable.
 
-Known first-profile limits: full-history analytical rebuilds; a tenant quota counter serializes source admission; one database failure domain; local persona simulation; no business maker/checker; no cloud production OIDC; no time-based off-host raw purge; no distributed telemetry backend or multi-node HA.
+Known first-profile limits: full-history analytical rebuilds; a tenant quota counter serializes source admission; one database failure domain; scale-lab override supplied but not yet executed as a separate Compose project; local persona simulation; no business maker/checker; no cloud production OIDC; no time-based off-host raw purge; no distributed telemetry backend or multi-node HA.
