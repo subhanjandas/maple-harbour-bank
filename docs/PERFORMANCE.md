@@ -2,9 +2,9 @@
 
 No maximum transaction-per-second target or production capacity is claimed. `scripts/benchmark.py` measures two distinct workloads. Raw samples, plans, tested commit and hardware are in `evidence/benchmark.json`.
 
-## First verified baseline
+## Verified release baseline
 
-Source commit `5159fcd81a3e568c336070d6168ea3d8a29d487c`, [CI run 39044258802](https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39044258802). Ubuntu/Azure x86_64 runner, 4 reported CPUs, approximately 16GB memory, Python 3.12.15 and PostgreSQL 18.6. This baseline predates the scenario-counter quota and final outbox column/RLS refinements. Newer evidence must be attributed to its own source commit, not silently substituted.
+Source commit `f7330756424c89f210cc98db08f6ba4490fb6ed5`, [CI run 39045330756](https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39045330756). Ubuntu/Azure x86_64 runner, 4 reported CPUs, approximately 16GB memory, Python 3.12.15 and PostgreSQL 18.6. This baseline includes the scenario-counter quota and outbox column/RLS refinements. Newer evidence must be attributed to its own source commit, not silently substituted.
 
 ### Real banking-command baseline
 
@@ -12,9 +12,9 @@ Closed-loop HTTP workload: one hot customer account, eight concurrent request wo
 
 | Repetition | Accepted commands/s | p50 ms | p95 ms | p99 ms | Errors |
 |---|---:|---:|---:|---:|---:|
-| 1 | 43.04 | 24.88 | 837.51 | 1027.93 | 0 |
-| 2 | 156.59 | 19.04 | 179.63 | 630.53 | 0 |
-| 3 | 144.29 | 21.60 | 223.57 | 672.02 | 0 |
+| 1 | 50.02 | 31.80 | 775.50 | 1167.83 | 0 |
+| 2 | 115.25 | 24.37 | 265.37 | 482.60 | 0 |
+| 3 | 105.86 | 26.19 | 201.13 | 698.14 | 0 |
 
 Correctness checks: 300 distinct payment identities, 300-cent account reduction and 900 new lifecycle events; each instruction produces two payment journal lines. Measured units therefore differ: 300 accepted commands, 300 business effects, 600 payment postings and 900 events. Worker publication/outbox drain throughput is **not** inferred from this HTTP rate.
 
@@ -26,14 +26,14 @@ Temporary isolated source-record fixture, **not banking transactions**. Values a
 
 | Generated source records | COPY load seconds | Query p95 without index ms | Query p95 with index ms | Table bytes | Table + index bytes |
 |---|---:|---:|---:|---:|---:|
-| 100,000 | 0.0582 | 3.764 | 0.236 | 5,660,672 | 8,839,168 |
-| 1,000,000 | 0.5029 | 45.741 | 10.493 | 52,330,496 | 83,894,272 |
+| 100,000 | 0.0621 | 3.959 | 0.331 | 5,660,672 | 8,839,168 |
+| 1,000,000 | 0.6405 | 49.907 | 8.413 | 52,330,496 | 83,894,272 |
 
 This measures temp-table COPY/query behavior, not durable Bronze ingestion, Spark throughput, full replay, end-to-end analytical publication or real payments at those volumes. The covering index increases storage by approximately 60% for this narrow schema. It also adds build/write/maintenance cost; query plans and index-build times are in the raw report. No comparable index is automatically added to operational tables based on this microbenchmark alone.
 
 ## Resource observations
 
-A single post-startup Compose sample recorded web ~4.8MiB, API ~50.8MiB, worker ~39.1MiB and PostgreSQL ~36.6MiB (about 131MiB combined). `evidence/compose-resources.json` is newline-delimited Docker JSON, not a single array. These are idle cgroup readings, not peak memory, working-set guarantees or evidence that the full lakehouse fits in 131MiB.
+A single post-startup Compose sample recorded web ~5.0MiB, API ~51.0MiB, worker ~38.8MiB and PostgreSQL ~39.2MiB (about 134MiB combined). `evidence/compose-resources.json` is newline-delimited Docker JSON, not a single array. These are idle cgroup readings, not peak memory, working-set guarantees or evidence that the full lakehouse fits in 134MiB.
 
 Declared runtime caps are web 128MiB, API/worker 512MiB each and PostgreSQL 1GiB. Docker Desktop VM/build requirements exceed observed idle memory; start with at least 4GB assigned to Docker for the core, then measure your laptop. The larger profile's minimum remains unmeasured.
 

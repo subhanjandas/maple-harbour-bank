@@ -8,7 +8,13 @@ Built by **Subhanjan Das** · React/TypeScript · FastAPI · PostgreSQL · synth
 
 The first working slice connects owned accounts, simulated payments, balanced immutable postings, settlement/partial returns, a durable outbox and reconciled analytical publications. The customer, employee, analyst and engineer workspaces use server-enforced permissions.
 
-**Status:** implementation branch; acceptance testing in progress. No hosted banking deployment is claimed. PostgreSQL analytical tables are the initial prototype; Kafka/Spark/Delta/Airflow remain planned.
+**Release 0.1:** 42 backend tests + 2 browser tests passed, along with actual container startup, HTTP payment/return processing and backup/restore. [Exact evidence and tested commit →](docs/TEST_EVIDENCE.md)
+
+![Actual customer workspace after posting a simulated payment](docs/assets/customer-overview.png)
+
+[Recorded working demonstration (WebM)](docs/assets/payment-demo.webm) · [Light](docs/assets/customer-light.png) / [Dusk](docs/assets/customer-dusk.png) · [Operations](docs/assets/operations.png) · [Analytics](docs/assets/analytics.png) · [Architecture](docs/assets/architecture.png)
+
+*Actual captures of the application against a real API, worker and PostgreSQL in the acceptance environment. [Capture provenance](docs/assets/provenance.json). No persistent public banking deployment exists yet. PostgreSQL analytical tables are the initial prototype; Kafka/Spark/Delta/Airflow remain planned.*
 
 ## Start the core
 
@@ -58,6 +64,8 @@ Spending always uses operational funds protected by database locks. Dashboards u
 | Access boundaries | Opaque session, CSRF, scope/ownership and actual DB service roles | Cross-customer/tenant/scope and raw denial tests |
 
 A single host is not high availability. At-least-once delivery is not universal exactly-once processing. See [test evidence](docs/TEST_EVIDENCE.md) for what actually ran.
+
+The measured hot-account command baseline completed three 100-command repetitions at **50.02 / 115.25 / 105.86 accepted commands/s**, zero errors, on a 4-CPU/16GB CI runner. The p99 varied from 483 to 1,168ms. This is a short workload baseline, not maximum sustainable capacity. The separate million-record experiment measures analytical queries, not a million bank transactions. [Raw samples, plans and costs →](docs/PERFORMANCE.md)
 
 ## Explore the implementation
 

@@ -7,8 +7,6 @@ Docker Engine/Desktop and Docker Compose v2 with `--wait`, Python 3 for secret b
 ```bash
 git clone https://github.com/subhanjandas/maple-harbour-bank.git
 cd maple-harbour-bank
-# Until the implementation PR is merged:
-git switch feat/release-0-payment-core
 python3 scripts/bootstrap.py
 docker compose up --build -d --wait --wait-timeout 180
 curl --fail http://localhost:8080/api/health/ready
