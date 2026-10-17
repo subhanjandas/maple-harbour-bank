@@ -1,5 +1,5 @@
 NAME                          IMAGE                       COMMAND                  SERVICE   CREATED          STATUS                    PORTS
 maple-harbour-bank-api-1      maple-harbour-bank-api      "uvicorn mhb.asgi:ap…"   api       12 seconds ago   Up 6 seconds (healthy)    8000/tcp
-maple-harbour-bank-db-1       postgres:18.6-bookworm      "docker-entrypoint.s…"   db        12 seconds ago   Up 12 seconds (healthy)   5432/tcp
+maple-harbour-bank-db-1       postgres:18.6-bookworm      "docker-entrypoint.s…"   db        12 seconds ago   Up 11 seconds (healthy)   5432/tcp
 maple-harbour-bank-web-1      maple-harbour-bank-web      "/docker-entrypoint.…"   web       12 seconds ago   Up Less than a second     127.0.0.1:8080->8080/tcp
 maple-harbour-bank-worker-1   maple-harbour-bank-worker   "python -m mhb.pipel…"   worker    12 seconds ago   Up 6 seconds              8000/tcp
