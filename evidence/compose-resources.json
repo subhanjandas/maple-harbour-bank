@@ -1,0 +1,4 @@
+{"BlockIO":"0B / 0B","CPUPerc":"0.00%","Container":"22cc4cfa60e4","ID":"22cc4cfa60e4","MemPerc":"3.93%","MemUsage":"5.031MiB / 128MiB","Name":"maple-harbour-bank-web-1","NetIO":"23.2kB / 27.3kB","PIDs":"5"}
+{"BlockIO":"0B / 0B","CPUPerc":"0.13%","Container":"207ec90358d8","ID":"207ec90358d8","MemPerc":"9.97%","MemUsage":"51.03MiB / 512MiB","Name":"maple-harbour-bank-api-1","NetIO":"48kB / 61.1kB","PIDs":"7"}
+{"BlockIO":"0B / 0B","CPUPerc":"0.00%","Container":"4da3150ca562","ID":"4da3150ca562","MemPerc":"7.58%","MemUsage":"38.8MiB / 512MiB","Name":"maple-harbour-bank-worker-1","NetIO":"50.2kB / 44.4kB","PIDs":"6"}
+{"BlockIO":"0B / 56.5MB","CPUPerc":"0.20%","Container":"3723286201fc","ID":"3723286201fc","MemPerc":"3.83%","MemUsage":"39.2MiB / 1GiB","Name":"maple-harbour-bank-db-1","NetIO":"130kB / 99.2kB","PIDs":"11"}

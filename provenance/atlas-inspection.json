@@ -1,0 +1,24 @@
+{
+  "commit": "69586431f1ed0ed5bf3c7d698b246b0662542d6d",
+  "files": {
+    "README.md": "8e2107d1bf2773f332e745012ca40e1558482f216a9d2e70acae6aabf0cdf4f7",
+    "LICENSE": "6f75bade48aa0bec246060b323e5ea7f24d4dee6108fcae0997673d0f0c58ae2",
+    "docs/PLATFORM_HANDOFF.md": "d0152a4d5b7f0359917f4e32bba80d240d0d87a95da87991b2ee8161e4886dab",
+    "docs/ENGINEERING_LAB.md": "88262857db2a3c7b3ab22f49206b9533e42c08a88d2b537381b2d93dafdfb07c",
+    "docs/VALIDATION_COVERAGE.md": "af9bec9c6cbda4e534843130d677598e33a470544d4c3c3282a07d4af36a600e",
+    "docs/INTERVIEW_GUIDE.md": "c80928d6520634c204bf945be125af998b4af8c89bf8487bd240970a8200cc14",
+    "model/banking.model.json": "89728dccd8974aa991b1bac22ef421c99ab5f1b95c01735e2e00518fa3addd3f",
+    "model/lifecycle_transitions.json": "eace404e309817e9b75ff1e8007e62309c7d11bb89039de2c39f46859485ae15",
+    "model/validation_checks.json": "d8883b9e1ac5d10814f9803ba81fccf34b6bc048056c46512e7139afdf8f24d0",
+    "fixtures/banking_scenarios.json": "ef7def8c542cec301fa3d1d9aa189751f7df012c3b0bf5a951441e319867e330",
+    "engineering/pipeline.py": "fe6a3c0a2250ff814f3912b0445b87eb7c852b624fa8fa5e572f29e966d477f3",
+    "tests/test_engineering.py": "291927c04ce171540afb1bd7ad293c6ada12307f7a5d182619bd753735666c8c",
+    "src/App.tsx": "1bfd3eedd2125ad672321e45cff63b42452c1ce3e69ba9912035d29c9e77c423",
+    "src/Engineering.tsx": "23239a3f788ca92a668d60ae657bad6c35511c922ad53255205f5c792db04e6c",
+    "src/styles.css": "df3d76b3e376f7f9efc9cfff5ff9e44f4811acd98f4f578dbd008ac41e61d725",
+    "src/theme.ts": "fa3eae36f9d93c2c6cc3c9e7c477ab75f2e8d0675eed0ad6723ed2341c3ea204",
+    "src/model.ts": "bea74ffdab12c4f0bbc8c2720c040f469d56d403d4671fd04dade2bb59ae2b86",
+    ".github/workflows/explorer.yml": "064f96fa17494eb629a8d1f450be688a9efe2219c1d3210f0d25068f711a5766",
+    ".github/workflows/validate.yml": "7f3aaf8bcd49ba494cbea2785ef15c32d84469abbdab03956a8ef5076a002aa3"
+  }
+}

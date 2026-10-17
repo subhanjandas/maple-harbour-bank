@@ -1,0 +1,106 @@
+name: Banking and platform acceptance
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+concurrency:
+  group: acceptance-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  acceptance:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:18.6-bookworm
+        env:
+          POSTGRES_DB: mhb
+          POSTGRES_PASSWORD: ephemeral-ci-database-only
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd pg_isready --health-interval 5s --health-timeout 5s --health-retries 12
+    env:
+      TEST_DATABASE_URL: postgresql://postgres:ephemeral-ci-database-only@localhost:5432/mhb
+      MIGRATION_DATABASE_URL: postgresql://postgres:ephemeral-ci-database-only@localhost:5432/mhb
+      API_PASSWORD: ephemeral-ci-api-only
+      WORKER_PASSWORD: ephemeral-ci-worker-only
+      DATABASE_URL: postgresql://mhb_api_login:ephemeral-ci-api-only@localhost:5432/mhb
+      WORKER_DATABASE_URL: postgresql://mhb_worker_login:ephemeral-ci-worker-only@localhost:5432/mhb
+      SESSION_SECRET: ci-session-key-is-ephemeral-and-at-least-forty-characters
+      ENVIRONMENT: development
+      APP_ORIGIN: http://localhost:5173
+      DEMO_AUTH: 'true'
+      COOKIE_SECURE: 'false'
+      REQUEST_LIMIT_PER_MINUTE: '10000'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - uses: actions/setup-node@v4
+        with: {node-version: '24', cache: npm, cache-dependency-path: web/package-lock.json}
+      - run: pip install uv==0.12.23
+      - run: uv sync --project backend --frozen
+      - name: Financial, authorization, concurrency and recovery acceptance
+        working-directory: backend
+        run: uv run pytest -q --junitxml=../evidence/pytest.xml
+      - run: python scripts/render_architecture.py && git diff --exit-code docs/ARCHITECTURE_GENERATED.md
+      - run: npm ci --prefix web && npm run build --prefix web
+      - name: Initialize app with distinct service logins
+        run: |
+          cd backend
+          uv run python ../scripts/create_service_users.py
+          uv run python -m mhb.seed
+      - name: Start API and worker
+        run: |
+          cd backend
+          uv run uvicorn mhb.asgi:app --host 127.0.0.1 --port 8000 --no-access-log > /tmp/mhb-api.log 2>&1 &
+          uv run python -m mhb.pipeline > /tmp/mhb-worker.log 2>&1 &
+      - run: npx --prefix web playwright install --with-deps chromium
+      - name: Browser acceptance and actual screenshots
+        working-directory: web
+        run: npm run test:e2e
+      - run: python scripts/verify_docs.py
+      - name: Bounded 100K/1M source-record and real command baselines
+        run: backend/.venv/bin/python scripts/benchmark.py
+      - name: Dependency audits and source secret guard
+        run: |
+          uv run --project backend pip-audit --local --format=json --output evidence/python-audit.json
+          npm audit --prefix web --json > evidence/npm-audit.json
+          python scripts/check_secrets.py
+      - name: Core container build and startup smoke
+        run: |
+          python scripts/bootstrap.py
+          docker compose config --quiet
+          APP_ORIGIN=http://localhost:8080 docker compose up --build -d --wait --wait-timeout 180
+          curl --fail http://localhost:8080/api/health/ready
+          backend/.venv/bin/python scripts/demo_journey.py --base http://localhost:8080 --origin http://localhost:8080 --output evidence/core-journey.json
+          docker compose ps > evidence/compose-state.txt
+          docker compose stats --no-stream --format json > evidence/compose-resources.json
+          bash scripts/backup_restore.sh > evidence/restore-drill.txt
+          docker compose down
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: acceptance-evidence
+          path: |
+            evidence/
+            docs/assets/
+            web/test-results/
+            /tmp/mhb-api.log
+            /tmp/mhb-worker.log
+          retention-days: 14
+      - name: Commit actual captures and evidence on implementation branches
+        if: success() && github.event_name == 'push' && startsWith(github.ref_name, 'feat/')
+        env:
+          TESTED_COMMIT: ${{ github.sha }}
+        run: |
+          python - <<'PYCODE'
+          import json,os,datetime
+          from pathlib import Path
+          Path('evidence/ci-summary.json').write_text(json.dumps({'tested_commit':os.environ['TESTED_COMMIT'],'completed_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'postgres':'18.6','checks':['pytest','TypeScript/build','Playwright','Compose startup/health']},indent=2)+'\n')
+          PYCODE
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/assets evidence
+          git diff --cached --quiet || git commit -m 'docs: record actual acceptance evidence and browser captures [skip ci]'
+          git push origin HEAD:${{ github.ref_name }}
