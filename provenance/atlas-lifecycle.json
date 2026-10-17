@@ -1,0 +1,76 @@
+{
+  "payment_event": {
+    "subject": "payment_order_id",
+    "time": "occurred_at",
+    "initial": "RECEIVED",
+    "transitions": {
+      "RECEIVED": [
+        "VALIDATED",
+        "FAILED",
+        "CANCELLED"
+      ],
+      "VALIDATED": [
+        "POSTED",
+        "FAILED",
+        "CANCELLED"
+      ],
+      "POSTED": [
+        "SETTLED",
+        "REVERSED"
+      ],
+      "SETTLED": [
+        "PARTIALLY_RETURNED",
+        "RETURNED"
+      ],
+      "FAILED": [],
+      "CANCELLED": [],
+      "REVERSED": [],
+      "RETURNED": [],
+      "PARTIALLY_RETURNED": [
+        "PARTIALLY_RETURNED",
+        "RETURNED"
+      ]
+    }
+  },
+  "account_status_event": {
+    "subject": "account_id",
+    "time": "effective_at",
+    "initial": "OPEN",
+    "transitions": {
+      "OPEN": [
+        "RESTRICTED",
+        "CLOSED"
+      ],
+      "RESTRICTED": [
+        "OPEN",
+        "CLOSED"
+      ],
+      "CLOSED": []
+    }
+  },
+  "card_status_event": {
+    "subject": "card_id",
+    "time": "effective_at",
+    "initial": "ISSUED",
+    "transitions": {
+      "ISSUED": [
+        "ACTIVE",
+        "CLOSED"
+      ],
+      "ACTIVE": [
+        "BLOCKED",
+        "EXPIRED",
+        "CLOSED"
+      ],
+      "BLOCKED": [
+        "ACTIVE",
+        "EXPIRED",
+        "CLOSED"
+      ],
+      "EXPIRED": [
+        "CLOSED"
+      ],
+      "CLOSED": []
+    }
+  }
+}

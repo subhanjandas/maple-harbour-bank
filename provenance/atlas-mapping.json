@@ -1,0 +1,12 @@
+{
+  "customer": "principals (customer role)",
+  "account": "accounts",
+  "account_holder": "accounts.owner_id (single owner in v0.1)",
+  "payment_order": "payments",
+  "payment_event": "payment_events",
+  "payment_return": "returns",
+  "journal": "journals",
+  "journal_line": "journal_lines",
+  "gl_account": "ledger_accounts",
+  "account_entry": "journal_lines joined through accounts.ledger_id"
+}

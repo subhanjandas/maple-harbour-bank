@@ -1,0 +1,941 @@
+{
+  "source_commit": "69586431f1ed0ed5bf3c7d698b246b0662542d6d",
+  "model_version": "0.5.0",
+  "entities": [
+    {
+      "id": "customer",
+      "label": "Customer",
+      "domain": "customers",
+      "description": "A person with a relationship to the fictional bank.",
+      "grain": "One natural person.",
+      "primary_key": [
+        "customer_id"
+      ],
+      "columns": [
+        {
+          "id": "customer_id",
+          "type": "string",
+          "nullable": false,
+          "description": "Stable synthetic identifier for customer.",
+          "classification": "identifier"
+        },
+        {
+          "id": "display_name",
+          "type": "string",
+          "nullable": false,
+          "description": "Invented display name; never an actual customer name.",
+          "classification": "personal"
+        },
+        {
+          "id": "customer_since",
+          "type": "date",
+          "nullable": false,
+          "description": "Date this customer relationship began.",
+          "classification": "internal"
+        },
+        {
+          "id": "segment",
+          "type": "string",
+          "nullable": false,
+          "description": "Simple service grouping.",
+          "classification": "internal",
+          "allowed_values": [
+            "STANDARD",
+            "PREMIUM"
+          ]
+        },
+        {
+          "id": "status",
+          "type": "string",
+          "nullable": false,
+          "description": "Current customer relationship status.",
+          "classification": "internal",
+          "allowed_values": [
+            "ACTIVE",
+            "CLOSED"
+          ]
+        }
+      ],
+      "notes": [
+        "Organizations and beneficial ownership are outside this version."
+      ],
+      "rule_ids": [],
+      "unique_keys": [],
+      "example_coverage": "sample_records"
+    },
+    {
+      "id": "account",
+      "label": "Account",
+      "domain": "accounts",
+      "description": "A customer-facing deposit, credit-card or term-loan account.",
+      "grain": "One account contract.",
+      "primary_key": [
+        "account_id"
+      ],
+      "columns": [
+        {
+          "id": "account_id",
+          "type": "string",
+          "nullable": false,
+          "description": "Stable synthetic identifier for account.",
+          "classification": "identifier"
+        },
+        {
+          "id": "product_version_id",
+          "type": "string",
+          "nullable": false,
+          "description": "Product terms booked at account opening.",
+          "classification": "identifier"
+        },
+        {
+          "id": "branch_id",
+          "type": "string",
+          "nullable": false,
+          "description": "Branch responsible for servicing.",
+          "classification": "identifier"
+        },
+        {
+          "id": "currency_id",
+          "type": "string",
+          "nullable": false,
+          "description": "Account denomination.",
+          "classification": "identifier"
+        },
+        {
+          "id": "opened_on",
+          "type": "date",
+          "nullable": false,
+          "description": "First day of the account.",
+          "classification": "internal"
+        },
+        {
+          "id": "closed_on",
+          "type": "date",
+          "nullable": true,
+          "description": "Closure date, if closed.",
+          "classification": "internal"
+        }
+      ],
+      "notes": [
+        "Kind is derived through product_version and product. Account numbers are not stored."
+      ],
+      "rule_ids": [
+        "R01",
+        "R02",
+        "R04",
+        "R05",
+        "R11",
+        "R14",
+        "R15",
+        "R18",
+        "R20",
+        "R23",
+        "R25",
+        "R30",
+        "R35"
+      ],
+      "unique_keys": [],
+      "example_coverage": "sample_records"
+    },
+    {
+      "id": "account_holder",
+      "label": "Account Holder",
+      "domain": "accounts",
+      "description": "Ownership or signing authority over an account.",
+      "grain": "One customer role on an account for an interval.",
+      "primary_key": [
+        "account_holder_id"
+      ],
+      "columns": [
+        {
+          "id": "account_holder_id",
+          "type": "string",
+          "nullable": false,
+          "description": "Stable synthetic identifier for account holder.",
+          "classification": "identifier"
+        },
+        {
+          "id": "account_id",
+          "type": "string",
+          "nullable": false,
+          "description": "Account to which the role applies.",
+          "classification": "identifier"
+        },
+        {
+          "id": "customer_id",
+          "type": "string",
+          "nullable": false,
+          "description": "Person assigned the role.",
+          "classification": "identifier"
+        },
+        {
+          "id": "role",
+          "type": "string",
+          "nullable": false,
+          "description": "Legal or operational role in this fictional scenario.",
+          "classification": "internal",
+          "allowed_values": [
+            "PRIMARY",
+            "JOINT"
+          ]
+        },
+        {
+          "id": "valid_from",
+          "type": "date",
+          "nullable": false,
+          "description": "First valid day, inclusive.",
+          "classification": "internal"
+        },
+        {
+          "id": "valid_to",
+          "type": "date",
+          "nullable": true,
+          "description": "First invalid day, exclusive.",
+          "classification": "internal"
+        }
+      ],
+      "notes": [
+        "Deposits can have joint owners. Credit-card and term-loan accounts have one primary owner; supplementary card users are not account owners."
+      ],
+      "rule_ids": [
+        "R02",
+        "R03",
+        "R16",
+        "R30"
+      ],
+      "unique_keys": [],
+      "example_coverage": "sample_records"
+    },
+    {
+      "id": "account_entry",
+      "label": "Account Entry",
+      "domain": "activity",
+      "description": "An immutable customer-account movement used for statement presentation.",
+      "grain": "One booked debit or credit on an account.",
+      "primary_key": [
+        "account_entry_id"
+      ],
+      "columns": [
+        {
+          "id": "account_entry_id",
+          "type": "string",
+          "nullable": false,
+          "description": "Stable synthetic identifier for account entry.",
+          "classification": "identifier"
+        },
+        {
+          "id": "account_id",
+          "type": "string",
+          "nullable": false,
+          "description": "Account affected.",
+          "classification": "identifier"
+        },
+        {
+          "id": "card_transaction_id",
+          "type": "string",
+          "nullable": true,
+          "description": "Card activity behind this entry, if any.",
+          "classification": "identifier"
+        },
+        {
+          "id": "payment_id",
+          "type": "string",
+          "nullable": true,
+          "description": "Repayment behind this entry, if any.",
+          "classification": "identifier"
+        },
+        {
+          "id": "fee_type_id",
+          "type": "string",
+          "nullable": true,
+          "description": "Fee category when this is a fee.",
+          "classification": "identifier"
+        },
+        {
+          "id": "reverses_entry_id",
+          "type": "string",
+          "nullable": true,
+          "description": "Earlier entry reversed by this entry.",
+          "classification": "identifier"
+        },
+        {
+          "id": "kind",
+          "type": "string",
+          "nullable": false,
+          "description": "Business source of the entry.",
+          "classification": "internal",
+          "allowed_values": [
+            "CARD",
+            "PAYMENT",
+            "FEE",
+            "ADJUSTMENT",
+            "REVERSAL",
+            "DEPOSIT_PAYMENT",
+            "LOAN_DRAW",
+            "LOAN_REPAYMENT",
+            "PAYMENT_RETURN"
+          ]
+        },
+        {
+          "id": "direction",
+          "type": "string",
+          "nullable": false,
+          "description": "Customer-account debit or credit.",
+          "classification": "internal",
+          "allowed_values": [
+            "DEBIT",
+            "CREDIT"
+          ]
+        },
+        {
+          "id": "amount",
+          "type": "decimal(18,2)",
+          "nullable": false,
+          "description": "Positive amount in account currency.",
+          "classification": "financial"
+        },
+        {
+          "id": "posted_on",
+          "type": "date",
+          "nullable": false,
+          "description": "Booking business date.",
+          "classification": "internal"
+        },
+        {
+          "id": "description",
+          "type": "string",
+          "nullable": false,
+          "description": "Short statement narrative.",
+          "classification": "internal"
+        },
+        {
+          "id": "payment_order_id",
+          "type": "string",
+          "nullable": true,
+          "description": "Deposit payment instruction behind this entry, if any.",
+          "classification": "identifier"
+        },
+        {
+          "id": "loan_disbursement_id",
+          "type": "string",
+          "nullable": true,
+          "description": "Loan draw behind this principal or deposit entry, if any.",
+          "classification": "identifier"
+        },
+        {
+          "id": "loan_repayment_id",
+          "type": "string",
+          "nullable": true,
+          "description": "Loan repayment behind a principal reduction, if any.",
+          "classification": "identifier"
+        },
+        {
+          "id": "payment_return_id",
+          "type": "string",
+          "nullable": true,
+          "description": "Return installment behind this credit.",
+          "classification": "identifier"
+        }
+      ],
+      "notes": [
+        "Customer-facing account entries form a subledger view. The separate journal and posting_link entities support accounting and reconciliation; the model is not a complete bank ledger platform."
+      ],
+      "rule_ids": [
+        "R09",
+        "R10",
+        "R11",
+        "R12",
+        "R13",
+        "R15",
+        "R26",
+        "R32",
+        "R33",
+        "R35",
+        "R39",
+        "R42",
+        "R47"
+      ],
+      "unique_keys": [],
+      "example_coverage": "sample_records"
+    },
+    {
+      "id": "payment_order",
+      "label": "Payment Order",
+      "domain": "payments",
+      "description": "An instruction to move funds from a deposit account.",
+      "grain": "One customer-authorized internal or outbound payment instruction.",
+      "primary_key": [
+        "payment_order_id"
+      ],
+      "unique_keys": [
+        [
+          "idempotency_key"
+        ]
+      ],
+      "notes": [
+        "Status comes from payment_event. Internal movements have two customer-account entries; external ones have one."
+      ],
+      "rule_ids": [
+        "R25",
+        "R26",
+        "R27",
+        "R28",
+        "R39",
+        "R47"
+      ],
+      "columns": [
+        {
+          "id": "payment_order_id",
+          "type": "string",
+          "nullable": false,
+          "description": "Stable synthetic identifier for payment order.",
+          "classification": "identifier"
+        },
+        {
+          "id": "source_account_id",
+          "type": "string",
+          "nullable": false,
+          "description": "Deposit account funding the instruction.",
+          "classification": "identifier"
+        },
+        {
+          "id": "destination_account_id",
+          "type": "string",
+          "nullable": true,
+          "description": "Internal deposit destination; absent for external instructions.",
+          "classification": "identifier"
+        },
+        {
+          "id": "beneficiary_id",
+          "type": "string",
+          "nullable": true,
+          "description": "External payee; absent for internal instructions.",
+          "classification": "identifier"
+        },
+        {
+          "id": "standing_order_id",
+          "type": "string",
+          "nullable": true,
+          "description": "Recurring template that produced the order, if any.",
+          "classification": "identifier"
+        },
+        {
+          "id": "channel_id",
+          "type": "string",
+          "nullable": false,
+          "description": "Channel accepting the instruction.",
+          "classification": "identifier"
+        },
+        {
+          "id": "currency_id",
+          "type": "string",
+          "nullable": false,
+          "description": "Instruction currency.",
+          "classification": "identifier"
+        },
+        {
+          "id": "kind",
+          "type": "string",
+          "nullable": false,
+          "description": "Supported instruction type.",
+          "classification": "internal",
+          "allowed_values": [
+            "INTERNAL",
+            "OUTBOUND"
+          ]
+        },
+        {
+          "id": "amount",
+          "type": "decimal(18,2)",
+          "nullable": false,
+          "description": "Positive instructed amount.",
+          "classification": "financial"
+        },
+        {
+          "id": "requested_at",
+          "type": "timestamp",
+          "nullable": false,
+          "description": "UTC acceptance time.",
+          "classification": "internal"
+        },
+        {
+          "id": "requested_execution_on",
+          "type": "date",
+          "nullable": false,
+          "description": "Requested business execution date.",
+          "classification": "internal"
+        },
+        {
+          "id": "idempotency_key",
+          "type": "string",
+          "nullable": false,
+          "description": "Unique client-request key in this single-bank scenario.",
+          "classification": "internal"
+        }
+      ],
+      "example_coverage": "sample_records"
+    },
+    {
+      "id": "payment_event",
+      "label": "Payment Event",
+      "domain": "payments",
+      "description": "A lifecycle event for a deposit payment instruction.",
+      "grain": "One execution event for an order.",
+      "primary_key": [
+        "payment_event_id"
+      ],
+      "unique_keys": [
+        [
+          "payment_order_id",
+          "occurred_at"
+        ]
+      ],
+      "notes": [
+        "Latest event gives status. Posting and external settlement are separate milestones."
+      ],
+      "rule_ids": [
+        "R26",
+        "R27",
+        "R29",
+        "R39",
+        "R40",
+        "R47"
+      ],
+      "columns": [
+        {
+          "id": "payment_event_id",
+          "type": "string",
+          "nullable": false,
+          "description": "Stable synthetic identifier for payment event.",
+          "classification": "identifier"
+        },
+        {
+          "id": "payment_order_id",
+          "type": "string",
+          "nullable": false,
+          "description": "Instruction being progressed.",
+          "classification": "identifier"
+        },
+        {
+          "id": "status",
+          "type": "string",
+          "nullable": false,
+          "description": "New execution state.",
+          "classification": "internal",
+          "allowed_values": [
+            "RECEIVED",
+            "VALIDATED",
+            "POSTED",
+            "SETTLED",
+            "FAILED",
+            "CANCELLED",
+            "REVERSED",
+            "RETURNED",
+            "PARTIALLY_RETURNED"
+          ]
+        },
+        {
+          "id": "occurred_at",
+          "type": "timestamp",
+          "nullable": false,
+          "description": "UTC event time.",
+          "classification": "internal"
+        },
+        {
+          "id": "reason_code",
+          "type": "string",
+          "nullable": false,
+          "description": "Project-local processing reason.",
+          "classification": "internal"
+        }
+      ],
+      "example_coverage": "sample_records"
+    },
+    {
+      "id": "gl_account",
+      "label": "Gl Account",
+      "domain": "accounting",
+      "description": "An account in the fictional bank chart of accounts.",
+      "grain": "One general-ledger account.",
+      "primary_key": [
+        "gl_account_id"
+      ],
+      "unique_keys": [
+        [
+          "code"
+        ]
+      ],
+      "notes": [
+        "This is a small illustrative chart, not a regulatory chart of accounts."
+      ],
+      "rule_ids": [
+        "R38",
+        "R41"
+      ],
+      "columns": [
+        {
+          "id": "gl_account_id",
+          "type": "string",
+          "nullable": false,
+          "description": "Stable synthetic identifier for gl account.",
+          "classification": "identifier"
+        },
+        {
+          "id": "code",
+          "type": "string",
+          "nullable": false,
+          "description": "Unique project-local ledger code.",
+          "classification": "internal"
+        },
+        {
+          "id": "name",
+          "type": "string",
+          "nullable": false,
+          "description": "Ledger account description.",
+          "classification": "internal"
+        },
+        {
+          "id": "account_class",
+          "type": "string",
+          "nullable": false,
+          "description": "Financial statement classification.",
+          "classification": "internal",
+          "allowed_values": [
+            "ASSET",
+            "LIABILITY",
+            "EQUITY",
+            "INCOME",
+            "EXPENSE"
+          ]
+        },
+        {
+          "id": "normal_balance",
+          "type": "string",
+          "nullable": false,
+          "description": "Expected normal balance side.",
+          "classification": "internal",
+          "allowed_values": [
+            "DEBIT",
+            "CREDIT"
+          ]
+        }
+      ],
+      "example_coverage": "sample_records"
+    },
+    {
+      "id": "journal",
+      "label": "Journal",
+      "domain": "accounting",
+      "description": "A set of accounting lines posted together.",
+      "grain": "One single-currency journal for one legal entity.",
+      "primary_key": [
+        "journal_id"
+      ],
+      "unique_keys": [
+        [
+          "source_reference"
+        ]
+      ],
+      "notes": [
+        "Every POSTED journal must balance independently. Journals are immutable after posting; corrections use new journals."
+      ],
+      "rule_ids": [
+        "R34",
+        "R35",
+        "R41"
+      ],
+      "columns": [
+        {
+          "id": "journal_id",
+          "type": "string",
+          "nullable": false,
+          "description": "Stable synthetic identifier for journal.",
+          "classification": "identifier"
+        },
+        {
+          "id": "currency_id",
+          "type": "string",
+          "nullable": false,
+          "description": "Common currency of all lines.",
+          "classification": "identifier"
+        },
+        {
+          "id": "legal_entity_code",
+          "type": "string",
+          "nullable": false,
+          "description": "Single legal entity represented.",
+          "classification": "internal",
+          "allowed_values": [
+            "MHB_BANK"
+          ]
+        },
+        {
+          "id": "booked_on",
+          "type": "date",
+          "nullable": false,
+          "description": "Accounting business date.",
+          "classification": "internal"
+        },
+        {
+          "id": "status",
+          "type": "string",
+          "nullable": false,
+          "description": "Journal lifecycle state.",
+          "classification": "internal",
+          "allowed_values": [
+            "DRAFT",
+            "POSTED"
+          ]
+        },
+        {
+          "id": "description",
+          "type": "string",
+          "nullable": false,
+          "description": "Synthetic accounting narrative.",
+          "classification": "internal"
+        },
+        {
+          "id": "source_reference",
+          "type": "string",
+          "nullable": false,
+          "description": "Unique producer event reference for idempotent ingestion.",
+          "classification": "internal"
+        }
+      ],
+      "example_coverage": "sample_records"
+    },
+    {
+      "id": "journal_line",
+      "label": "Journal Line",
+      "domain": "accounting",
+      "description": "One debit or credit within an accounting journal.",
+      "grain": "One line within one journal.",
+      "primary_key": [
+        "journal_line_id"
+      ],
+      "unique_keys": [
+        [
+          "journal_id",
+          "line_number"
+        ]
+      ],
+      "notes": [
+        "A journal has at least two lines when posted. Bank general-ledger balances and customer-account balances have different meanings."
+      ],
+      "rule_ids": [
+        "R34",
+        "R35",
+        "R38",
+        "R41"
+      ],
+      "columns": [
+        {
+          "id": "journal_line_id",
+          "type": "string",
+          "nullable": false,
+          "description": "Stable synthetic identifier for journal line.",
+          "classification": "identifier"
+        },
+        {
+          "id": "journal_id",
+          "type": "string",
+          "nullable": false,
+          "description": "Journal containing the line.",
+          "classification": "identifier"
+        },
+        {
+          "id": "gl_account_id",
+          "type": "string",
+          "nullable": false,
+          "description": "Ledger account affected.",
+          "classification": "identifier"
+        },
+        {
+          "id": "line_number",
+          "type": "integer",
+          "nullable": false,
+          "description": "Positive sequence within the journal.",
+          "classification": "internal"
+        },
+        {
+          "id": "direction",
+          "type": "string",
+          "nullable": false,
+          "description": "Accounting debit or credit.",
+          "classification": "internal",
+          "allowed_values": [
+            "DEBIT",
+            "CREDIT"
+          ]
+        },
+        {
+          "id": "amount",
+          "type": "decimal(18,2)",
+          "nullable": false,
+          "description": "Positive amount in journal currency.",
+          "classification": "financial"
+        }
+      ],
+      "example_coverage": "sample_records"
+    },
+    {
+      "id": "payment_return",
+      "label": "Payment Return",
+      "domain": "payments",
+      "description": "An observed returned amount against a settled outbound payment.",
+      "grain": "One separately identified returned installment.",
+      "primary_key": [
+        "payment_return_id"
+      ],
+      "unique_keys": [
+        [
+          "external_reference"
+        ]
+      ],
+      "columns": [
+        {
+          "id": "payment_return_id",
+          "type": "string",
+          "nullable": false,
+          "description": "Stable source return identity.",
+          "classification": "identifier"
+        },
+        {
+          "id": "payment_order_id",
+          "type": "string",
+          "nullable": false,
+          "description": "Original outbound instruction.",
+          "classification": "identifier"
+        },
+        {
+          "id": "amount",
+          "type": "decimal(18,2)",
+          "nullable": false,
+          "description": "Positive returned amount in the original order currency.",
+          "classification": "financial"
+        },
+        {
+          "id": "returned_on",
+          "type": "date",
+          "nullable": false,
+          "description": "Date returned funds were booked.",
+          "classification": "internal"
+        },
+        {
+          "id": "external_reference",
+          "type": "string",
+          "nullable": false,
+          "description": "Unique synthetic return observation reference.",
+          "classification": "internal"
+        }
+      ],
+      "rule_ids": [
+        "R47"
+      ],
+      "notes": [
+        "Several installments may return one payment. Total returned cannot exceed the settled amount. Source corrections are resolved before this curated snapshot; posted journals remain immutable."
+      ],
+      "example_coverage": "sample_records"
+    }
+  ],
+  "rules": [
+    {
+      "id": "R25",
+      "entities": [
+        "payment_order",
+        "account",
+        "beneficiary"
+      ],
+      "category": "conditional",
+      "statement": "An INTERNAL order has a non-null destination account, a null beneficiary and different source/destination accounts. An OUTBOUND order has a beneficiary and no destination account. Both accounts are deposits and currency matches the order; the initiating authority must be checked separately.",
+      "enforcement_plan": "dataset_validation",
+      "implementation_status": "specified_not_implemented"
+    },
+    {
+      "id": "R26",
+      "entities": [
+        "payment_order",
+        "payment_event",
+        "account_entry"
+      ],
+      "category": "reconciliation",
+      "statement": "Each POSTED or SETTLED internal order has exactly one DEPOSIT_PAYMENT debit on the source and one equal credit on the destination. An outbound order has exactly one source debit. Entries match amount and currency. FAILED or CANCELLED orders have no unreversed posting in this simplified version.",
+      "enforcement_plan": "dataset_validation",
+      "implementation_status": "specified_not_implemented"
+    },
+    {
+      "id": "R27",
+      "entities": [
+        "payment_settlement",
+        "payment_order",
+        "payment_event"
+      ],
+      "category": "reconciliation",
+      "statement": "Settlement belongs only to an OUTBOUND order. There is one full settlement per order with equal amount and currency. SETTLED requires a settlement observation; internal orders finish at POSTED.",
+      "enforcement_plan": "dataset_validation",
+      "implementation_status": "specified_not_implemented"
+    },
+    {
+      "id": "R34",
+      "entities": [
+        "journal",
+        "journal_line"
+      ],
+      "category": "aggregate",
+      "statement": "Each POSTED journal contains at least two strictly positive lines and equal total debits and credits, in its one declared currency and legal entity. A DRAFT journal may be incomplete.",
+      "enforcement_plan": "dataset_validation",
+      "implementation_status": "specified_not_implemented"
+    },
+    {
+      "id": "R35",
+      "entities": [
+        "posting_link",
+        "account_entry",
+        "journal_line",
+        "journal",
+        "account"
+      ],
+      "category": "reconciliation",
+      "statement": "Allocated amounts are positive. For entries included in an ACCOUNT_TO_GL reconciliation, allocations must total the entry amount. Linked line direction and currency match the entry; allocations to one ledger line cannot exceed that line amount. Counterpart lines may be unmapped.",
+      "enforcement_plan": "dataset_validation",
+      "implementation_status": "specified_not_implemented"
+    },
+    {
+      "id": "R39",
+      "entities": [
+        "payment_order",
+        "payment_event",
+        "account_entry"
+      ],
+      "category": "cross_row",
+      "statement": "Full internal reversals preserve original entries and append one equal opposite entry per original entry on the same account. Outbound returns use payment_return installments and new PAYMENT_RETURN credits; partial and full returned totals are reconciled separately.",
+      "enforcement_plan": "dataset_validation",
+      "implementation_status": "specified_not_implemented"
+    },
+    {
+      "id": "R40",
+      "entities": [
+        "payment_event",
+        "account_status_event",
+        "card_status_event"
+      ],
+      "category": "cross_row",
+      "statement": "Complete event histories begin in the declared initial state and follow the explicit transition matrix in lifecycle_transitions.json. Effective timestamps are unique per subject; closed and terminal payment states cannot reopen.",
+      "enforcement_plan": "dataset_validation",
+      "implementation_status": "specified_not_implemented"
+    },
+    {
+      "id": "R47",
+      "entities": [
+        "payment_return",
+        "payment_order",
+        "payment_event",
+        "account_entry"
+      ],
+      "category": "cross_row",
+      "statement": "Returned installments are positive, follow outbound settlement and cumulatively do not exceed it. Each installment has one equal credit on the original source account. PARTIALLY_RETURNED means a positive total below the original amount; RETURNED means the full amount.",
+      "enforcement_plan": "dataset_validation",
+      "implementation_status": "specified_not_implemented"
+    }
+  ]
+}
