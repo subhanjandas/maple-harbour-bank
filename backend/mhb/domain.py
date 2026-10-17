@@ -3,7 +3,7 @@ import hashlib
 import json
 import time
 import random
-from datetime import datetime, timezone
+from datetime import datetime, timezone, date
 from uuid import uuid4
 from zoneinfo import ZoneInfo
 from fastapi import HTTPException
@@ -41,7 +41,7 @@ class ReturnCommand(BaseModel):
 
 class CorrectionCommand(BaseModel):
     model_config=ConfigDict(extra='forbid')
-    reporting_date: __import__('datetime').date
+    reporting_date: date
 
 TRANSITIONS={
  'RECEIVED':{'VALIDATED'},'VALIDATED':{'POSTED'},'POSTED':{'SETTLED','REVERSED'},
@@ -143,6 +143,7 @@ def operate(database,actor,pid,key,action,body=None):
             new='SETTLED'
         elif action=='return':
             if p['kind']!='OUTBOUND' or p['status'] not in {'SETTLED','PARTIALLY_RETURNED'}: deny('INVALID_TRANSITION')
+            if db.execute('SELECT count(*) n FROM returns WHERE tenant_id=%s AND payment_id=%s',(tenant,pid)).fetchone()['n']>=100: deny('RETURN_INSTALLMENT_LIMIT')
             amount=body['amount_minor']; total=p['returned_minor']+amount
             if total>p['amount_minor']: deny('RETURN_EXCEEDS_PAYMENT')
             rid=identifier()

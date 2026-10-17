@@ -70,8 +70,9 @@ jobs:
         run: |
           python scripts/bootstrap.py
           docker compose config --quiet
-          docker compose up --build -d --wait --wait-timeout 180
+          APP_ORIGIN=http://localhost:8080 docker compose up --build -d --wait --wait-timeout 180
           curl --fail http://localhost:8080/api/health/ready
+          backend/.venv/bin/python scripts/demo_journey.py --base http://localhost:8080 --origin http://localhost:8080 --output evidence/core-journey.json
           docker compose ps > evidence/compose-state.txt
           docker compose stats --no-stream --format json > evidence/compose-resources.json
           bash scripts/backup_restore.sh > evidence/restore-drill.txt

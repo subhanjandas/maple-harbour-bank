@@ -261,3 +261,33 @@ def test_hosted_configuration_fails_closed():
 def test_architecture_manifest_links_are_real(client):
     data=client.get('/api/architecture').json();assert data['components'];ids={n['id'] for n in data['components']}
     assert all(e['from'] in ids and e['to'] in ids for e in data['connections'])
+
+
+def test_scenario_quota_rejects_entire_command_without_losing_events(dbs,actor,admin):
+    admin.execute("INSERT INTO scenario_limits(tenant_id,event_count,event_limit) VALUES ('harbour',1,3)")
+    with pytest.raises(psycopg.errors.ProgramLimitExceeded):payment(dbs,actor)
+    assert scalar(admin,'SELECT count(*) FROM payments')==0
+    assert scalar(admin,'SELECT count(*) FROM outbox')==0
+    assert scalar(admin,"SELECT booked_minor FROM accounts WHERE id='harbour:chequing'")==500000
+    assert scalar(admin,"SELECT event_count FROM scenario_limits WHERE tenant_id='harbour'")==1
+
+
+def test_managed_non_superuser_owner_can_migrate_seed_and_enforce_constraints(admin,urls):
+    import secrets
+    from psycopg import sql
+    from psycopg.conninfo import conninfo_to_dict,make_conninfo
+    from mhb.seed import seed
+    password=secrets.token_hex(20);name='mhb_managed_owner_check'
+    admin.execute(sql.SQL('CREATE ROLE {} LOGIN CREATEROLE PASSWORD {}').format(sql.Identifier(name),sql.Literal(password)))
+    admin.execute(sql.SQL('CREATE DATABASE {} OWNER {}').format(sql.Identifier(name),sql.Identifier(name)))
+    conn=conninfo_to_dict(urls['admin']);conn.update(user=name,password=password,dbname=name);url=make_conninfo(**conn)
+    try:
+        migrate(url);seed(url)
+        with psycopg.connect(url) as owner:
+            assert not owner.execute('SELECT rolsuper FROM pg_roles WHERE rolname=current_user').fetchone()[0]
+            assert owner.execute('SELECT count(*) FROM accounts').fetchone()[0]==6
+            with pytest.raises(psycopg.Error,match='ACCOUNT_LEDGER_MISMATCH'):
+                with owner.transaction():owner.execute("UPDATE accounts SET booked_minor=1 WHERE id='harbour:chequing'")
+    finally:
+        admin.execute(sql.SQL('DROP DATABASE {} WITH (FORCE)').format(sql.Identifier(name)))
+        admin.execute(sql.SQL('DROP ROLE {}').format(sql.Identifier(name)))

@@ -10,7 +10,7 @@ from authlib.integrations.starlette_client import OAuth
 from fastapi import FastAPI, Depends, HTTPException, Request, Response, Header
 from fastapi.responses import JSONResponse, RedirectResponse, PlainTextResponse
 from starlette.middleware.sessions import SessionMiddleware
-from psycopg.errors import LockNotAvailable, QueryCanceled
+from psycopg.errors import LockNotAvailable, QueryCanceled, ProgramLimitExceeded
 from .config import Settings
 from .db import Database
 from .identity import authenticate, create_session, require, hash_token, COOKIE
@@ -49,6 +49,10 @@ def create_app(settings=None):
                             'status':response.status_code,'duration_ms':round((time.perf_counter()-started)*1000,2)}))
         return response
 
+    @app.exception_handler(ProgramLimitExceeded)
+    async def bounded_scenario(request,exc):
+        return JSONResponse({'detail':'SYNTHETIC_SCENARIO_LIMIT_REACHED'},status_code=409)
+
     @app.exception_handler(LockNotAvailable)
     @app.exception_handler(QueryCanceled)
     async def contention(request,exc):
@@ -62,7 +66,7 @@ def create_app(settings=None):
         try:
             with database.transaction() as db:
                 migrations=db.execute('SELECT version FROM schema_migrations ORDER BY version').fetchall()
-                if [r['version'] for r in migrations]!=['001_core.sql','002_journal_trigger.sql']: raise RuntimeError('migration mismatch')
+                if [r['version'] for r in migrations]!=['001_core.sql','002_journal_trigger.sql','003_scenario_bounds.sql','004_managed_owner.sql']: raise RuntimeError('migration mismatch')
             return {'status':'ready'}
         except Exception: raise HTTPException(503,'DATABASE_OR_MIGRATION_NOT_READY') from None
 

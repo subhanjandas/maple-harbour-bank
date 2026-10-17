@@ -49,3 +49,11 @@ Top-level licenses: React/FastAPI/Vite/Manrope package code and Atlas MIT (font 
 Delta's current compatibility matrix lists 4.3.x with Spark 4.0.x/4.1.x. No Spark/Delta versions, CDC connector versions or object-storage compatibility are pinned or claimed tested in the core. Their introduction is a separate compatibility gate.
 
 Primary references: [FastAPI releases](https://fastapi.tiangolo.com/release-notes/), [PostgreSQL 18.6](https://www.postgresql.org/docs/18/release-18-6.html), [PostgreSQL license](https://www.postgresql.org/about/licence/), [image tags](https://hub.docker.com/_/postgres/tags?name=bookworm), [Delta/Spark compatibility](https://docs.delta.io/releases/), [Debezium PostgreSQL](https://debezium.io/documentation/reference/stable/connectors/postgresql.html), [OIDC guide](https://www.keycloak.org/securing-apps/oidc-layers).
+
+## ADR 006 · Managed PostgreSQL owner and row security
+
+API and worker are distinct non-owner roles. Operational RLS is enabled for the API; a missing tenant binds no rows. The trusted schema owner intentionally bypasses those policies so deferred SECURITY DEFINER ledger checks can read all relevant lines. FORCE RLS was removed in forward migration 004 because an ordinary managed-database owner otherwise sees no permitted rows inside those checks. A superuser-only CI run would conceal that defect. Acceptance creates an ordinary non-superuser database owner, applies all migrations, seeds funding and verifies financial constraints. A provider must permit creation of service roles (or provision the equivalent separately) before its deployment is compatible.
+
+## ADR 007 · Bounded synthetic source history
+
+A scenario accepts at most 50K source events by default, with a 64KiB envelope limit and 100 return installments per payment. Exhaustion rolls back the complete command. A tenant counter introduces a serialization point; this is a deliberate small-demo resource policy, not a proposed production throughput technique. Keep it visible in benchmark versions and review it before scale work. No accepted event is discarded to satisfy retention.
