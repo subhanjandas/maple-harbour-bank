@@ -11,7 +11,7 @@ test('customer payment → operations return → published analytics → actual 
  await page.getByRole('button',{name:'Post simulated payment'}).click();
  await expect(page.getByRole('status')).toContainText('Payment posted successfully');
  await expect(page.getByRole('region',{name:'Payment trace'})).toBeVisible();
- mkdirSync(out,{recursive:true});await page.evaluate(()=>window.scrollTo(0,0));await page.screenshot({path:out+'/customer-light.png',fullPage:true});
+ mkdirSync(out,{recursive:true});await page.evaluate(()=>window.scrollTo(0,0));await page.screenshot({path:out+'/customer-overview.png',fullPage:false});await page.screenshot({path:out+'/customer-light.png',fullPage:true});
  await page.getByRole('button',{name:'Switch to Dusk theme'}).click();
  await expect(page.locator('html')).toHaveAttribute('data-theme','dark');
  await page.evaluate(()=>window.scrollTo(0,0));await page.screenshot({path:out+'/customer-dusk.png',fullPage:true});
@@ -41,6 +41,7 @@ test('customer payment → operations return → published analytics → actual 
  await expect(page.locator('a[href*="banking-model-atlas"]')).not.toHaveCount(0);
  expect(errors).toEqual([]);
  writeFileSync(out+'/provenance.json',JSON.stringify({source_commit:process.env.GITHUB_SHA||execFileSync('git',['rev-parse','HEAD']).toString().trim(),capture_time:new Date().toISOString(),environment:'GitHub Actions ephemeral PostgreSQL + API + worker',note:'Actual browser screenshots, not mockups. Synthetic scenario.'},null,2));
+ const video=page.video();await page.close();if(video)await video.saveAs(out+'/payment-demo.webm');
 });
 test('mobile navigation, theme persistence and architecture accessibility',async({page})=>{
  await page.setViewportSize({width:390,height:844});await page.goto('/?page=architecture&node=outbox');

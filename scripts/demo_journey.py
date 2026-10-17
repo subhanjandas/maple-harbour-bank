@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Exercise the actual local core via HTTP. Fixed keys make repeating this demo harmless."""
+from contextlib import contextmanager
 import argparse
 import json
 from pathlib import Path
@@ -8,9 +9,12 @@ import httpx
 
 p=argparse.ArgumentParser(description=__doc__);p.add_argument('--base',default='http://localhost:8080');p.add_argument('--origin',default='http://localhost:8080');p.add_argument('--output',type=Path,default=Path('evidence/local-journey.json'));args=p.parse_args()
 
+@contextmanager
 def login(persona):
-    c=httpx.Client(base_url=args.base,headers={'Origin':args.origin},timeout=20)
-    r=c.post('/api/auth/development/'+persona);r.raise_for_status();c.headers['X-CSRF-Token']=c.cookies['mhb_csrf'];return c
+    with httpx.Client(base_url=args.base,headers={'Origin':args.origin},timeout=20) as c:
+        r=c.post('/api/auth/development/'+persona);r.raise_for_status()
+        c.headers['X-CSRF-Token']=c.cookies['mhb_csrf']
+        yield c
 
 def post(c,path,key,body=None):
     r=c.post('/api'+path,headers={'Idempotency-Key':key},json=body);r.raise_for_status();return r.json()

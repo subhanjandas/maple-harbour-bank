@@ -59,6 +59,7 @@ jobs:
       - name: Browser acceptance and actual screenshots
         working-directory: web
         run: npm run test:e2e
+      - run: python scripts/verify_docs.py
       - name: Bounded 100K/1M source-record and real command baselines
         run: backend/.venv/bin/python scripts/benchmark.py
       - name: Dependency audits and source secret guard
