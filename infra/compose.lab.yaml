@@ -1,0 +1,17 @@
+# Use a separate project: -p mhb-scale-lab. Do not load a public demo.
+services:
+  api:
+    environment:
+      REQUEST_LIMIT_PER_MINUTE: '10000'
+  benchmark:
+    profiles: [lab]
+    build: {context: ., dockerfile: backend/Dockerfile}
+    user: '${LAB_UID:-1000}:${LAB_GID:-1000}'
+    environment:
+      MIGRATION_DATABASE_URL: postgresql://postgres:${POSTGRES_PASSWORD}@db/mhb
+      GITHUB_SHA: ${SOURCE_COMMIT:?Set SOURCE_COMMIT to git rev-parse HEAD}
+    volumes: ['./evidence:/evidence']
+    command: ['python','/scripts/benchmark.py','--api','http://api:8000','--origin','http://localhost:8080','--output','/evidence/lab-benchmark.json']
+    depends_on:
+      api: {condition: service_healthy}
+      worker: {condition: service_started}

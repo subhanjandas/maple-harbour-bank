@@ -66,7 +66,7 @@ def create_app(settings=None):
         try:
             with database.transaction() as db:
                 migrations=db.execute('SELECT version FROM schema_migrations ORDER BY version').fetchall()
-                if [r['version'] for r in migrations]!=['001_core.sql','002_journal_trigger.sql','003_scenario_bounds.sql','004_managed_owner.sql']: raise RuntimeError('migration mismatch')
+                if [r['version'] for r in migrations]!=['001_core.sql','002_journal_trigger.sql','003_scenario_bounds.sql','004_managed_owner.sql','005_outbox_access.sql']: raise RuntimeError('migration mismatch')
             return {'status':'ready'}
         except Exception: raise HTTPException(503,'DATABASE_OR_MIGRATION_NOT_READY') from None
 
@@ -179,7 +179,7 @@ def create_app(settings=None):
     @app.get('/api/analytics')
     def analytics(actor=Depends(authenticate)):
         require(actor,'analyst','engineer','operations')
-        with database.transaction() as db:
+        with database.transaction(actor['tenant_id']) as db:
             p=db.execute('SELECT p.* FROM serving_pointer s JOIN publications p ON s.publication_id=p.id WHERE s.tenant_id=%s',(actor['tenant_id'],)).fetchone()
             if not p: return {'publication':None,'freshness':'unpublished'}
             lag=(datetime.now(timezone.utc)-p['refreshed_at']).total_seconds()
@@ -189,7 +189,7 @@ def create_app(settings=None):
     @app.get('/api/engineering')
     def engineering(actor=Depends(authenticate)):
         require(actor,'engineer')
-        with database.transaction() as db:
+        with database.transaction(actor['tenant_id']) as db:
             counts=db.execute('SELECT count(*) total,count(*) FILTER(WHERE acknowledged_at IS NULL) pending,coalesce(max(attempts),0) max_attempts FROM outbox WHERE tenant_id=%s',(actor['tenant_id'],)).fetchone()
             runs=db.execute('SELECT * FROM pipeline_runs WHERE tenant_id=%s ORDER BY created_at DESC LIMIT 30',(actor['tenant_id'],)).fetchall()
             quarantines=db.execute('SELECT code,count(*) n FROM quarantine WHERE tenant_id=%s GROUP BY code',(actor['tenant_id'],)).fetchall()

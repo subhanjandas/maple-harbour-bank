@@ -283,7 +283,7 @@ def test_managed_non_superuser_owner_can_migrate_seed_and_enforce_constraints(ad
     conn=conninfo_to_dict(urls['admin']);conn.update(user=name,password=password,dbname=name);url=make_conninfo(**conn)
     try:
         migrate(url);seed(url)
-        with psycopg.connect(url) as owner:
+        with psycopg.connect(url,autocommit=True) as owner:
             assert not owner.execute('SELECT rolsuper FROM pg_roles WHERE rolname=current_user').fetchone()[0]
             assert owner.execute('SELECT count(*) FROM accounts').fetchone()[0]==6
             with pytest.raises(psycopg.Error,match='ACCOUNT_LEDGER_MISMATCH'):
@@ -291,3 +291,13 @@ def test_managed_non_superuser_owner_can_migrate_seed_and_enforce_constraints(ad
     finally:
         admin.execute(sql.SQL('DROP DATABASE {} WITH (FORCE)').format(sql.Identifier(name)))
         admin.execute(sql.SQL('DROP ROLE {}').format(sql.Identifier(name)))
+
+
+def test_api_outbox_is_tenant_scoped_metadata_not_raw(dbs,actor,admin):
+    payment(dbs,actor)
+    with dbs[0].transaction() as db:assert db.execute('SELECT event_id FROM outbox').fetchall()==[]
+    with dbs[0].transaction('other') as db:assert db.execute('SELECT event_id FROM outbox').fetchall()==[]
+    with dbs[0].transaction('harbour') as db:assert len(db.execute('SELECT event_id FROM outbox').fetchall())==3
+    for column in ['envelope','checksum']:
+        with pytest.raises(psycopg.errors.InsufficientPrivilege):
+            with dbs[0].transaction('harbour') as db:db.execute('SELECT '+column+' FROM outbox')
