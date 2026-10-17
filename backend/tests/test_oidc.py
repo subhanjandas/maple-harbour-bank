@@ -37,7 +37,7 @@ def provider():
             q=parse_qs(self.rfile.read(int(self.headers['Content-Length'])).decode());v=q.get('code_verifier',[''])[0]
             actual=base64.urlsafe_b64encode(hashlib.sha256(v.encode()).digest()).rstrip(b'=').decode()
             state['pkce_verified']=actual==state['challenge'] and bool(v)
-            now=int(time.time());claims={'iss':state['issuer'],'sub':'synthetic-oidc-alex','aud':'maple-harbour','exp':now+300,'iat':now,'nonce':state['nonce']}
+            now=int(time.time());claims={'iss':state['issuer'],'sub':state.get('subject','synthetic-oidc-alex'),'role':'engineer','tenant_id':'other','aud':'maple-harbour','exp':now+300,'iat':now,'nonce':state['nonce']}
             variant=state['variant']
             if variant=='expired':claims['exp']=now-3600
             if variant=='audience':claims['aud']='another-client'

@@ -5,7 +5,7 @@ import psycopg
 from psycopg.rows import dict_row
 from .domain import post, identifier
 
-PEOPLE=[('alex','Alex Morgan','customer','TORONTO'),('sam','Sam Chen','customer','TORONTO'),
+PEOPLE=[('alex','Subhanjan Das','customer','TORONTO'),('sam','Sam Chen','customer','TORONTO'),
         ('ops','Taylor Reid','operations','TORONTO'),('analyst','Jordan Martin','analyst','TORONTO'),
         ('engineer','Casey Roy','engineer','TORONTO'),('ops-west','Morgan Lee','operations','VANCOUVER')]
 

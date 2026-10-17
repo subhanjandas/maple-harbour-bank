@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.0 · 18 October 2026 · isolated visitor scenarios
+
+- Customer persona becomes Subhanjan Das, with a forward display-name migration preserving all identity and financial history.
+- Operator-only OIDC visitor admission creates isolated customer accounts and balanced synthetic opening funding, with concurrency-safe identity retries, retained-scenario capacity and expiry.
+- Deactivation revokes access without deleting ledger evidence; no public role/reset/provisioning endpoint.
+- Analytical serving tables and lineage gain tenant row isolation; signed two-visitor OIDC acceptance and failure/rollback checks added.
+- 49 real-PostgreSQL backend tests and two browser journeys pass, along with container, audits and restore acceptance; evidence remains attributed to its tested commit.
+
 ## 0.1.0 · 17 October 2026 · first payment slice
 
 - Inspect/pin Atlas application 1.2.0/model 0.5.0 at `69586431f1ed0ed5bf3c7d698b246b0662542d6d`; preserve MIT provenance and selected mappings.

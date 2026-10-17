@@ -8,7 +8,7 @@ Built by **Subhanjan Das** · React/TypeScript · FastAPI · PostgreSQL · synth
 
 The first working slice connects owned accounts, simulated payments, balanced immutable postings, settlement/partial returns, a durable outbox and reconciled analytical publications. The customer, employee, analyst and engineer workspaces use server-enforced permissions.
 
-**Release 0.1:** 42 backend tests + 2 browser tests passed, along with actual container startup, HTTP payment/return processing and backup/restore. [Exact evidence and tested commit →](docs/TEST_EVIDENCE.md)
+**Release 0.2:** 49 backend tests + 2 browser tests passed, along with actual container startup, HTTP payment/return processing and backup/restore. [Exact evidence and tested commit →](docs/TEST_EVIDENCE.md)
 
 ![Actual customer workspace after posting a simulated payment](docs/assets/customer-overview.png)
 
@@ -24,9 +24,9 @@ docker compose up --build -d
 curl --fail http://localhost:8080/api/health/ready
 ```
 
-Open **http://localhost:8080**. Choose Alex (customer), Taylor (operations), Jordan (analyst) or Casey (engineer). This selector is a loopback-only **development authentication simulator**; hosted mode disables it and requires OIDC.
+Open **http://localhost:8080**. Choose Subhanjan (customer), Taylor (operations), Jordan (analyst) or Casey (engineer). This selector is a loopback-only **development authentication simulator**; hosted mode disables it and requires OIDC.
 
-1. Alex posts a simulated CAD beneficiary payment; its available balance changes in the same transaction as the ledger and outbox.
+1. Subhanjan posts a simulated CAD beneficiary payment; its available balance changes in the same transaction as the ledger and outbox.
 2. Taylor acknowledges simulated settlement and records a partial return.
 3. The worker archives original envelopes, validates source controls and publishes activity.
 4. Jordan sees the publication, source cutoff and freshness. Casey sees actual backlog and run outcomes.
@@ -76,3 +76,7 @@ The measured hot-account command baseline completed three 100-command repetition
 - [Interview walkthrough](docs/INTERVIEW_GUIDE.md), [learning notes](docs/LEARNING_NOTES.md) and [Atlas provenance](docs/ATLAS_PROVENANCE.md)
 
 Selected MIT-licensed Atlas definitions and design conventions are reused with provenance. Atlas remains a separate, independently deployable reference. [License](LICENSE).
+
+### Isolated OIDC visitor scenarios
+
+The customer persona is **Subhanjan Das**. A forward migration preserves existing account IDs and ledger history. Invited OIDC users can receive separate customer-only synthetic accounts through the [operator provisioning runbook](docs/VISITOR_SCENARIOS.md), with atomic funding, repeat-request protection, capacity limits, expiry and deactivation. Public hosting and a real deployed identity provider remain pending.

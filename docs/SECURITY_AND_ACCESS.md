@@ -62,3 +62,9 @@ OIDC integration tests use a real local HTTP code exchange and signed tokens fro
 No public deployment is enabled by this increment. Before publishing: isolate each visitor's synthetic scenario; complete a real provider integration and session lifecycle review; configure TLS and secret storage; verify network and service credentials; run backup/restore; bound retention and load; and obtain a paid-resource ceiling if hosting incurs charges. Do not expose the local persona selector or engineering CLI credentials to public visitors.
 
 Forward migration 005 also restricts the API to tenant-scoped outbox **metadata**. It has no SELECT permission on original source envelopes/checksums, although it inserts them as part of the command. The trusted worker alone reads the full source contract for processing; its UPDATE grant is restricted to acknowledgement/retry columns.
+
+## Visitor admission and analytical defence · release 0.2
+
+[Operator visitor provisioning](VISITOR_SCENARIOS.md) creates one customer-only tenant per verified OIDC subject with bounded capacity and lifetime. Role/tenant claims from even a valid signed token cannot override the database assignment. Expired/disabled visitors cannot obtain a new session or use an old one; deactivation explicitly revokes sessions. Public enrollment, staff role creation and reset endpoints are absent. Deactivation takes effect on subsequent authorization checks; in-flight commands may complete.
+
+Migration 008 adds tenant RLS to publications, serving pointers, pipeline runs and quarantine. The lineage metadata view also filters by the bound tenant. Worker processing remains cross-tenant by explicit policy; API raw-table access remains denied. This closes the earlier reliance on endpoint filters alone for approved analytical data. It does not make a fully compromised API role harmless: tenant selection is trusted application code.

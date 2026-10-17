@@ -21,8 +21,8 @@ def authenticate(request: Request):
     if not token: raise HTTPException(401,'AUTHENTICATION_REQUIRED')
     database=request.app.state.db
     with database.transaction() as db:
-        row=db.execute('''SELECT p.*,s.csrf_hash FROM sessions s JOIN principals p ON p.id=s.principal_id
-        WHERE s.token_hash=%s AND s.revoked_at IS NULL AND s.expires_at>now() AND p.active''',(hash_token(token),)).fetchone()
+        row=db.execute('''SELECT p.*,s.csrf_hash FROM sessions s JOIN principals p ON p.id=s.principal_id LEFT JOIN visitor_scenarios v ON v.principal_id=p.id
+        WHERE s.token_hash=%s AND s.revoked_at IS NULL AND s.expires_at>now() AND p.active AND (v.principal_id IS NULL OR (v.disabled_at IS NULL AND v.expires_at>now()))''',(hash_token(token),)).fetchone()
         if not row: raise HTTPException(401,'SESSION_EXPIRED_OR_REVOKED')
         # Shared durable limit, works across API processes. Not a public-edge DDoS defence.
         rate=db.execute('''INSERT INTO rate_windows VALUES (%s,date_trunc('minute',now()),1)

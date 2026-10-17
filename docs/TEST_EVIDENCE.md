@@ -1,6 +1,12 @@
 # Acceptance evidence
 
-## Verified release checkpoint
+## Release 0.2
+
+[Successful run 39071322917](https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39071322917) tested **`0c4ff71042011ab8a727c619cb136d56d85d47ab`**: **49 backend tests, zero skips/failures/errors, 14.281 seconds**, plus both Playwright journeys, production build, audits, benchmarks, actual container HTTP journey and independent backup/restore. Captures show Subhanjan; evidence was committed at `016d41bb16f26b2a5ac701e652954d03f2aabad6`.
+
+The seven additional checks cover display-name upgrade with unchanged history, 16 concurrent admissions with one funding effect, competing admissions at capacity, injected rollback after the first opening journal, service privilege denial, two signed OIDC visitor sessions with cross-tenant/staff denial and expiry/deactivation, and analytical table/lineage RLS. The original 42 checks remain passing. This validates the relying party against a signed test provider, not a deployed identity service. No public deployment is claimed.
+
+## Verified release 0.1 checkpoint
 
 [Successful run 39045330756](https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39045330756) tested source **`f7330756424c89f210cc98db08f6ba4490fb6ed5`**:
 
@@ -11,7 +17,7 @@
 - Core Docker images built, migrated, seeded and started. An actual HTTP payment, duplicate request, settlement, partial return and worker publication ran through the container reverse proxy. Its trace is `evidence/core-journey.json`.
 - Logical backup restored into a different database after that journey, compared ledger counts and reran journal/account invariants. `evidence/restore-drill.txt` records the result; no restore over the live database occurred.
 
-`evidence/ci-summary.json` records the exact successful tested source; raw JUnit, browser JSON, capture provenance, benchmark and Compose evidence are committed by the successful workflow. Evidence is not hand-authored as a pass. Later documentation-only handoff commits do not change the application code tested above.
+`evidence/ci-summary.json` records the exact successful tested source; raw JUnit, browser JSON, capture provenance, benchmark and Compose evidence are committed by the successful workflow. Evidence is not hand-authored as a pass. The older release baseline below remains attributed to its original commit; current raw evidence is for release 0.2.
 
 The editing workspace's TypeScript build, Python compilation and two reference-cache tests pass. Local PostgreSQL tests skip without a supplied server; skipped tests are explicitly **not** acceptance passes. The GitHub runner supplies real PostgreSQL 18.6 and actual separate API/worker login roles.
 

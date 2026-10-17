@@ -29,7 +29,7 @@ def create_app(settings=None):
         database.pool.open(wait=True)
         yield
         database.pool.close()
-    app=FastAPI(title='Maple Harbour Bank · synthetic banking API',version='0.1.0',lifespan=lifespan,docs_url=None,redoc_url=None)
+    app=FastAPI(title='Maple Harbour Bank · synthetic banking API',version='0.2.0',lifespan=lifespan,docs_url=None,redoc_url=None)
     app.state.db=database;app.state.settings=settings
     app.add_middleware(SessionMiddleware,secret_key=settings.session_secret,session_cookie='mhb_oidc_flow',max_age=300,same_site='lax',https_only=settings.secure_cookies)
     oauth=OAuth()
@@ -59,14 +59,14 @@ def create_app(settings=None):
         return JSONResponse({'detail':'RETRYABLE_CONTENTION'},status_code=503,headers={'Retry-After':'1'})
 
     @app.get('/api/health/live')
-    def live(): return {'status':'ok','application':'0.1.0','simulation':True}
+    def live(): return {'status':'ok','application':'0.2.0','simulation':True}
 
     @app.get('/api/health/ready')
     def ready():
         try:
             with database.transaction() as db:
                 migrations=db.execute('SELECT version FROM schema_migrations ORDER BY version').fetchall()
-                if [r['version'] for r in migrations]!=['001_core.sql','002_journal_trigger.sql','003_scenario_bounds.sql','004_managed_owner.sql','005_outbox_access.sql']: raise RuntimeError('migration mismatch')
+                if [r['version'] for r in migrations]!=['001_core.sql','002_journal_trigger.sql','003_scenario_bounds.sql','004_managed_owner.sql','005_outbox_access.sql','006_customer_name.sql','007_visitor_scenarios.sql','008_serving_isolation.sql']: raise RuntimeError('migration mismatch')
             return {'status':'ready'}
         except Exception: raise HTTPException(503,'DATABASE_OR_MIGRATION_NOT_READY') from None
 
@@ -77,6 +77,8 @@ def create_app(settings=None):
     def development_login(persona:str,request:Request,response:Response):
         if not settings.demo_auth or settings.environment!='development': raise HTTPException(404,'NOT_FOUND')
         if request.headers.get('origin')!=settings.origin: raise HTTPException(403,'ORIGIN_DENIED')
+        # Preserve the original synthetic principal ID and financial history.
+        if persona=='subhanjan': persona='alex'
         if persona not in {'alex','sam','ops','ops-west','analyst','engineer'}: raise HTTPException(404,'PERSONA_NOT_FOUND')
         with database.transaction() as db:
             principal=db.execute('SELECT * FROM principals WHERE id=%s AND active',('harbour:'+persona,)).fetchone()
@@ -102,7 +104,7 @@ def create_app(settings=None):
             if claims.get('iss')!=settings.oidc_issuer: raise ValueError('issuer')
         except Exception: raise HTTPException(401,'OIDC_VALIDATION_FAILED') from None
         with database.transaction() as db:
-            principal=db.execute('SELECT * FROM principals WHERE issuer=%s AND subject=%s AND active',(claims['iss'],claims['sub'])).fetchone()
+            principal=db.execute('SELECT p.* FROM principals p LEFT JOIN visitor_scenarios v ON v.principal_id=p.id WHERE p.issuer=%s AND p.subject=%s AND p.active AND (v.principal_id IS NULL OR (v.disabled_at IS NULL AND v.expires_at>now()))',(claims['iss'],claims['sub'])).fetchone()
         if not principal: raise HTTPException(403,'IDENTITY_NOT_PROVISIONED')
         response=RedirectResponse(settings.origin,status_code=303)
         create_session(database,principal,response,settings.secure_cookies)

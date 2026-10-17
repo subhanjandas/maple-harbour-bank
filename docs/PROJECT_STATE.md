@@ -1,12 +1,12 @@
-# Project state · release 0.1
+# Project state · release 0.2
 
 ## Reproducible identity
 
 - Repository: https://github.com/subhanjandas/maple-harbour-bank
 - Release merged into `main` in [PR #1](https://github.com/subhanjandas/maple-harbour-bank/pull/1), merge commit **`e27bc613f09b54319fe6105b1a1b6c3b64131408`**. Implementation branch: `feat/release-0-payment-core`; initial base `81498870632b53d3e20ba9195830035f3d9c1941`.
 - Atlas import/inspection: **`69586431f1ed0ed5bf3c7d698b246b0662542d6d`**, application 1.2.0/model 0.5.0, MIT. Atlas and other repositories were not modified.
-- Latest fully tested application source: **`f7330756424c89f210cc98db08f6ba4490fb6ed5`**, [successful run 39045330756](https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39045330756): **42 backend tests, two browser tests**, build, audits, actual container HTTP journey, restore and measured workloads.
-- Evidence/capture checkpoint: **`c0fd0924328d1e5b8010652784a9d9851f2bd4b8`**. Later handoff and merge changes contain documentation/evidence only; the application source matches the fully tested commit above.
+- Latest fully tested application source: **`0c4ff71042011ab8a727c619cb136d56d85d47ab`**, [successful run 39071322917](https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39071322917): **49 backend tests, two browser tests**, build, audits, actual container HTTP journey, restore and measured workloads.
+- Release 0.2 evidence/capture checkpoint: **`016d41bb16f26b2a5ac701e652954d03f2aabad6`**. [PR #2](https://github.com/subhanjandas/maple-harbour-bank/pull/2) contains the visitor/name increment. Subsequent manifest release metadata is checked by CI before merging.
 - `evidence/ci-summary.json` records the latest **successful tested source commit** and capture provenance; `git rev-parse HEAD` records the current checkout. Evidence commits follow tested code commits, avoiding a self-referencing commit hash.
 
 ## Running and hosted URLs
@@ -23,7 +23,7 @@ The editing workspace has no Docker/unprivileged PostgreSQL runtime. Actual serv
 
 ## What is implemented
 
-Core services: React/TypeScript/nginx, FastAPI modular backend, PostgreSQL and separately runnable durable worker. Forward migrations 001–005, checksum gate, deterministic synthetic funding, separate schema/API/worker credentials and health checks.
+Core services: React/TypeScript/nginx, FastAPI modular backend, PostgreSQL and separately runnable durable worker. Forward migrations 001–008, checksum gate, deterministic synthetic funding, separate schema/API/worker credentials and health checks.
 
 Payment depth: owned CAD accounts, booked/available convention, idempotent command responses, locked funds, immutable balanced postings with account roll-forward checks, internal transfer/reversal, outbound posting, simulator settlement, partial returns and report-date correction. Role/scope/tenant enforcement, opaque revocable sessions, CSRF and OIDC code/PKCE relying-party tests.
 
@@ -35,7 +35,7 @@ Experience: customer accounts/payments, operations lifecycle/returns, approved a
 
 | Capability | Status | Exact coverage / next gap |
 |---|---|---|
-| Customer/party and onboarding | Modeled only | Synthetic principals seeded; interactive onboarding/identity verification not implemented |
+| Customer/party and onboarding | Implemented and tested | Synthetic principals seeded; operator-provisioned OIDC visitors implemented and tested; real identity verification not implemented |
 | Products and pricing | Modeled only | Atlas reference; no operational pricing catalog |
 | Deposit accounts | Implemented and tested | Owned seeded CAD deposits, booked/available; hold workflow and joint holders planned |
 | Payments and beneficiaries | Implemented and tested | Seeded beneficiary, own-account transfer, outbound command and lifecycle; beneficiary management planned |
@@ -49,7 +49,7 @@ Experience: customer accounts/payments, operations lifecycle/returns, approved a
 | Customer service | Modeled only | Atlas reference; case handling planned |
 | Fees, interest and statements | Modeled only | Atlas reference; no accrual/statement generation |
 | Reference data and FX | Implemented and tested | Actual BoC reference CLI/cache and recorded fixture; executable FX quotes/cross-border planned |
-| Identity and access | Implemented and tested | Trusted sessions, backend authorization, signed test-provider OIDC; deployed provider and visitor provisioning pending |
+| Identity and access | Implemented and tested | Trusted sessions, backend authorization, signed test-provider OIDC; isolated visitor provisioning implemented and tested; deployed provider pending |
 | Data platform operations | Implemented and tested | Polling/archive/projection/publication prototype, process recovery; full distributed lakehouse pending |
 | Real customers, actual money movement, licensed bank/regulatory certification | Out of scope | Never claimed |
 
@@ -83,13 +83,17 @@ bash scripts/backup_restore.sh
 docker compose down
 ```
 
-Migration order: `001_core.sql`, `002_journal_trigger.sql`, `003_scenario_bounds.sql`, `004_managed_owner.sql`, `005_outbox_access.sql`. Existing applied checksums must not be edited. Synthetic seed reruns do not re-fund accounts. [Full setup](LOCAL_SETUP.md).
+Migration order: `001_core.sql`, `002_journal_trigger.sql`, `003_scenario_bounds.sql`, `004_managed_owner.sql`, `005_outbox_access.sql`, `006_customer_name.sql`, `007_visitor_scenarios.sql`, `008_serving_isolation.sql`. Existing applied checksums must not be edited. Synthetic seed reruns do not re-fund accounts. [Full setup](LOCAL_SETUP.md).
 
 ## Next acceptance gate
 
-1. Current release acceptance is complete. Read `evidence/ci-summary.json`, the linked run, actual screenshots/demo and known limitations before extending the source.
-2. Public release: provision isolated synthetic visitor scenarios and a real OIDC provider, validate hosted permissions/restore/TLS/secrets, select the persistent topology within a user-provided monthly spending ceiling. Render was found as a deployment integration but is not connected or provisioned.
+1. Release 0.2 adds Subhanjan, isolated visitor provisioning and analytical RLS; all 49 backend checks, two browser journeys, audits, container and restore acceptance passed. Read `evidence/ci-summary.json`, the linked run, actual screenshots/demo and known limitations before extending the source.
+2. Public release: verify the new isolated visitor provisioning against a real deployed OIDC provider, validate hosted permissions/restore/TLS/secrets, select the persistent topology within a user-provided monthly spending ceiling. Render was found as a deployment integration but is not connected or provisioned.
 3. Streaming/lakehouse release: compatibility-pin Debezium/Kafka/Spark/Delta/storage/Airflow in manageable groups; preserve the v1 contract and one-publisher cutover; add independent batch manifests, replay/disposition and distributed failure evidence.
 4. Expand into business approvals or loans only after the connected slice and its performance/recovery claims remain demonstrable.
 
 Known first-profile limits: full-history analytical rebuilds; a tenant quota counter serializes source admission; one database failure domain; scale-lab override supplied but not yet executed as a separate Compose project; local persona simulation; no business maker/checker; no cloud production OIDC; no time-based off-host raw purge; no distributed telemetry backend or multi-node HA.
+
+## Current increment · 18 October 2026
+
+Branch `feat/customer-onboarding` starts at `dcdd2ea6c0a1f1e848e002be1137a12a47a339dd`. Customer display name is Subhanjan Das; legacy `harbour:alex` stays a stable internal identity. Migration 006 changes only the old seeded display names. New operator-only `python -m mhb.provision` creates bounded, expiring, customer-only scenarios. Repeating identity admission cannot refund, reset or reactivate. Analytical serving and metadata lineage now fail closed without a trusted tenant. See [visitor operations](VISITOR_SCENARIOS.md). No paid resources, new public URL or real identity provider has been created.

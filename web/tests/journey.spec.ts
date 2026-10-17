@@ -4,8 +4,8 @@ import {execFileSync} from 'node:child_process';
 const out='../docs/assets';
 test('customer payment → operations return → published analytics → actual lineage',async({page})=>{
  const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
- await page.goto('/');await page.getByRole('button',{name:'Alex Morgan',exact:false}).click();
- await expect(page.getByRole('heading',{name:'Welcome back, Alex.'})).toBeVisible();
+ await page.goto('/');await page.getByRole('button',{name:'Subhanjan Das',exact:false}).click();
+ await expect(page.getByRole('heading',{name:'Welcome back, Subhanjan.'})).toBeVisible();
  await expect(page.getByText('Harbour Savings',{exact:true}).first()).toBeVisible();
  await page.getByLabel('Amount (CAD)',{exact:true}).fill('125.00');
  await page.getByRole('button',{name:'Post simulated payment'}).click();
