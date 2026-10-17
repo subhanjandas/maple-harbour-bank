@@ -2,7 +2,7 @@
 
 ## Release 0.2
 
-[Successful run 39071322917](https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39071322917) tested **`0c4ff71042011ab8a727c619cb136d56d85d47ab`**: **49 backend tests, zero skips/failures/errors, 14.281 seconds**, plus both Playwright journeys, production build, audits, benchmarks, actual container HTTP journey and independent backup/restore. Captures show Subhanjan; evidence was committed at `016d41bb16f26b2a5ac701e652954d03f2aabad6`.
+[Successful run 39071620676](https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39071620676) tested **`4d50366f09658992b6fed373e7269e76ebb6b892`**: **49 backend tests, zero skips/failures/errors, 14.347 seconds**, plus both Playwright journeys, production build, audits, benchmarks, actual container HTTP journey and independent backup/restore. Captures show Subhanjan; evidence was committed at `f066ed8a49b14b3ee63c1e13245c591d2086ec56`.
 
 The seven additional checks cover display-name upgrade with unchanged history, 16 concurrent admissions with one funding effect, competing admissions at capacity, injected rollback after the first opening journal, service privilege denial, two signed OIDC visitor sessions with cross-tenant/staff denial and expiry/deactivation, and analytical table/lineage RLS. The original 42 checks remain passing. This validates the relying party against a signed test provider, not a deployed identity service. No public deployment is claimed.
 

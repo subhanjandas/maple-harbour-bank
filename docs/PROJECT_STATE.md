@@ -3,10 +3,10 @@
 ## Reproducible identity
 
 - Repository: https://github.com/subhanjandas/maple-harbour-bank
-- Release merged into `main` in [PR #1](https://github.com/subhanjandas/maple-harbour-bank/pull/1), merge commit **`e27bc613f09b54319fe6105b1a1b6c3b64131408`**. Implementation branch: `feat/release-0-payment-core`; initial base `81498870632b53d3e20ba9195830035f3d9c1941`.
+- Release 0.2 merged into `main` in [PR #2](https://github.com/subhanjandas/maple-harbour-bank/pull/2), merge commit **`4b02c998731fb91a56a31dfd0a69f0866d371481`**. Implementation branch: `feat/customer-onboarding`, based on `dcdd2ea6c0a1f1e848e002be1137a12a47a339dd`. Release 0.1 remains in [PR #1](https://github.com/subhanjandas/maple-harbour-bank/pull/1).
 - Atlas import/inspection: **`69586431f1ed0ed5bf3c7d698b246b0662542d6d`**, application 1.2.0/model 0.5.0, MIT. Atlas and other repositories were not modified.
-- Latest fully tested application source: **`0c4ff71042011ab8a727c619cb136d56d85d47ab`**, [successful run 39071322917](https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39071322917): **49 backend tests, two browser tests**, build, audits, actual container HTTP journey, restore and measured workloads.
-- Release 0.2 evidence/capture checkpoint: **`016d41bb16f26b2a5ac701e652954d03f2aabad6`**. [PR #2](https://github.com/subhanjandas/maple-harbour-bank/pull/2) contains the visitor/name increment. Subsequent manifest release metadata is checked by CI before merging.
+- Latest fully tested application source: **`4d50366f09658992b6fed373e7269e76ebb6b892`**, [successful run 39071620676](https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39071620676): **49 backend tests, two browser tests**, build, audits, actual container HTTP journey, restore and measured workloads.
+- Release 0.2 evidence/capture checkpoint: **`f066ed8a49b14b3ee63c1e13245c591d2086ec56`**. [PR #2](https://github.com/subhanjandas/maple-harbour-bank/pull/2) contains the visitor/name increment. The final manifest and UI release metadata were included in the passing run. Later handoff commits change documentation only.
 - `evidence/ci-summary.json` records the latest **successful tested source commit** and capture provenance; `git rev-parse HEAD` records the current checkout. Evidence commits follow tested code commits, avoiding a self-referencing commit hash.
 
 ## Running and hosted URLs
