@@ -1,0 +1,249 @@
+{
+  "config": {
+    "argv": [
+      "/opt/hostedtoolcache/node/24.21.0/x64/bin/node",
+      "/home/runner/work/maple-harbour-bank/maple-harbour-bank/web/node_modules/.bin/playwright",
+      "test"
+    ],
+    "configFile": "/home/runner/work/maple-harbour-bank/maple-harbour-bank/web/playwright.config.ts",
+    "rootDir": "/home/runner/work/maple-harbour-bank/maple-harbour-bank/web/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "ci": {
+        "commitHref": "https://github.com/subhanjandas/maple-harbour-bank/commit/bc76c67adcb6555f0728c44d1265833a26cdcee7",
+        "commitHash": "bc76c67adcb6555f0728c44d1265833a26cdcee7",
+        "buildHref": "https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39043428530"
+      },
+      "gitCommit": {
+        "shortHash": "bc76c67",
+        "hash": "bc76c67adcb6555f0728c44d1265833a26cdcee7",
+        "subject": "fix: migrate journal trigger after real PostgreSQL acceptance failure",
+        "body": "fix: migrate journal trigger after real PostgreSQL acceptance failure",
+        "author": {
+          "name": "Subhanjan Das",
+          "email": "69835617+subhanjandas@users.noreply.github.com",
+          "time": 1792249439000
+        },
+        "committer": {
+          "name": "Subhanjan Das",
+          "email": "69835617+subhanjandas@users.noreply.github.com",
+          "time": 1792249439000
+        },
+        "branch": "feat/release-0-payment-core"
+      },
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/home/runner/work/maple-harbour-bank/maple-harbour-bank/web/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/subhanjandas/maple-harbour-bank/commit/bc76c67adcb6555f0728c44d1265833a26cdcee7",
+            "commitHash": "bc76c67adcb6555f0728c44d1265833a26cdcee7",
+            "buildHref": "https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39043428530"
+          },
+          "gitCommit": {
+            "shortHash": "bc76c67",
+            "hash": "bc76c67adcb6555f0728c44d1265833a26cdcee7",
+            "subject": "fix: migrate journal trigger after real PostgreSQL acceptance failure",
+            "body": "fix: migrate journal trigger after real PostgreSQL acceptance failure",
+            "author": {
+              "name": "Subhanjan Das",
+              "email": "69835617+subhanjandas@users.noreply.github.com",
+              "time": 1792249439000
+            },
+            "committer": {
+              "name": "Subhanjan Das",
+              "email": "69835617+subhanjandas@users.noreply.github.com",
+              "time": 1792249439000
+            },
+            "branch": "feat/release-0-payment-core"
+          },
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/home/runner/work/maple-harbour-bank/maple-harbour-bank/web/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/home/runner/work/maple-harbour-bank/maple-harbour-bank/web/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/subhanjandas/maple-harbour-bank/commit/bc76c67adcb6555f0728c44d1265833a26cdcee7",
+            "commitHash": "bc76c67adcb6555f0728c44d1265833a26cdcee7",
+            "buildHref": "https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39043428530"
+          },
+          "gitCommit": {
+            "shortHash": "bc76c67",
+            "hash": "bc76c67adcb6555f0728c44d1265833a26cdcee7",
+            "subject": "fix: migrate journal trigger after real PostgreSQL acceptance failure",
+            "body": "fix: migrate journal trigger after real PostgreSQL acceptance failure",
+            "author": {
+              "name": "Subhanjan Das",
+              "email": "69835617+subhanjandas@users.noreply.github.com",
+              "time": 1792249439000
+            },
+            "committer": {
+              "name": "Subhanjan Das",
+              "email": "69835617+subhanjandas@users.noreply.github.com",
+              "time": 1792249439000
+            },
+            "branch": "feat/release-0-payment-core"
+          },
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "/home/runner/work/maple-harbour-bank/maple-harbour-bank/web/tests",
+        "snapshotDir": "/home/runner/work/maple-harbour-bank/maple-harbour-bank/web/tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://localhost:5173",
+          "headless": true,
+          "trace": "retain-on-failure"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../evidence/playwright.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run dev -- --host 127.0.0.1",
+      "url": "http://localhost:5173",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "journey.spec.ts",
+      "file": "journey.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "customer payment → operations return → published analytics → actual lineage",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2924,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T15:05:08.333Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bf222bad70f76648f722-01ca801eba6252ddd9f3",
+          "file": "journey.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "mobile navigation, theme persistence and architecture accessibility",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1107,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T15:05:11.509Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bf222bad70f76648f722-cc803fb1a0224dcc3b0e",
+          "file": "journey.spec.ts",
+          "line": 45,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-17T15:05:07.353Z",
+    "duration": 5347.5650000000005,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
