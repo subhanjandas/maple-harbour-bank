@@ -6,7 +6,7 @@
 - Operator-only OIDC visitor admission creates isolated customer accounts and balanced synthetic opening funding, with concurrency-safe identity retries, retained-scenario capacity and expiry.
 - Deactivation revokes access without deleting ledger evidence; no public role/reset/provisioning endpoint.
 - Analytical serving tables and lineage gain tenant row isolation; signed two-visitor OIDC acceptance and failure/rollback checks added.
-- Full acceptance is pending for this candidate; prior evidence remains attributed to its tested commit.
+- 49 real-PostgreSQL backend tests and two browser journeys pass, along with container, audits and restore acceptance; evidence remains attributed to its tested commit.
 
 ## 0.1.0 · 17 October 2026 · first payment slice
 

@@ -8,7 +8,7 @@ Built by **Subhanjan Das** · React/TypeScript · FastAPI · PostgreSQL · synth
 
 The first working slice connects owned accounts, simulated payments, balanced immutable postings, settlement/partial returns, a durable outbox and reconciled analytical publications. The customer, employee, analyst and engineer workspaces use server-enforced permissions.
 
-**Release 0.1:** 42 backend tests + 2 browser tests passed, along with actual container startup, HTTP payment/return processing and backup/restore. [Exact evidence and tested commit →](docs/TEST_EVIDENCE.md)
+**Release 0.2:** 49 backend tests + 2 browser tests passed, along with actual container startup, HTTP payment/return processing and backup/restore. [Exact evidence and tested commit →](docs/TEST_EVIDENCE.md)
 
 ![Actual customer workspace after posting a simulated payment](docs/assets/customer-overview.png)
 

@@ -1,6 +1,6 @@
 # Performance evidence
 
-No maximum transaction-per-second target or production capacity is claimed. `scripts/benchmark.py` measures two distinct workloads. Raw samples, plans, tested commit and hardware are in `evidence/benchmark.json`.
+No maximum transaction-per-second target or production capacity is claimed. `scripts/benchmark.py` measures two distinct workloads. Latest raw samples, plans, tested commit and hardware are in `evidence/benchmark.json`. The numerical baseline below is intentionally frozen at release 0.1; its [original raw report](https://github.com/subhanjandas/maple-harbour-bank/blob/c0fd0924328d1e5b8010652784a9d9851f2bd4b8/evidence/benchmark.json) and [original resource sample](https://github.com/subhanjandas/maple-harbour-bank/blob/c0fd0924328d1e5b8010652784a9d9851f2bd4b8/evidence/compose-resources.json) remain immutable. Release 0.2 reruns the same workloads; use each raw report’s source commit rather than comparing different runner samples as an optimization.
 
 ## Verified release baseline
 

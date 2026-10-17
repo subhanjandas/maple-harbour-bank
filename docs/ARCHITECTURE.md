@@ -56,3 +56,7 @@ A publication's age is based on its refresh; event source time is separately exp
 | Serving → dashboard | Role check, freshness metadata, refresh action | Browser network failure can leave an older screen visible |
 
 There is no CDC broker boundary in the core profile. Future migration must stop the poll publisher at an explicit cutoff, preserve event IDs and validate a replay before enabling the CDC publisher. Never assume partition order protects a transfer involving multiple accounts.
+
+## Visitor identity boundary
+
+The [operator-only provisioning CLI](VISITOR_SCENARIOS.md) uses a protected schema-owner connection to create a separate synthetic customer tenant, opening journals and quota atomically. The API cannot provision visitors or staff. A verified OIDC issuer/subject resolves to the stored principal, and scenario expiry is checked on each request. Approved analytical tables and the lineage metadata view require a bound tenant in addition to API role checks. The serving worker is intentionally authorized to process all admitted tenants. No additional runtime service is required for this low-volume invitation workflow.
