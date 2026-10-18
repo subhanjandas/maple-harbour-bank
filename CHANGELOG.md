@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.0 · public Pages profile (acceptance pending)
+
+- Zero-cost public build with per-browser IndexedDB persistence and real Web Worker event processing.
+- Customer payment/return/trace workflows, business maker/checker approvals and fund reservations, live analytical publications and recovery controls.
+- Public versus server topology selection and explicit security/availability boundaries.
+- GitHub Pages build/test/deploy workflow and public browser acceptance suite.
+
 ## 0.2.0 · 18 October 2026 · isolated visitor scenarios
 
 - Customer persona becomes Subhanjan Das, with a forward display-name migration preserving all identity and financial history.

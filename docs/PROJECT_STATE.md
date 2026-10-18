@@ -43,7 +43,7 @@ Experience: customer accounts/payments, operations lifecycle/returns, approved a
 | Ledger and reconciliation | Implemented and tested | Immutable balanced journals and deposit roll-forward; dedicated analytical reconciliation fact planned |
 | Settlement acknowledgements and returns | Simulated integration | Scoped employee commands, installments and attribution corrections; no actual rails |
 | Loans and repayments | Modeled only | Atlas reference; operational loan allocation/arrears planned |
-| Business organizations and approvals | Planned | Organization membership, maker/checker and approval workflow not implemented |
+| Business organizations and approvals | Simulated integration | Browser profile implements organization-scoped maker/checker, holds, approval/rejection; server implementation planned |
 | Fraud and disputes | Modeled only | Atlas reference; operations simulation/detection planned |
 | Collections | Modeled only | Atlas reference; no operational collections engine |
 | Customer service | Modeled only | Atlas reference; case handling planned |
@@ -97,3 +97,9 @@ Known first-profile limits: full-history analytical rebuilds; a tenant quota cou
 ## Current increment · 18 October 2026
 
 Branch `feat/customer-onboarding` starts at `dcdd2ea6c0a1f1e848e002be1137a12a47a339dd`. Customer display name is Subhanjan Das; legacy `harbour:alex` stays a stable internal identity. Migration 006 changes only the old seeded display names. New operator-only `python -m mhb.provision` creates bounded, expiring, customer-only scenarios. Repeating identity admission cannot refund, reset or reactivate. Analytical serving and metadata lineage now fail closed without a trusted tenant. See [visitor operations](VISITOR_SCENARIOS.md). No paid resources, new public URL or real identity provider has been created.
+
+## Release 0.3 in progress · public Pages profile
+
+User constraint: **CAD 0, no paid hosting**. Branch `feat/public-pages` adds a publicly deployable profile using the existing React shell, browser Web Worker and IndexedDB. Customer payments/returns, business maker/checker holds, analytics and actual recovery experiments execute on each visitor’s device. This profile has simulated roles, not server authentication; PostgreSQL/OIDC tests remain independently valid for the server lab.
+
+New entry points: `web/src/simulation/`, `web/src/Business.tsx`, `web/src/RecoveryLab.tsx`, `architecture/public-manifest.json`, `.github/workflows/pages.yml`. Read [PUBLIC_DEMO](PUBLIC_DEMO.md) before extending. Build: `VITE_PUBLIC_DEMO=true VITE_BASE_PATH=/maple-harbour-bank/ npm run build --prefix web`. Browser acceptance: `cd web && npx playwright test -c playwright.pages.config.ts`. Acceptance and first Pages deployment pending. Repository administrator must have Pages configured for GitHub Actions; no account token is bundled.

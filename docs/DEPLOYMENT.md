@@ -1,12 +1,19 @@
 # Deployment and economics
 
+## Current delivery direction · CAD 0
+
+The owner has explicitly rejected paid hosting. The public deployment target is GitHub Pages, with browser-persisted synthetic banking and real Web Worker processing. [Public profile and exact differences from the server lab](PUBLIC_DEMO.md). The Pages workflow builds and tests the deployable artifact; activation/deployed URL is recorded in PROJECT_STATE after verification.
+
+The existing FastAPI/PostgreSQL profile remains locally runnable and exercised in free standard GitHub Actions jobs for this public repository. Neither Pages nor Actions is described as an always-on PostgreSQL service. No paid resources or additional cloud accounts are authorized.
+
+
 ## Verified deployment state
 
 The core containers build, migrate, seed and pass readiness checks on a GitHub Actions runner. Browser acceptance uses a real API, worker and PostgreSQL. These ephemeral test deployments stop at the end of the run. **There is no persistent hosted banking URL.** Atlas's public static site remains independent and unchanged.
 
 `compose.yaml`, both Dockerfiles, SQL migrations and the isolated lab override are version controlled. No paid infrastructure or cloud account has been provisioned. Provider-specific infrastructure-as-code awaits a compatible provider/account and explicit spending ceiling; a misleading deploy button for an ineligible topology is not supplied.
 
-## Proposed persistent public topology
+## Superseded paid-hosting option · not selected
 
 One same-origin web/API endpoint, a separately runnable worker and a persistent PostgreSQL database. Keep operational/analytical paths explicit; the initial public topology would still use the PostgreSQL prototype, not secretly pretend to operate Kafka/Spark/Delta. The architecture manifest must be updated to the actual hosted topology before publication.
 
@@ -21,7 +28,7 @@ Gate sequence:
 
 OIDC code-flow tests against a signed test provider are useful relying-party evidence, not a replacement for a real deployed provider configuration. Fixed local personas are disabled in non-development mode and must never be exposed through a public proxy.
 
-## Cost review · checked 17 October 2026
+## Historical cost review · not authorized or needed for the Pages profile
 
 Render is a **candidate**, not a selected/provisioned deployment. Official prices currently list services/workers at USD 7/month for 0.5 CPU/512MB, and basic PostgreSQL at USD 6/month for 256MB or USD 19/month for 1GB. That makes a small API + worker + basic database approximately **USD 20/month**, or **USD 33/month** with the 1GB database, before identity hosting, extra storage, egress, taxes or any separate web proxy/service. A separate paid proxy would add another service. These are planning estimates; performance and account eligibility are not verified.
 
