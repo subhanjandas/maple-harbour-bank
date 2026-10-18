@@ -1,6 +1,6 @@
 {
-  "tested_commit": "4d50366f09658992b6fed373e7269e76ebb6b892",
-  "completed_at": "2026-10-17T21:38:01.934028+00:00",
+  "tested_commit": "37fa7a9f02593655d4dff95ba4d9a646520e6697",
+  "completed_at": "2026-10-18T02:35:58.596198+00:00",
   "postgres": "18.6",
   "checks": [
     "pytest",

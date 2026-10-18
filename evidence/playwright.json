@@ -18,26 +18,26 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/subhanjandas/maple-harbour-bank/commit/4d50366f09658992b6fed373e7269e76ebb6b892",
-        "commitHash": "4d50366f09658992b6fed373e7269e76ebb6b892",
-        "buildHref": "https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39071616603"
+        "commitHref": "https://github.com/subhanjandas/maple-harbour-bank/commit/37fa7a9f02593655d4dff95ba4d9a646520e6697",
+        "commitHash": "37fa7a9f02593655d4dff95ba4d9a646520e6697",
+        "buildHref": "https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39090533987"
       },
       "gitCommit": {
-        "shortHash": "4d50366",
-        "hash": "4d50366f09658992b6fed373e7269e76ebb6b892",
-        "subject": "docs: align release 0.2 explorer and record verified visitor acceptance",
-        "body": "docs: align release 0.2 explorer and record verified visitor acceptance",
+        "shortHash": "37fa7a9",
+        "hash": "37fa7a9f02593655d4dff95ba4d9a646520e6697",
+        "subject": "feat: zero-cost public banking platform with persistent simulation and approvals",
+        "body": "feat: zero-cost public banking platform with persistent simulation and approvals",
         "author": {
           "name": "Subhanjan Das",
           "email": "69835617+subhanjandas@users.noreply.github.com",
-          "time": 1792272946000
+          "time": 1792290816000
         },
         "committer": {
           "name": "Subhanjan Das",
           "email": "69835617+subhanjandas@users.noreply.github.com",
-          "time": 1792272946000
+          "time": 1792290816000
         },
-        "branch": "feat/customer-onboarding"
+        "branch": "feat/public-pages"
       },
       "actualWorkers": 1
     },
@@ -49,26 +49,26 @@
         "retries": 0,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/subhanjandas/maple-harbour-bank/commit/4d50366f09658992b6fed373e7269e76ebb6b892",
-            "commitHash": "4d50366f09658992b6fed373e7269e76ebb6b892",
-            "buildHref": "https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39071616603"
+            "commitHref": "https://github.com/subhanjandas/maple-harbour-bank/commit/37fa7a9f02593655d4dff95ba4d9a646520e6697",
+            "commitHash": "37fa7a9f02593655d4dff95ba4d9a646520e6697",
+            "buildHref": "https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39090533987"
           },
           "gitCommit": {
-            "shortHash": "4d50366",
-            "hash": "4d50366f09658992b6fed373e7269e76ebb6b892",
-            "subject": "docs: align release 0.2 explorer and record verified visitor acceptance",
-            "body": "docs: align release 0.2 explorer and record verified visitor acceptance",
+            "shortHash": "37fa7a9",
+            "hash": "37fa7a9f02593655d4dff95ba4d9a646520e6697",
+            "subject": "feat: zero-cost public banking platform with persistent simulation and approvals",
+            "body": "feat: zero-cost public banking platform with persistent simulation and approvals",
             "author": {
               "name": "Subhanjan Das",
               "email": "69835617+subhanjandas@users.noreply.github.com",
-              "time": 1792272946000
+              "time": 1792290816000
             },
             "committer": {
               "name": "Subhanjan Das",
               "email": "69835617+subhanjandas@users.noreply.github.com",
-              "time": 1792272946000
+              "time": 1792290816000
             },
-            "branch": "feat/customer-onboarding"
+            "branch": "feat/public-pages"
           },
           "actualWorkers": 1
         },
@@ -91,26 +91,26 @@
         "retries": 0,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/subhanjandas/maple-harbour-bank/commit/4d50366f09658992b6fed373e7269e76ebb6b892",
-            "commitHash": "4d50366f09658992b6fed373e7269e76ebb6b892",
-            "buildHref": "https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39071616603"
+            "commitHref": "https://github.com/subhanjandas/maple-harbour-bank/commit/37fa7a9f02593655d4dff95ba4d9a646520e6697",
+            "commitHash": "37fa7a9f02593655d4dff95ba4d9a646520e6697",
+            "buildHref": "https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39090533987"
           },
           "gitCommit": {
-            "shortHash": "4d50366",
-            "hash": "4d50366f09658992b6fed373e7269e76ebb6b892",
-            "subject": "docs: align release 0.2 explorer and record verified visitor acceptance",
-            "body": "docs: align release 0.2 explorer and record verified visitor acceptance",
+            "shortHash": "37fa7a9",
+            "hash": "37fa7a9f02593655d4dff95ba4d9a646520e6697",
+            "subject": "feat: zero-cost public banking platform with persistent simulation and approvals",
+            "body": "feat: zero-cost public banking platform with persistent simulation and approvals",
             "author": {
               "name": "Subhanjan Das",
               "email": "69835617+subhanjandas@users.noreply.github.com",
-              "time": 1792272946000
+              "time": 1792290816000
             },
             "committer": {
               "name": "Subhanjan Das",
               "email": "69835617+subhanjandas@users.noreply.github.com",
-              "time": 1792272946000
+              "time": 1792290816000
             },
-            "branch": "feat/customer-onboarding"
+            "branch": "feat/public-pages"
           },
           "actualWorkers": 1
         },
@@ -189,12 +189,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 5419,
+                  "duration": 3896,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-17T21:37:03.760Z",
+                  "startTime": "2026-10-18T02:35:03.428Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -229,12 +229,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1202,
+                  "duration": 1063,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-17T21:37:09.419Z",
+                  "startTime": "2026-10-18T02:35:07.538Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -258,8 +258,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-17T21:37:02.738Z",
-    "duration": 7969.693000000001,
+    "startTime": "2026-10-18T02:35:02.591Z",
+    "duration": 6080.111999999999,
     "expected": 2,
     "skipped": 0,
     "unexpected": 0,
