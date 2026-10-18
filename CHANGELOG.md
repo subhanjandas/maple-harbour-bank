@@ -1,11 +1,12 @@
 # Changelog
 
-## 0.3.0 · public Pages profile (acceptance pending)
+## 0.3.0 · 18 October 2026 · publicly deployed on GitHub Pages
 
 - Zero-cost public build with per-browser IndexedDB persistence and real Web Worker event processing.
 - Customer payment/return/trace workflows, business maker/checker approvals and fund reservations, live analytical publications and recovery controls.
 - Public versus server topology selection and explicit security/availability boundaries.
-- GitHub Pages build/test/deploy workflow and public browser acceptance suite.
+- GitHub Pages build/test/deploy workflow; six public-browser tests plus 49 backend and two server-browser tests pass.
+- Deployed HTTPS app independently smoke-tested through payment, settlement, partial return, publication and missing-source recovery; actual JSON evidence and screenshot preserved.
 
 ## 0.2.0 · 18 October 2026 · isolated visitor scenarios
 

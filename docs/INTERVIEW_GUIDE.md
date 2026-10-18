@@ -1,5 +1,7 @@
 # Interview walkthrough
 
+Start with the [live public app](https://subhanjandas.github.io/maple-harbour-bank/). Its six roles cover customer, business maker/checker, operations, analytics and engineering. Show a payment and partial return, then the actual processing trace and missing-source recovery lab. Explain that this zero-cost public profile persists on the visitor’s device; the PostgreSQL/OIDC security and process-recovery evidence below belongs to the separately runnable server profile. [Runtime comparison](PUBLIC_DEMO.md).
+
 ## Opening
 
 “Maple Harbour Bank is a synthetic Canadian banking application and data-engineering platform. I started with one traceable money-movement journey: owned-account authorization, locked funds, balanced immutable journals and an outbox commit together. A durable worker preserves source envelopes and publishes reconciled analytical activity with a cutoff and freshness. The UI distinguishes the running core from the planned distributed lakehouse, and I can demonstrate both failures and the limits of the tested topology.”

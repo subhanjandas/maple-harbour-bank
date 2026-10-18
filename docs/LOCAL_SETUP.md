@@ -1,5 +1,7 @@
 # Local setup
 
+The [public banking app](https://subhanjandas.github.io/maple-harbour-bank/) requires no local setup. The instructions below run the separate PostgreSQL server profile. [Public runtime guarantees](PUBLIC_DEMO.md).
+
 ## Complete core path
 
 Docker Engine/Desktop and Docker Compose v2 with `--wait`, Python 3 for secret bootstrap, and Git. Node/Python application dependencies are built inside containers. The default core uses web, API, PostgreSQL and a worker; one short-lived migration/seed job runs first.

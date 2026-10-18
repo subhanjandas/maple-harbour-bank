@@ -1,6 +1,14 @@
 # Acceptance evidence
 
-## Release 0.2
+## Release 0.3 · public deployment verified
+
+Source `37fa7a9f02593655d4dff95ba4d9a646520e6697` passed [six public-browser tests](https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39090563150) in 12.368 seconds with zero skips/failures/flakes, and [49 backend tests plus two server-browser journeys](https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39090563228), build, audits, workloads, Compose journey and restore. Raw JUnit reports 13.371 seconds for the backend suite. Public captures and server evidence follow in commits `08c166e3fd955406578e2aa3c5e9e23dbfc2cbc8` and `0ccfd106e29938ede62373c1b4a6de1a9f3bdd48`.
+
+Merged source `8ee3566baebbcf89c7e3677c6fd93803ae422441` passed again on main: [Pages tests and deployment](https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39090991069), [server acceptance](https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39090991147). The public URL returns HTTP 200 and was exercised through its visible UI: CAD 125 payment, settlement, CAD 30 partial return, five archived events, reconciled publication, missing-source rejection and successful recovery. [Raw deployed export](../evidence/live-pages-smoke.json), [verification/provenance](../evidence/live-pages-verification.json) and [actual deployed screenshot](assets/public-live.jpg) preserve that evidence. An independent Python check recomputed SHA-256 envelope checksums and balanced journal groups from the browser export.
+
+Public tests cover persistence, repeated-command contention, overspending/ownership denial, business approval separation, organization scope, actual archive boundary recovery, last-good publication, late reporting correction, independent browser isolation and mobile Dusk topology. These are browser simulation guarantees. PostgreSQL tests retain their independent security and concurrency claims. There is no claim of universal exactly-once or multi-node resilience.
+
+## Release 0.2 (historical checkpoint)
 
 [Successful run 39071620676](https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39071620676) tested **`4d50366f09658992b6fed373e7269e76ebb6b892`**: **49 backend tests, zero skips/failures/errors, 14.347 seconds**, plus both Playwright journeys, production build, audits, benchmarks, actual container HTTP journey and independent backup/restore. Captures show Subhanjan; evidence was committed at `f066ed8a49b14b3ee63c1e13245c591d2086ec56`.
 
@@ -17,7 +25,7 @@ The seven additional checks cover display-name upgrade with unchanged history, 1
 - Core Docker images built, migrated, seeded and started. An actual HTTP payment, duplicate request, settlement, partial return and worker publication ran through the container reverse proxy. Its trace is `evidence/core-journey.json`.
 - Logical backup restored into a different database after that journey, compared ledger counts and reran journal/account invariants. `evidence/restore-drill.txt` records the result; no restore over the live database occurred.
 
-`evidence/ci-summary.json` records the exact successful tested source; raw JUnit, browser JSON, capture provenance, benchmark and Compose evidence are committed by the successful workflow. Evidence is not hand-authored as a pass. The older release baseline below remains attributed to its original commit; current raw evidence is for release 0.2.
+`evidence/ci-summary.json` records the exact successful tested source; raw JUnit, browser JSON, capture provenance, benchmark and Compose evidence are committed by the successful workflow. Evidence is not hand-authored as a pass. The older release baseline below remains attributed to its original commit; current raw evidence is for release 0.3.
 
 The editing workspace's TypeScript build, Python compilation and two reference-cache tests pass. Local PostgreSQL tests skip without a supplied server; skipped tests are explicitly **not** acceptance passes. The GitHub runner supplies real PostgreSQL 18.6 and actual separate API/worker login roles.
 

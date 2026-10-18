@@ -68,3 +68,7 @@ Before enabling Debezium: record slot/publication ownership, supported PostgreSQ
 ## Invited synthetic visitors
 
 Use the [visitor scenario runbook](VISITOR_SCENARIOS.md) with a protected operator connection. Repeated admission never refunds or reactivates. If capacity is exhausted, stop admission and review retained scenarios/storage; do not delete immutable ledger rows or lift limits blindly. Deactivation preserves financial/source evidence and blocks subsequent authentication. There is no automatic purge or reactivation job.
+
+## Public Pages runtime
+
+The [live app](https://subhanjandas.github.io/maple-harbour-bank/) processes each visitor’s isolated browser scenario. Casey’s control room can pause/resume, interrupt after archive, withhold an input and replay; evidence export contains actual events and runs. These controls do not affect other visitors or a shared server. [Public recovery procedure](PUBLIC_DEMO.md). Successful deployed recovery is preserved in `evidence/live-pages-smoke.json`. Changes to the server profile still use the restricted operator procedures above.

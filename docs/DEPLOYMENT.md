@@ -1,45 +1,31 @@
-# Deployment and economics
+# Deployment and economics · CAD 0
 
-## Current delivery direction · CAD 0
+## Verified public deployment
 
-The owner has explicitly rejected paid hosting. The public deployment target is GitHub Pages, with browser-persisted synthetic banking and real Web Worker processing. [Public profile and exact differences from the server lab](PUBLIC_DEMO.md). The Pages workflow builds and tests the deployable artifact; activation/deployed URL is recorded in PROJECT_STATE after verification.
+**https://subhanjandas.github.io/maple-harbour-bank/** is live on GitHub Pages. [Successful deployment](https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39090991069), source `8ee3566baebbcf89c7e3677c6fd93803ae422441`, release 0.3. The HTTPS app returned HTTP 200 and passed a direct visible-UI payment, settlement, partial return, publication and recovery smoke. [Actual exported evidence](../evidence/live-pages-verification.json).
 
-The existing FastAPI/PostgreSQL profile remains locally runnable and exercised in free standard GitHub Actions jobs for this public repository. Neither Pages nor Actions is described as an always-on PostgreSQL service. No paid resources or additional cloud accounts are authorized.
+Pages serves the same React shell with browser worker processing and IndexedDB persistence. [Exact differences from the PostgreSQL profile](PUBLIC_DEMO.md). No paid resources, new hosting account or runtime credential is required. The agreed budget is **CAD 0**. Prior paid-provider investigations are superseded and retained only in Git history.
 
+## Publish and roll back
 
-## Verified deployment state
+`.github/workflows/pages.yml` runs six public browser journeys, builds with `VITE_PUBLIC_DEMO=true VITE_BASE_PATH=/maple-harbour-bank/`, packages an artifact, then deploys main using official `configure-pages`, `upload-pages-artifact` and `deploy-pages` actions. The repository's Pages source is GitHub Actions, verified by the successful deployment. A Pages deployment uses repository-managed `GITHUB_TOKEN` and job OIDC permissions; no user token is bundled into the application.
 
-The core containers build, migrate, seed and pass readiness checks on a GitHub Actions runner. Browser acceptance uses a real API, worker and PostgreSQL. These ephemeral test deployments stop at the end of the run. **There is no persistent hosted banking URL.** Atlas's public static site remains independent and unchanged.
+For an update, merge verified source to main and inspect the Pages workflow's terminal result. To republish unchanged main, use Actions → Public portfolio · test and deploy Pages → Run workflow. To roll back, revert the faulty source change and let the same acceptance/deploy path publish the previous behaviour. Do not reset or rewrite customer ledger state as a deployment rollback. Compatible browser schema v1 is retained; future schema changes require an explicit migration and recovery design.
 
-`compose.yaml`, both Dockerfiles, SQL migrations and the isolated lab override are version controlled. No paid infrastructure or cloud account has been provisioned. Provider-specific infrastructure-as-code awaits a compatible provider/account and explicit spending ceiling; a misleading deploy button for an ineligible topology is not supplied.
+A failed build/test does not deploy. GitHub Pages continues serving the previous successful artifact. A failure inside a visitor's analytical refresh independently retains that scenario's last-good publication.
 
-## Superseded paid-hosting option · not selected
+## Cost and resource policy
 
-One same-origin web/API endpoint, a separately runnable worker and a persistent PostgreSQL database. Keep operational/analytical paths explicit; the initial public topology would still use the PostgreSQL prototype, not secretly pretend to operate Kafka/Spark/Delta. The architecture manifest must be updated to the actual hosted topology before publication.
+Standard GitHub-hosted runners are free for this public repository; larger runners are not used. Pages hosts this non-commercial, synthetic portfolio. Workflow artifacts expire after **one day**, limiting retained test/video/build storage. Public static assets are about 1 MB excluding font/browser cache overhead; the exact packaged artifact is in the deployment run. No web-server process is kept alive through CI.
 
-Gate sequence:
+The browser processes only its own scenario, capped at 500 payments, 5,000 events, 200 proposals and 100 installments per payment. A scenario can be cleared or evicted by the browser and does not sync between devices. Worker execution stops when all pages close and resumes from persisted state when reopened. Browser storage/CPU and GitHub service limits are real constraints; no unrestricted hosting guarantee is made.
 
-1. Confirm ordinary database-owner migrations and service role support on the chosen provider.
-2. Configure a real OIDC issuer/client, exact callback URL, provisioned subject mapping, secure cookies and HTTPS; keep secrets in provider-managed runtime configuration.
-3. Validate operator-provisioned [isolated visitor scenarios](VISITOR_SCENARIOS.md), quotas and expiry on the actual provider; implement off-host retention. Public users must not select shared employee/admin identities.
-4. Validate the entire HTTP payment/settlement/return/processing path and a backup restore using the deployment image.
-5. Record cost ceiling, network, backup, retention and shutdown instructions. Provision only after budget is authorized.
-6. Publish, run deployed smoke checks, record URLs and exact image/source identities in project state.
+Official references: [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages), [Pages limits and intended use](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits), [Actions billing](https://docs.github.com/en/billing/concepts/product-billing/github-actions), [custom Pages workflows](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
 
-OIDC code-flow tests against a signed test provider are useful relying-party evidence, not a replacement for a real deployed provider configuration. Fixed local personas are disabled in non-development mode and must never be exposed through a public proxy.
+## Server lab and shutdown
 
-## Historical cost review · not authorized or needed for the Pages profile
+FastAPI, PostgreSQL and the durable Python worker are still available through `compose.yaml` and both Dockerfiles. [Main CI](https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39090991147) built/started the containers, processed an actual HTTP payment/return, and restored a logical backup into a separate database. Those CI deployments stop; they are not a publicly hosted shared database.
 
-Render is a **candidate**, not a selected/provisioned deployment. Official prices currently list services/workers at USD 7/month for 0.5 CPU/512MB, and basic PostgreSQL at USD 6/month for 256MB or USD 19/month for 1GB. That makes a small API + worker + basic database approximately **USD 20/month**, or **USD 33/month** with the 1GB database, before identity hosting, extra storage, egress, taxes or any separate web proxy/service. A separate paid proxy would add another service. These are planning estimates; performance and account eligibility are not verified.
+`docker compose down` stops the local services and preserves the named database volume. Avoid `down -v` unless deliberately disposing of the synthetic local database. For the public site, GitHub Settings → Pages can disable publication; this does not erase any visitor's browser storage. No cloud resource cleanup or billing shutdown is needed for this release because none was provisioned.
 
-Storage pricing is separately metered: persistent disks USD 0.25/GB-month and PostgreSQL expansion USD 0.30/GB-month. Check whether a Canadian region, managed role permissions and OIDC hosting fit the chosen plan before selecting it. Prices are USD; no fixed CAD conversion is assumed. The Bank of Canada fixture is indicative data, not a hosting-bill exchange guarantee.
-
-Free web hosting does not automatically include a permanent durable database or continuous worker. Render's free PostgreSQL expires after 30 days; do not present it as a lasting no-cost bank. Reference: [pricing](https://render.com/pricing), [compute plans](https://render.com/docs/compute-plans), [free-plan restrictions](https://render.com/docs/free), [service types](https://render.com/docs/service-types).
-
-Likely larger-profile drivers: Spark executor RAM/CPU, persistent Kafka retention and replication, object storage/history, Airflow services, trace/log retention, backups and egress. Azure/Databricks stays a later profile; no paid workspace is created by this release.
-
-## Local shutdown and retention
-
-`docker compose down` stops the local core and keeps the persistent named volume. Local resource cost is the host/Docker VM, disk and electricity; cloud bill is zero because none is provisioned. A future cloud shutdown must stop/delete billable API/worker/identity services and separately decide whether to retain database, object storage, snapshots and disks. Stopping web traffic alone is not a cost shutdown.
-
-Keep source history within scenario record quotas, CI evidence for 14 days and backups under an explicit operator policy. Hosted off-host retention, timed restore and cryptographic audit/archive requirements remain open. No universal high-availability or disaster-recovery claim follows from one persistent host.
+Atlas remains independently deployed and unchanged. The public architecture explorer defaults to the Pages/browser topology; the PostgreSQL topology is explicitly a reference when viewed from Pages. Cloud Kafka/Spark/Delta/Airflow and production OIDC remain outside the current zero-cost hosted profile.

@@ -1,5 +1,7 @@
 # Public portfolio: zero-cost GitHub Pages profile
 
+**Live app: https://subhanjandas.github.io/maple-harbour-bank/** · [verified deployment and recovery evidence](../evidence/live-pages-verification.json).
+
 The public profile serves the same React application from GitHub Pages. A dedicated Web Worker executes banking commands and analytical processing, with IndexedDB persistence on the visitor's device. No paid account, backend token, real identity, payment information or external database is required. Synthetic activity belongs to that browser and does not affect another visitor. It survives reloads; clearing site data or browser eviction removes it. It does not sync between devices.
 
 ## Two honest runtime profiles
@@ -46,7 +48,7 @@ npm ci --prefix web
 VITE_PUBLIC_DEMO=true VITE_BASE_PATH=/maple-harbour-bank/ npm run build --prefix web
 ```
 
-`.github/workflows/pages.yml` tests browser journeys, builds the public profile, and uses official upload/deploy Pages actions on main. Repository Settings → Pages must select **GitHub Actions** once. Enabling Pages is an administrator setting, distinct from permission to push source. The connector used to write code does not expose that settings operation. No new token should be placed in the frontend or committed to solve it.
+`.github/workflows/pages.yml` tests browser journeys, builds the public profile, and uses official upload/deploy Pages actions on main. Repository Settings → Pages is configured for **GitHub Actions**, verified by the successful release deployment. New repositories require that one-time setting. Enabling Pages is an administrator setting, distinct from permission to push source. The connector used to write code does not expose that settings operation. No new token should be placed in the frontend or committed to solve it.
 
 The same workflow preserves genuine screenshots and JSON test evidence. The public artifact includes a dated server CI evidence snapshot under `evidence/`; it is not live shared financial state. Standard GitHub-hosted runners for this public repository are free. Pages and test artifacts expire after one day to bound storage; no larger runners or paid services are used. This portfolio is synthetic and non-commercial, within the intended project-showcase use of Pages.
 

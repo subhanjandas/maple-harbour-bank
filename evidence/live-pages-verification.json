@@ -1,0 +1,23 @@
+{
+  "verified_at": "2026-10-18T02:51:10.921Z",
+  "url": "https://subhanjandas.github.io/maple-harbour-bank/",
+  "deployed_source": "8ee3566baebbcf89c7e3677c6fd93803ae422441",
+  "deployment_run": "https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39090991069",
+  "method": "Direct UI interaction against public Pages build; exported through the engineering control room",
+  "payment_id": "90ff3b4b-2f1c-40b1-9e83-4ba50461b7bd",
+  "instruction_minor": 12500,
+  "return_minor": 3000,
+  "events": 5,
+  "balanced_journals": 8,
+  "publication_id": "96db8840-7276-4886-8bcd-814a00c09496",
+  "observed_rejection": "MISSING_OR_CHANGED_SOURCE",
+  "recovered": true,
+  "independent_checks": [
+    "SHA-256 event envelopes",
+    "balanced journal groups",
+    "five unique archived events",
+    "instruction/return totals",
+    "successful replay after rejected refresh"
+  ],
+  "screenshot_sha256": "fcd4ddda2090a55a7f4492483b2150cf8bcf30b321d0d255d8a3dbf1a4c01ba9"
+}

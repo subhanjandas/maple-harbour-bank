@@ -1,5 +1,7 @@
 # Security and access
 
+The [live GitHub Pages profile](PUBLIC_DEMO.md) uses isolated browser storage and synthetic role selection. Its role controls demonstrate banking workflows; they are not production authentication against the device owner. The server authorization guarantees below apply to the independently tested FastAPI/PostgreSQL runtime. Public hosting costs CAD 0 and contains no service credentials.
+
 This is a synthetic banking simulation. Controls are implemented and tested at selected boundaries; regulatory certification, production hardening and a complete banking security program are not claimed.
 
 ## Trust boundaries
@@ -59,7 +61,7 @@ OIDC integration tests use a real local HTTP code exchange and signed tokens fro
 
 ## Public release gate
 
-No public deployment is enabled by this increment. Before publishing: isolate each visitor's synthetic scenario; complete a real provider integration and session lifecycle review; configure TLS and secret storage; verify network and service credentials; run backup/restore; bound retention and load; and obtain a paid-resource ceiling if hosting incurs charges. Do not expose the local persona selector or engineering CLI credentials to public visitors.
+The authenticated PostgreSQL server profile has no persistent public deployment. Before hosting that backend: isolate each visitor's synthetic scenario; complete a real provider integration and session lifecycle review; configure TLS and secret storage; verify network and service credentials; run backup/restore; bound retention and load; and obtain a paid-resource ceiling if hosting incurs charges. Do not expose the local persona selector or engineering CLI credentials to public visitors.
 
 Forward migration 005 also restricts the API to tenant-scoped outbox **metadata**. It has no SELECT permission on original source envelopes/checksums, although it inserts them as part of the command. The trusted worker alone reads the full source contract for processing; its UPDATE grant is restricted to acknowledgement/retry columns.
 

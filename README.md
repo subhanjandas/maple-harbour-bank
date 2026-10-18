@@ -1,20 +1,24 @@
 # Maple Harbour Bank
 
+**[Open the live banking app ↗](https://subhanjandas.github.io/maple-harbour-bank/)** · Free public GitHub Pages deployment
+
 **A Canadian banking simulation whose engineering you can trace.**
 
-Built by **Subhanjan Das** · React/TypeScript · FastAPI · PostgreSQL · synthetic identities and simulated money.
+Built by **Subhanjan Das** · customer and business banking · operations · analytics · engineering · synthetic identities and simulated money.
 
 [Model Atlas ↗](https://subhanjandas.github.io/banking-model-atlas/) · [Engineering Reference ↗](https://subhanjandas.github.io/banking-model-atlas/?page=engineering) · [Current project state](docs/PROJECT_STATE.md)
 
-The first working slice connects owned accounts, simulated payments, balanced immutable postings, settlement/partial returns, a durable outbox and reconciled analytical publications. The customer, employee, analyst and engineer workspaces use server-enforced permissions.
+The live app connects owned CAD accounts, payments, business maker/checker approvals, balanced journals, settlement/partial returns, preserved source events and reconciled analytical publications. Choose Subhanjan, Avery/Morgan, Taylor, Jordan or Casey to explore each workspace.
 
-**Server release 0.2:** 49 backend tests + 2 browser tests passed, along with actual container startup, HTTP payment/return processing and backup/restore. [Exact evidence and tested commit →](docs/TEST_EVIDENCE.md)
+The public profile runs in a Web Worker and persists each visitor’s isolated simulation in IndexedDB. The separately runnable FastAPI/PostgreSQL profile proves server authorization, database constraints and fault recovery in CI. [Runtime guarantees and trade-offs](docs/PUBLIC_DEMO.md).
 
-![Actual customer workspace after posting a simulated payment](docs/assets/customer-overview.png)
+**Release 0.3:** 6 public-browser tests, 49 backend tests and 2 server-browser tests passed, along with actual container startup, HTTP payment/return processing and backup/restore. [Exact evidence and tested commit →](docs/TEST_EVIDENCE.md)
+
+![Actual live GitHub Pages customer workspace after payment and partial return](docs/assets/public-live.jpg)
 
 [Recorded working demonstration (WebM)](docs/assets/payment-demo.webm) · [Light](docs/assets/customer-light.png) / [Dusk](docs/assets/customer-dusk.png) · [Operations](docs/assets/operations.png) · [Analytics](docs/assets/analytics.png) · [Architecture](docs/assets/architecture.png)
 
-*Actual captures of the application against a real API, worker and PostgreSQL in the acceptance environment. [Capture provenance](docs/assets/provenance.json). No persistent public banking deployment exists yet. PostgreSQL analytical tables are the initial prototype; Kafka/Spark/Delta/Airflow remain planned.*
+*The image above was captured from the deployed Pages app. [Deployed smoke evidence](evidence/live-pages-verification.json) · [Business banking](docs/assets/public-business.png) · [Public analytics](docs/assets/public-analytics.png) · [Mobile Dusk](docs/assets/public-mobile.png). The recorded WebM and server screenshots demonstrate the independent PostgreSQL lab; [server capture provenance](docs/assets/provenance.json). Kafka/Spark/Delta/Airflow remain planned.*
 
 ## Start the core
 
@@ -34,7 +38,17 @@ For the public zero-cost profile, see [Public demo](docs/PUBLIC_DEMO.md). The se
 
 No real customer data or payment rails. This is not a licensed bank, certified compliance implementation or complete production core.
 
-## Two connected systems
+## Public runtime and server lab
+
+| Concern | Live public app | Server lab |
+|---|---|---|
+| State and processing | IndexedDB + Web Worker in each browser | PostgreSQL + FastAPI + durable worker |
+| Identity | Clearly labelled synthetic role simulation | OIDC relying party, trusted sessions, service roles and RLS |
+| Persistence | Reload-safe on that device; no cross-device sync | Durable local volume; backup/restore tested in CI |
+| Engineering evidence | Actual scenario events, runs and recovery controls | Actual financial concurrency, authorization and subprocess recovery tests |
+| Hosting cost | CAD 0, GitHub Pages | CAD 0, local host or bounded public-repository CI |
+
+## Two connected systems · server profile
 
 ```mermaid
 flowchart TD
@@ -83,4 +97,4 @@ The customer persona is **Subhanjan Das**. A forward migration preserves existin
 
 ## Public portfolio · zero-cost profile
 
-The public build runs customer banking, business maker/checker approvals, employee operations, analytics, an instrumented recovery lab and architecture explorer. Synthetic scenarios persist in the visitor’s browser. [Runtime guarantees, walkthrough and deployment](docs/PUBLIC_DEMO.md). The original server profile retains OIDC, PostgreSQL and its independent test evidence. Public Pages publication status is recorded in [project state](docs/PROJECT_STATE.md).
+The public build runs customer banking, business maker/checker approvals, employee operations, analytics, an instrumented recovery lab and architecture explorer. Synthetic scenarios persist in the visitor’s browser. [Runtime guarantees, walkthrough and deployment](docs/PUBLIC_DEMO.md). The original server profile retains OIDC, PostgreSQL and its independent test evidence. [The public app is live](https://subhanjandas.github.io/maple-harbour-bank/), with exact deployment evidence in [project state](docs/PROJECT_STATE.md).
