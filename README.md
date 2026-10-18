@@ -8,7 +8,7 @@ Built by **Subhanjan Das** · React/TypeScript · FastAPI · PostgreSQL · synth
 
 The first working slice connects owned accounts, simulated payments, balanced immutable postings, settlement/partial returns, a durable outbox and reconciled analytical publications. The customer, employee, analyst and engineer workspaces use server-enforced permissions.
 
-**Release 0.2:** 49 backend tests + 2 browser tests passed, along with actual container startup, HTTP payment/return processing and backup/restore. [Exact evidence and tested commit →](docs/TEST_EVIDENCE.md)
+**Server release 0.2:** 49 backend tests + 2 browser tests passed, along with actual container startup, HTTP payment/return processing and backup/restore. [Exact evidence and tested commit →](docs/TEST_EVIDENCE.md)
 
 ![Actual customer workspace after posting a simulated payment](docs/assets/customer-overview.png)
 
@@ -24,7 +24,7 @@ docker compose up --build -d
 curl --fail http://localhost:8080/api/health/ready
 ```
 
-Open **http://localhost:8080**. Choose Subhanjan (customer), Taylor (operations), Jordan (analyst) or Casey (engineer). This selector is a loopback-only **development authentication simulator**; hosted mode disables it and requires OIDC.
+For the public zero-cost profile, see [Public demo](docs/PUBLIC_DEMO.md). The server lab is also runnable locally: open **http://localhost:8080**. Choose Subhanjan (customer), Taylor (operations), Jordan (analyst) or Casey (engineer). This selector is a loopback-only **development authentication simulator**; hosted mode disables it and requires OIDC.
 
 1. Subhanjan posts a simulated CAD beneficiary payment; its available balance changes in the same transaction as the ledger and outbox.
 2. Taylor acknowledges simulated settlement and records a partial return.
@@ -80,3 +80,7 @@ Selected MIT-licensed Atlas definitions and design conventions are reused with p
 ### Isolated OIDC visitor scenarios
 
 The customer persona is **Subhanjan Das**. A forward migration preserves existing account IDs and ledger history. Invited OIDC users can receive separate customer-only synthetic accounts through the [operator provisioning runbook](docs/VISITOR_SCENARIOS.md), with atomic funding, repeat-request protection, capacity limits, expiry and deactivation. Public hosting and a real deployed identity provider remain pending.
+
+## Public portfolio · zero-cost profile
+
+The public build runs customer banking, business maker/checker approvals, employee operations, analytics, an instrumented recovery lab and architecture explorer. Synthetic scenarios persist in the visitor’s browser. [Runtime guarantees, walkthrough and deployment](docs/PUBLIC_DEMO.md). The original server profile retains OIDC, PostgreSQL and its independent test evidence. Public Pages publication status is recorded in [project state](docs/PROJECT_STATE.md).

@@ -1,4 +1,5 @@
-export type Actor={id:string;name:string;role:'customer'|'operations'|'analyst'|'engineer';tenant_id:string;scope:string};
+export const PUBLIC_DEMO=import.meta.env.VITE_PUBLIC_DEMO==='true';
+export type Actor={id:string;name:string;role:'customer'|'business'|'operations'|'analyst'|'engineer';tenant_id:string;scope:string};
 export type Account={id:string;label:string;currency:string;currency_exponent:number;booked_minor:number;hold_minor:number;available_minor:number;status:string};
 export type Beneficiary={id:string;name:string};
 export type Payment={id:string;kind:string;source_id:string;amount_minor:number;currency:string;status:string;returned_minor:number;version:number;business_date:string;created_at:string;correlation_id:string};
@@ -9,6 +10,7 @@ export type Analytics={publication:Publication|null;freshness:string;age_seconds
 export type Engineering={topology:string;layers:string;outbox:{total:number;pending:number;max_attempts:number};runs:{id:string;status:string;cutoff:number;source_count:number;codes:string[];created_at:string}[];quarantine:{code:string;n:number}[]};
 export function csrf(){return document.cookie.split('; ').find(v=>v.startsWith('mhb_csrf='))?.split('=')[1]||'';}
 export async function api<T>(path:string,method='GET',body?:unknown,key?:string):Promise<T>{
+ if(PUBLIC_DEMO){const {browserApi}=await import('./simulation/client');return browserApi<T>(path,method,body,key);}
  const response=await fetch('/api'+path,{method,credentials:'same-origin',headers:{'Content-Type':'application/json',...(method==='GET'?{}:{'X-CSRF-Token':csrf()}),...(key?{'Idempotency-Key':key}:{})},body:body===undefined?undefined:JSON.stringify(body)});
  if(!response.ok){const data=await response.json().catch(()=>({detail:'Service unavailable'}));throw new Error(typeof data.detail==='string'?data.detail:`Request validation failed (${response.status})`);}
  return response.json();

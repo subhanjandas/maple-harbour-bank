@@ -1,4 +1,4 @@
-{"BlockIO":"0B / 0B","CPUPerc":"0.00%","Container":"7f2df430954c","ID":"7f2df430954c","MemPerc":"3.99%","MemUsage":"5.105MiB / 128MiB","Name":"maple-harbour-bank-web-1","NetIO":"23.2kB / 27.3kB","PIDs":"5"}
-{"BlockIO":"0B / 0B","CPUPerc":"0.13%","Container":"64e8d851e12e","ID":"64e8d851e12e","MemPerc":"10.00%","MemUsage":"51.18MiB / 512MiB","Name":"maple-harbour-bank-api-1","NetIO":"48.2kB / 61.9kB","PIDs":"7"}
-{"BlockIO":"0B / 0B","CPUPerc":"0.00%","Container":"ad60e2641520","ID":"ad60e2641520","MemPerc":"7.62%","MemUsage":"39.03MiB / 512MiB","Name":"maple-harbour-bank-worker-1","NetIO":"50.2kB / 44.4kB","PIDs":"6"}
-{"BlockIO":"0B / 56.8MB","CPUPerc":"0.03%","Container":"f01ce939e385","ID":"f01ce939e385","MemPerc":"3.80%","MemUsage":"38.93MiB / 1GiB","Name":"maple-harbour-bank-db-1","NetIO":"135kB / 100kB","PIDs":"11"}
+{"BlockIO":"0B / 0B","CPUPerc":"0.00%","Container":"dc0e09452a8a","ID":"dc0e09452a8a","MemPerc":"3.82%","MemUsage":"4.895MiB / 128MiB","Name":"maple-harbour-bank-web-1","NetIO":"23.2kB / 27.3kB","PIDs":"5"}
+{"BlockIO":"0B / 0B","CPUPerc":"0.14%","Container":"8a1c44f203c7","ID":"8a1c44f203c7","MemPerc":"9.94%","MemUsage":"50.9MiB / 512MiB","Name":"maple-harbour-bank-api-1","NetIO":"48.2kB / 61.9kB","PIDs":"7"}
+{"BlockIO":"0B / 0B","CPUPerc":"0.00%","Container":"0fa58264fa69","ID":"0fa58264fa69","MemPerc":"7.58%","MemUsage":"38.8MiB / 512MiB","Name":"maple-harbour-bank-worker-1","NetIO":"50.2kB / 44.4kB","PIDs":"6"}
+{"BlockIO":"0B / 56.8MB","CPUPerc":"0.15%","Container":"17bfe94d0489","ID":"17bfe94d0489","MemPerc":"3.85%","MemUsage":"39.45MiB / 1GiB","Name":"maple-harbour-bank-db-1","NetIO":"134kB / 100kB","PIDs":"11"}

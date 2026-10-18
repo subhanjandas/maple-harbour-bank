@@ -1,0 +1,68 @@
+name: Public portfolio · test and deploy Pages
+on:
+  push:
+    branches: [main, feat/public-pages]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: public-pages-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  public-acceptance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '24', cache: npm, cache-dependency-path: web/package-lock.json}
+      - run: npm ci --prefix web
+      - run: npx --prefix web playwright install --with-deps chromium
+      - name: Real browser banking and recovery acceptance
+        working-directory: web
+        run: npx playwright test -c playwright.pages.config.ts
+      - name: Build public Pages application
+        run: VITE_PUBLIC_DEMO=true VITE_BASE_PATH=/maple-harbour-bank/ npm run build --prefix web
+      - name: Package server evidence separately from browser telemetry
+        run: |
+          mkdir -p web/dist/evidence
+          cp evidence/ci-summary.json evidence/pytest.xml evidence/benchmark.json web/dist/evidence/
+          touch web/dist/.nojekyll
+      - uses: actions/upload-pages-artifact@v4
+        with: {path: web/dist, retention-days: 1}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: public-acceptance-evidence
+          path: |
+            evidence/pages-playwright.json
+            web/test-results/
+            docs/assets/public-*.png
+          retention-days: 1
+      - name: Preserve actual public captures on implementation branch
+        if: success() && github.event_name == 'push' && github.ref_name == 'feat/public-pages'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/assets/public-*.png evidence/pages-playwright.json
+          git diff --cached --quiet || git commit -m 'docs: capture actual public simulation acceptance [skip ci]'
+          git pull --rebase origin feat/public-pages
+          git push origin HEAD:feat/public-pages
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: public-acceptance
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/configure-pages@v5
+      - uses: actions/deploy-pages@v4
+        id: deployment

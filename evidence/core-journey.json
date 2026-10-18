@@ -1,29 +1,29 @@
 {
   "payment": {
-    "payment_id": "5eb2cb12-4744-43d6-81af-bf79845ee190",
+    "payment_id": "2f29f1f0-6778-46ce-883a-136618229e48",
     "status": "POSTED",
     "amount_minor": 12500,
     "currency": "CAD",
-    "correlation_id": "d39e22f6-db28-4049-8e8f-81d4d115d57d"
+    "correlation_id": "097c32d7-77ec-4905-afb8-98bdbc969fa2"
   },
   "settlement": {
-    "payment_id": "5eb2cb12-4744-43d6-81af-bf79845ee190",
+    "payment_id": "2f29f1f0-6778-46ce-883a-136618229e48",
     "status": "SETTLED",
     "returned_minor": 0,
-    "event_id": "cad0fb3e-a55d-4fc8-810f-87006a09673c",
-    "correlation_id": "e0672c1e-e34a-4d9a-ba00-4652918943b8"
+    "event_id": "0d48bff3-3bb2-43fa-8277-e67759041223",
+    "correlation_id": "50923329-df70-430f-9f3f-e618b1ad2ede"
   },
   "return": {
-    "payment_id": "5eb2cb12-4744-43d6-81af-bf79845ee190",
+    "payment_id": "2f29f1f0-6778-46ce-883a-136618229e48",
     "status": "PARTIALLY_RETURNED",
     "returned_minor": 3000,
-    "event_id": "b2c5afa7-0bba-4ac0-96bd-8d5bee1b2bba",
-    "correlation_id": "1454c2c1-5619-4700-b64c-4032aa933112"
+    "event_id": "668fa126-537f-4560-8147-933b9d2fbe9f",
+    "correlation_id": "7c7d254c-ef42-4577-8a69-46ef2d616e70"
   },
-  "publication": "ef8ec940-3a67-4f5c-856d-ee1df15b008b",
+  "publication": "cb14558d-44f7-450c-8a13-0a8245d3584f",
   "trace": {
     "payment": {
-      "id": "5eb2cb12-4744-43d6-81af-bf79845ee190",
+      "id": "2f29f1f0-6778-46ce-883a-136618229e48",
       "tenant_id": "harbour",
       "owner_id": "harbour:alex",
       "source_id": "harbour:chequing",
@@ -36,50 +36,50 @@
       "status": "PARTIALLY_RETURNED",
       "version": 5,
       "returned_minor": 3000,
-      "correlation_id": "d39e22f6-db28-4049-8e8f-81d4d115d57d",
+      "correlation_id": "097c32d7-77ec-4905-afb8-98bdbc969fa2",
       "scope": "TORONTO",
-      "created_at": "2026-10-17T21:37:52.997927+00:00"
+      "created_at": "2026-10-18T02:35:49.248515+00:00"
     },
     "events": [
       {
-        "id": "c99b410d-689c-4947-aa24-2ba7c59436fe",
+        "id": "d91d3364-2d20-4bec-ae5f-600ffae95ab2",
         "version": 1,
         "status": "RECEIVED",
         "reason": "CUSTOMER_COMMAND",
-        "occurred_at": "2026-10-17T21:37:53.003431+00:00"
+        "occurred_at": "2026-10-18T02:35:49.252162+00:00"
       },
       {
-        "id": "9fc06957-3756-4325-b60a-8db183fceeba",
+        "id": "3399141d-7f64-4581-972f-bfffb573d4d0",
         "version": 2,
         "status": "VALIDATED",
         "reason": "CUSTOMER_COMMAND",
-        "occurred_at": "2026-10-17T21:37:53.006571+00:00"
+        "occurred_at": "2026-10-18T02:35:49.254058+00:00"
       },
       {
-        "id": "b5711b8f-3a56-441b-aadb-5f31b21f84a1",
+        "id": "e058e844-f816-44b0-b6dc-1370e083a096",
         "version": 3,
         "status": "POSTED",
         "reason": "CUSTOMER_COMMAND",
-        "occurred_at": "2026-10-17T21:37:53.007743+00:00"
+        "occurred_at": "2026-10-18T02:35:49.254791+00:00"
       },
       {
-        "id": "cad0fb3e-a55d-4fc8-810f-87006a09673c",
+        "id": "0d48bff3-3bb2-43fa-8277-e67759041223",
         "version": 4,
         "status": "SETTLED",
         "reason": "SIMULATOR_SETTLE",
-        "occurred_at": "2026-10-17T21:37:53.060624+00:00"
+        "occurred_at": "2026-10-18T02:35:49.284670+00:00"
       },
       {
-        "id": "b2c5afa7-0bba-4ac0-96bd-8d5bee1b2bba",
+        "id": "668fa126-537f-4560-8147-933b9d2fbe9f",
         "version": 5,
         "status": "PARTIALLY_RETURNED",
         "reason": "SIMULATOR_RETURN",
-        "occurred_at": "2026-10-17T21:37:53.073451+00:00"
+        "occurred_at": "2026-10-18T02:35:49.291873+00:00"
       }
     ],
     "returns": [
       {
-        "id": "d8a50fcc-0f3d-4e98-ab25-dcae6f1b4383",
+        "id": "a5088dda-c5c1-4c5a-b2a4-3214297a67a1",
         "amount_minor": 3000,
         "booked_date": "2026-10-17",
         "reporting_date": "2026-10-17",
@@ -88,7 +88,7 @@
     ],
     "journals": [
       {
-        "id": "635a7fe1-282a-485e-b654-eeb069554f7d",
+        "id": "445a17dd-7e58-4f57-a003-4993d0bca53e",
         "kind": "PAYMENT",
         "booked_date": "2026-10-17",
         "line_no": 1,
@@ -97,7 +97,7 @@
         "amount_minor": 12500
       },
       {
-        "id": "635a7fe1-282a-485e-b654-eeb069554f7d",
+        "id": "445a17dd-7e58-4f57-a003-4993d0bca53e",
         "kind": "PAYMENT",
         "booked_date": "2026-10-17",
         "line_no": 2,
@@ -106,7 +106,7 @@
         "amount_minor": 12500
       },
       {
-        "id": "eefb1bf7-77e2-4a13-904a-3a42e6530627",
+        "id": "85ebb9f8-dd50-4569-9146-9269bf5ca092",
         "kind": "SETTLEMENT",
         "booked_date": "2026-10-17",
         "line_no": 1,
@@ -115,7 +115,7 @@
         "amount_minor": 12500
       },
       {
-        "id": "eefb1bf7-77e2-4a13-904a-3a42e6530627",
+        "id": "85ebb9f8-dd50-4569-9146-9269bf5ca092",
         "kind": "SETTLEMENT",
         "booked_date": "2026-10-17",
         "line_no": 2,
@@ -124,7 +124,7 @@
         "amount_minor": 12500
       },
       {
-        "id": "7c2cbaba-f616-4abe-9fa9-c31f2a0923d4",
+        "id": "b30a8a46-2566-46f9-9df6-8dfd4793500f",
         "kind": "RETURN",
         "booked_date": "2026-10-17",
         "line_no": 1,
@@ -133,7 +133,7 @@
         "amount_minor": 3000
       },
       {
-        "id": "7c2cbaba-f616-4abe-9fa9-c31f2a0923d4",
+        "id": "b30a8a46-2566-46f9-9df6-8dfd4793500f",
         "kind": "RETURN",
         "booked_date": "2026-10-17",
         "line_no": 2,
@@ -144,59 +144,59 @@
     ],
     "lineage": [
       {
-        "event_id": "c99b410d-689c-4947-aa24-2ba7c59436fe",
+        "event_id": "d91d3364-2d20-4bec-ae5f-600ffae95ab2",
         "seq": 1,
         "aggregate_version": 1,
-        "acknowledged_at": "2026-10-17T21:37:53.512567+00:00",
-        "received_at": "2026-10-17T21:37:53.509942+00:00",
-        "ingestion_run_id": "d1d2d085-4f7f-4401-8cdc-051447b8996a",
+        "acknowledged_at": "2026-10-18T02:35:49.586974+00:00",
+        "received_at": "2026-10-18T02:35:49.584802+00:00",
+        "ingestion_run_id": "ee1ba3d0-4a83-4822-b348-66e884de09c7",
         "silver_validated": true,
-        "publication_id": "ef8ec940-3a67-4f5c-856d-ee1df15b008b",
-        "publication_run_id": "474e6be9-be85-4f79-bc14-ea1994b56e1b"
+        "publication_id": "cb14558d-44f7-450c-8a13-0a8245d3584f",
+        "publication_run_id": "6b554973-11b1-4877-87cf-673e33e942a3"
       },
       {
-        "event_id": "9fc06957-3756-4325-b60a-8db183fceeba",
+        "event_id": "3399141d-7f64-4581-972f-bfffb573d4d0",
         "seq": 2,
         "aggregate_version": 2,
-        "acknowledged_at": "2026-10-17T21:37:53.515265+00:00",
-        "received_at": "2026-10-17T21:37:53.513522+00:00",
-        "ingestion_run_id": "11406823-b452-46a2-8ce9-b637a469fccb",
+        "acknowledged_at": "2026-10-18T02:35:49.589363+00:00",
+        "received_at": "2026-10-18T02:35:49.587715+00:00",
+        "ingestion_run_id": "e41a09c5-4ec5-42c3-a93c-5e978549dd23",
         "silver_validated": true,
-        "publication_id": "ef8ec940-3a67-4f5c-856d-ee1df15b008b",
-        "publication_run_id": "474e6be9-be85-4f79-bc14-ea1994b56e1b"
+        "publication_id": "cb14558d-44f7-450c-8a13-0a8245d3584f",
+        "publication_run_id": "6b554973-11b1-4877-87cf-673e33e942a3"
       },
       {
-        "event_id": "b5711b8f-3a56-441b-aadb-5f31b21f84a1",
+        "event_id": "e058e844-f816-44b0-b6dc-1370e083a096",
         "seq": 3,
         "aggregate_version": 3,
-        "acknowledged_at": "2026-10-17T21:37:53.517843+00:00",
-        "received_at": "2026-10-17T21:37:53.516161+00:00",
-        "ingestion_run_id": "76077221-4509-4f57-acb0-5f1dac680154",
+        "acknowledged_at": "2026-10-18T02:35:49.591027+00:00",
+        "received_at": "2026-10-18T02:35:49.589981+00:00",
+        "ingestion_run_id": "4f93a434-4899-4595-aa1e-4c4c029de950",
         "silver_validated": true,
-        "publication_id": "ef8ec940-3a67-4f5c-856d-ee1df15b008b",
-        "publication_run_id": "474e6be9-be85-4f79-bc14-ea1994b56e1b"
+        "publication_id": "cb14558d-44f7-450c-8a13-0a8245d3584f",
+        "publication_run_id": "6b554973-11b1-4877-87cf-673e33e942a3"
       },
       {
-        "event_id": "cad0fb3e-a55d-4fc8-810f-87006a09673c",
+        "event_id": "0d48bff3-3bb2-43fa-8277-e67759041223",
         "seq": 4,
         "aggregate_version": 4,
-        "acknowledged_at": "2026-10-17T21:37:53.520460+00:00",
-        "received_at": "2026-10-17T21:37:53.518693+00:00",
-        "ingestion_run_id": "508bbc53-7813-4bbf-b6ed-90329cebe0be",
+        "acknowledged_at": "2026-10-18T02:35:49.592524+00:00",
+        "received_at": "2026-10-18T02:35:49.591509+00:00",
+        "ingestion_run_id": "c60c0cd8-f00c-457e-a793-7d4fc8fdfff1",
         "silver_validated": true,
-        "publication_id": "ef8ec940-3a67-4f5c-856d-ee1df15b008b",
-        "publication_run_id": "474e6be9-be85-4f79-bc14-ea1994b56e1b"
+        "publication_id": "cb14558d-44f7-450c-8a13-0a8245d3584f",
+        "publication_run_id": "6b554973-11b1-4877-87cf-673e33e942a3"
       },
       {
-        "event_id": "b2c5afa7-0bba-4ac0-96bd-8d5bee1b2bba",
+        "event_id": "668fa126-537f-4560-8147-933b9d2fbe9f",
         "seq": 5,
         "aggregate_version": 5,
-        "acknowledged_at": "2026-10-17T21:37:53.523043+00:00",
-        "received_at": "2026-10-17T21:37:53.521430+00:00",
-        "ingestion_run_id": "26d44538-47bd-4f02-a037-4cb37360e172",
+        "acknowledged_at": "2026-10-18T02:35:49.594312+00:00",
+        "received_at": "2026-10-18T02:35:49.593423+00:00",
+        "ingestion_run_id": "fc77f56c-92d9-48d1-a2cc-138833d436ce",
         "silver_validated": true,
-        "publication_id": "ef8ec940-3a67-4f5c-856d-ee1df15b008b",
-        "publication_run_id": "474e6be9-be85-4f79-bc14-ea1994b56e1b"
+        "publication_id": "cb14558d-44f7-450c-8a13-0a8245d3584f",
+        "publication_run_id": "6b554973-11b1-4877-87cf-673e33e942a3"
       }
     ]
   },

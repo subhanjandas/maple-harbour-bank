@@ -1,9 +1,12 @@
 import {useEffect,useRef,useState} from 'react';
 import {Search,Plus,Minus,Maximize,ArrowUpRight,Play,Pause,GitBranch} from 'lucide-react';
-import manifest from '../../architecture/manifest.json';
+import coreManifest from '../../architecture/manifest.json';
+import publicManifest from '../../architecture/public-manifest.json';
+import {PUBLIC_DEMO} from './api';
 const atlas='https://subhanjandas.github.io/banking-model-atlas/';
 const source='https://github.com/subhanjandas/maple-harbour-bank/blob/main/';
 export default function Architecture(){
+ const [profile,setProfile]=useState(PUBLIC_DEMO?'public':'core');const manifest=profile==='public'?publicManifest:coreManifest;
  const params=new URLSearchParams(location.search);
  const [selected,setSelected]=useState(params.get('node')||'core');
  const [edge,setEdge]=useState('');const [query,setQuery]=useState('');const [layer,setLayer]=useState('all');const [planned,setPlanned]=useState(false);
@@ -16,6 +19,7 @@ export default function Architecture(){
  const node=manifest.components.find(c=>c.id===selected)||manifest.components[0];const connection=manifest.connections.find(e=>e.id===edge);
  function select(id:string){setSelected(id);setEdge('');const p=new URLSearchParams(location.search);p.set('node',id);history.replaceState(null,'','?'+p);}
  return <><div className="workspace-intro"><span className="eyebrow">THE SYSTEM, EXPLAINED</span><h1>Follow the flow.</h1><p>One payment. Two connected systems. Every boundary has a purpose and a guarantee.</p></div>
+ <div className="profile-choice"><label>Runtime topology <select aria-label="Runtime topology" value={profile} onChange={e=>setProfile(e.target.value)}><option value="public">Public demo · browser persistence</option><option value="core">Server lab · PostgreSQL & FastAPI</option></select></label><span className="pill">{profile===(PUBLIC_DEMO?'public':'core')?'Current runtime':'Reference topology · not running here'}</span></div>
  <div className="tabbar" role="tablist" aria-label="Explorer mode">{[['architecture','Architecture'],['simulation','Guided simulation'],['evidence','Live evidence']].map(([id,label])=><button role="tab" aria-selected={mode===id} key={id} onClick={()=>{setMode(id);setPlaying(false);}}>{label}</button>)}</div>
  {mode==='evidence'?<div className="notice"><GitBranch size={20}/><div><b>Evidence comes from the running platform.</b><p>Open a payment’s trace to inspect its ledger, event IDs, archive receipt, ingestion run and publication. Engineers can inspect actual worker runs in the control room. There is no fabricated live animation.</p><a className="text-link" href="?page=engineering">Open control room →</a></div></div>:<>
  {mode==='simulation'&&<div className="notice"><button className="primary" onClick={()=>setPlaying(!playing)}>{playing?<Pause size={15}/>:<Play size={15}/>} {playing?'Pause':'Play'} example</button><div><b>Guided simulation · illustration only</b><p>Step {step+1} of {journey.length}: {manifest.components.find(c=>c.id===journey[step])?.label}. This animation creates no transactions and represents no live telemetry.</p></div></div>}

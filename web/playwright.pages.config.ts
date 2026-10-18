@@ -1,0 +1,2 @@
+import {defineConfig} from '@playwright/test';
+export default defineConfig({testDir:'./tests-pages',workers:1,retries:0,use:{baseURL:'http://localhost:5174/maple-harbour-bank/',headless:true,trace:'retain-on-failure'},webServer:{command:'VITE_PUBLIC_DEMO=true VITE_BASE_PATH=/maple-harbour-bank/ npm run dev -- --host 127.0.0.1 --port 5174',url:'http://localhost:5174/maple-harbour-bank/',reuseExistingServer:false},reporter:[['list'],['json',{outputFile:'../evidence/pages-playwright.json'}]]});
