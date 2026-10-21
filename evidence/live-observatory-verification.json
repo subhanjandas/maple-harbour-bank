@@ -1,0 +1,27 @@
+{
+  "event_checksums_verified": 17,
+  "archive_records": 17,
+  "unique_instructions": 4,
+  "non_opening_ledger_lines": 18,
+  "balanced_journal_groups": 14,
+  "instruction_minor": 3014,
+  "return_minor": 271,
+  "duplicate_requests": 1,
+  "pending_deliveries": 0,
+  "publication_id": "08aeedf5-2847-4b30-9ade-0445ffa668f4",
+  "publication_run_id": "3a63fd32-133b-43ff-8909-824e1798bb14",
+  "scenario": "65d3a0a6-5059-468a-b764-c52fb0934ab0",
+  "workload_id": "dc6d9709-de5f-4b48-a153-356f72af6c86",
+  "verified_at": "2026-10-21T13:50:03.984229+00:00",
+  "deployed_source": "faaa0c92f768916996e556bd0b341f4eca7f36d1",
+  "pages_run": "https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39610368828",
+  "runtime_url": "https://subhanjandas.github.io/maple-harbour-bank/?page=live",
+  "profile": "isolated browser simulation",
+  "verification": "Independent Python SHA-256, source fidelity, lifecycle, seeded amounts, exact money, balanced journals, approved totals and publication run checks; altered payload rejected",
+  "evidence_export": "evidence/live-observatory-smoke.json",
+  "actual_screenshots": [
+    "docs/assets/public-observatory-live.jpg",
+    "docs/assets/public-lineage-live.jpg"
+  ],
+  "exported_at": "2026-10-21T13:47:47.519Z"
+}

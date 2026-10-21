@@ -1,6 +1,18 @@
 # Acceptance evidence
 
-Release 0.4 candidate adds five public development-browser scenarios and one production-bundle scenario. Results are pending CI; prior passing evidence below still describes release 0.3. New coverage includes exact generated amounts/event/journal counts, duplicate effects, paused Gold publication, durable cursor, role restrictions, failed-cycle rollback and mobile Dusk. A production artifact test prevents development-only imports from masking Pages build errors.
+## Release 0.4 · live observatory
+
+Exact implementation **`401547e0cdd96162684baabd61b9d4b3db22c31d`** passed [public acceptance 39609873304](https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39609873304) and [server acceptance 39609873204](https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39609873204). The independent PR runs also passed: public 39609879449 and server 39609879367. Public captures were preserved at `99cfd526786bbf569f2d1be9e073d58dfb4fca08`, server evidence at `ac55baf73cf89d6a8470c081aaf36339fe1378d3`. Differences from implementation to merged source `faaa0c92f768916996e556bd0b341f4eca7f36d1` are evidence files only.
+
+- **49 backend tests**, 15.688 seconds; zero skips/failures/errors. Two server browser journeys passed in 10.599 seconds.
+- **11 public browser scenarios**, 54.403 seconds; zero skips/failures/flakes. The exact production Pages bundle passed its separate UI-only journey in 8.417 seconds, without development source imports.
+- Seed 42/four instructions produced exact amounts 685, 416, 1087, 826 cents; 17 source/archive events, 18 non-opening journal lines, one duplicate retry and one 271-cent partial return. The retry created no extra financial effect; ledger-line rate excludes opening funding.
+- Processing pause preserves approved financial values while real backlog grows. Cursor pause/reload/resume/stop, stable original scheduling response after progress, role denials, quota validation, atomic insufficient-funds failure, mobile Dusk and payment-selected lineage passed.
+- Both generated diagrams/README and public/core Atlas-document links verified. Python/npm dependency audits and source guard passed after patching certifi to 2026.10.19. Container build, actual HTTP journey and independent backup/restore passed. The separate 100K/1M record/query and 300 accepted-command baselines reran; these are not browser-generator capacity claims.
+
+The first candidate failed mobile overflow; a later candidate exposed the preview base mismatch and a new dependency advisory. A truncated lockfile upload was corrected before the successful complete rerun. No failed candidate was deployed. Current raw reports are in `evidence/`, with exact source identities; historical checkpoints below retain their own immutable commits.
+
+Merged source passed main again: [Pages/deploy 39610368828](https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39610368828) and [server acceptance 39610368898](https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39610368898). Actual deployed UI generated four instructions and opened payment lineage; [raw export](../evidence/live-observatory-smoke.json), [independent verification](../evidence/live-observatory-verification.json), [dashboard screenshot](assets/public-observatory-live.jpg) and [lineage screenshot](assets/public-lineage-live.jpg) are preserved. Run `python scripts/verify_observatory_export.py evidence/live-observatory-smoke.json` to reproduce verification without app imports.
 
 ## Release 0.3 · public deployment verified
 
@@ -27,7 +39,7 @@ The seven additional checks cover display-name upgrade with unchanged history, 1
 - Core Docker images built, migrated, seeded and started. An actual HTTP payment, duplicate request, settlement, partial return and worker publication ran through the container reverse proxy. Its trace is `evidence/core-journey.json`.
 - Logical backup restored into a different database after that journey, compared ledger counts and reran journal/account invariants. `evidence/restore-drill.txt` records the result; no restore over the live database occurred.
 
-`evidence/ci-summary.json` records the exact successful tested source; raw JUnit, browser JSON, capture provenance, benchmark and Compose evidence are committed by the successful workflow. Evidence is not hand-authored as a pass. The older release baseline below remains attributed to its original commit; current raw evidence is for release 0.3.
+`evidence/ci-summary.json` records the exact successful tested source; raw JUnit, browser JSON, capture provenance, benchmark and Compose evidence are committed by the successful workflow. Evidence is not hand-authored as a pass. The older release baseline below remains attributed to its original commit; current raw evidence is for release 0.4.
 
 The editing workspace's TypeScript build, Python compilation and two reference-cache tests pass. Local PostgreSQL tests skip without a supplied server; skipped tests are explicitly **not** acceptance passes. The GitHub runner supplies real PostgreSQL 18.6 and actual separate API/worker login roles.
 

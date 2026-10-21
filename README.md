@@ -10,17 +10,26 @@ Built by **Subhanjan Das** · customer and business banking · operations · ana
 
 The live app connects owned CAD accounts, payments, business maker/checker approvals, balanced journals, settlement/partial returns, preserved source events and reconciled analytical publications. Choose Subhanjan, Avery/Morgan, Taylor, Jordan or Casey to explore each workspace.
 
-The new [live observatory](docs/LIVE_OBSERVATORY.md) adds a seeded banking workload, measured source/archive activity and payment-selected architecture lineage. Choose **Casey → Live dashboard** to start activity, or Jordan to inspect approved metrics. [Architecture, stack and domain expansion](docs/PLATFORM_VISION.md). Release 0.4 acceptance is pending CI.
+The new [live observatory](docs/LIVE_OBSERVATORY.md) adds a seeded banking workload, measured source/archive activity and payment-selected architecture lineage. Choose **Casey → Live dashboard** to start activity, or Jordan to inspect approved metrics. [Architecture, stack and domain expansion](docs/PLATFORM_VISION.md). The bounded workload uses actual ledger commands and processing; it is not a peak-throughput benchmark.
 
 The public profile runs in a Web Worker and persists each visitor’s isolated simulation in IndexedDB. The separately runnable FastAPI/PostgreSQL profile proves server authorization, database constraints and fault recovery in CI. [Runtime guarantees and trade-offs](docs/PUBLIC_DEMO.md).
 
-**Release 0.3:** 6 public-browser tests, 49 backend tests and 2 server-browser tests passed, along with actual container startup, HTTP payment/return processing and backup/restore. [Exact evidence and tested commit →](docs/TEST_EVIDENCE.md)
+**Release 0.4:** 11 public-browser tests, one production-bundle journey, 49 backend tests and 2 server-browser tests passed, along with actual container startup, HTTP payment/return processing and backup/restore. [Exact evidence and tested commit →](docs/TEST_EVIDENCE.md)
 
-![Actual live GitHub Pages customer workspace after payment and partial return](docs/assets/public-live.jpg)
+![Actual deployed banking observatory after a four-instruction workload](docs/assets/public-observatory-live.jpg)
 
 [Recorded working demonstration (WebM)](docs/assets/payment-demo.webm) · [Light](docs/assets/customer-light.png) / [Dusk](docs/assets/customer-dusk.png) · [Operations](docs/assets/operations.png) · [Analytics](docs/assets/analytics.png) · [Architecture](docs/assets/architecture.png)
 
-*The image above was captured from the deployed Pages app. [Deployed smoke evidence](evidence/live-pages-verification.json) · [Business banking](docs/assets/public-business.png) · [Public analytics](docs/assets/public-analytics.png) · [Mobile Dusk](docs/assets/public-mobile.png). The recorded WebM and server screenshots demonstrate the independent PostgreSQL lab; [server capture provenance](docs/assets/provenance.json). Kafka/Spark/Delta/Airflow remain planned.*
+*The image above was captured from release 0.4 on the deployed Pages app. [Deployed observatory verification](evidence/live-observatory-verification.json) · [Live payment lineage](docs/assets/public-lineage-live.jpg) · [Customer workspace](docs/assets/public-live.jpg). [Deployed smoke evidence](evidence/live-pages-verification.json) · [Business banking](docs/assets/public-business.png) · [Public analytics](docs/assets/public-analytics.png) · [Mobile Dusk](docs/assets/public-mobile.png). The recorded WebM and server screenshots demonstrate the independent PostgreSQL lab; [server capture provenance](docs/assets/provenance.json). Kafka/Spark/Delta/Airflow remain planned.*
+
+<details>
+<summary>Actual live observatory and lineage captures · light, Dusk and mobile</summary>
+
+![Actual seeded banking observatory](docs/assets/public-dashboard.png)
+
+[Dusk dashboard](docs/assets/public-dashboard-dusk.png) · [Mobile Dusk](docs/assets/public-dashboard-mobile.png) · [Actual payment lineage](docs/assets/public-live-lineage.png). Captured by real browser acceptance on source `401547e0cdd96162684baabd61b9d4b3db22c31d`; these are working software captures.
+
+</details>
 
 ## Start the core
 

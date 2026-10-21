@@ -1,5 +1,7 @@
 # Deployment and economics · CAD 0
 
+Release 0.4 adds a bounded browser workload and observatory without changing hosting topology. The build uses `VITE_PUBLIC_DEMO=true VITE_BASE_PATH=/maple-harbour-bank/`; CI also runs the exact production bundle through Vite preview with the same base path. A development-server pass is insufficient to deploy. No database migration is added. Server images rebuild from the patched certifi 2026.10.19 lock and retain audit enforcement. Workload scheduling is limited to ten retained runs, at most 40 instructions per run and one eligible cycle per tick.
+
 ## Verified public deployment
 
 **https://subhanjandas.github.io/maple-harbour-bank/** is live on GitHub Pages. [Successful deployment](https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39090991069), source `8ee3566baebbcf89c7e3677c6fd93803ae422441`, release 0.3. The HTTPS app returned HTTP 200 and passed a direct visible-UI payment, settlement, partial return, publication and recovery smoke. [Actual exported evidence](../evidence/live-pages-verification.json).
@@ -21,6 +23,8 @@ Standard GitHub-hosted runners are free for this public repository; larger runne
 The browser processes only its own scenario, capped at 500 payments, 5,000 events, 200 proposals and 100 installments per payment. A scenario can be cleared or evicted by the browser and does not sync between devices. Worker execution stops when all pages close and resumes from persisted state when reopened. Browser storage/CPU and GitHub service limits are real constraints; no unrestricted hosting guarantee is made.
 
 Official references: [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages), [Pages limits and intended use](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits), [Actions billing](https://docs.github.com/en/billing/concepts/product-billing/github-actions), [custom Pages workflows](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
+
+Release 0.4 main [Pages deployment](https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39610368828) and [server/container/restore acceptance](https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39610368898) passed for `faaa0c92f768916996e556bd0b341f4eca7f36d1`. Deployed smoke and screenshots are preserved in [test evidence](TEST_EVIDENCE.md).
 
 ## Server lab and shutdown
 

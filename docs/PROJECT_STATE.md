@@ -1,20 +1,18 @@
-# Project state · release 0.4 candidate; release 0.3 publicly deployed
+# Project state · release 0.4 · publicly deployed
 
-## Current implementation checkpoint
+## Reproducible identity and deployed checkpoint
 
-Branch `feat/live-observatory`, based on exact main `0004655db84e67cd5426a80cba40be15167e13e6`. Release 0.4 adds the [live observatory](LIVE_OBSERVATORY.md), seeded durable synthetic activity and selected-payment actual lineage. Local TypeScript/production builds pass; new acceptance and deployment are pending CI. No database migration or new runtime component. The transitive certifi lock is patched to 2026.10.19 after the enforced audit found a new advisory. Browser schema 1 is extended additively; existing records and posted history remain intact.
+- Live app: **https://subhanjandas.github.io/maple-harbour-bank/**; observed dashboard **https://subhanjandas.github.io/maple-harbour-bank/?page=live**. Choose Casey → Live dashboard → Start synthetic activity; Jordan reads the same scenario.
+- Repository: https://github.com/subhanjandas/maple-harbour-bank. [PR #4](https://github.com/subhanjandas/maple-harbour-bank/pull/4) merged as deployed source **`faaa0c92f768916996e556bd0b341f4eca7f36d1`**.
+- Main gates passed: [Pages tests and deployment 39610368828](https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39610368828), [full server acceptance 39610368898](https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39610368898). Deployment terminal result was success; the actual public UI was then exercised.
+- Preserved raw reports test exact implementation **`401547e0cdd96162684baabd61b9d4b3db22c31d`**: 49 backend tests, 11 public browser scenarios, one exact production-bundle journey and two server-browser journeys, zero skips/failures/flakes. [Evidence](TEST_EVIDENCE.md).
+- Public CI captures: `99cfd526786bbf569f2d1be9e073d58dfb4fca08`; server reports/captures: `ac55baf73cf89d6a8470c081aaf36339fe1378d3`. Differences between implementation and merge are evidence files only. Subsequent documentation/evidence commits do not change deployed runtime code. Use `git rev-parse HEAD` for the current documentation checkpoint; a commit cannot contain its own hash.
+- Deployed UI smoke: seed 42/four instructions, CAD 30.14 accepted instruction activity, CAD 2.71 partial return, 17 preserved events, 18 non-opening ledger lines, one duplicate retry, zero pending deliveries. Selected payment opened actual event/receipt/run/publication lineage. Export independently verified SHA-256, source fidelity, versions, exact amounts and balanced journals; deliberately altered payload was rejected. Raw export/provenance: `evidence/live-observatory-smoke.json`, `evidence/live-observatory-verification.json`. Actual screenshots: `docs/assets/public-observatory-live.jpg`, `docs/assets/public-lineage-live.jpg`.
+- PostgreSQL migrations remain **001–008**; no migration is introduced. Browser schema **1** evolves additively with optional workloads and new-only journal timestamps. No posted history is rewritten. Patch: transitive certifi **2026.10.19**, enforced audit and rebuilt server image passed.
+- Atlas inspection/import: **`69586431f1ed0ed5bf3c7d698b246b0662542d6d`**, application 1.2.0/model 0.5.0, MIT. Atlas and other repositories remain untouched.
+- Budget **CAD 0**: Pages, standard public-repository runners, bounded one-day artifacts; no paid resource/account or permanent API on Actions. No additional hosting activation or sign-in is required.
 
-Next gate: run all public/server acceptance, preserve actual captures, merge and verify Pages. The release 0.3 deployment identity below remains authoritative until then.
-
-## Reproducible identity
-
-- Repository: https://github.com/subhanjandas/maple-harbour-bank
-- Live app: **https://subhanjandas.github.io/maple-harbour-bank/**
-- Release merged in [PR #3](https://github.com/subhanjandas/maple-harbour-bank/pull/3), deployed source **`8ee3566baebbcf89c7e3677c6fd93803ae422441`**.
-- [Successful Pages deployment 39090991069](https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39090991069); [successful server acceptance on main 39090991147](https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39090991147).
-- Preserved raw evidence tests implementation **`37fa7a9f02593655d4dff95ba4d9a646520e6697`**; actual public captures at `08c166e3fd955406578e2aa3c5e9e23dbfc2cbc8`, server captures at `0ccfd106e29938ede62373c1b4a6de1a9f3bdd48`. Differences to the deployed merge are evidence only. Later documentation commits do not change the deployed code.
-- Atlas import/inspection: **`69586431f1ed0ed5bf3c7d698b246b0662542d6d`**, application 1.2.0/model 0.5.0, MIT. Atlas and other repositories were not modified.
-- Budget is **CAD 0**. No paid hosting or additional cloud account was created. Standard public-repository GitHub runners, Pages and bounded one-day workflow artifacts are used.
+Release 0.3 remains a historical checkpoint: merge `8ee3566baebbcf89c7e3677c6fd93803ae422441`, Pages run 39090991069, server run 39090991147. Its original actual payment/return/rejection/recovery evidence remains in `evidence/live-pages-smoke.json` and `evidence/live-pages-verification.json`.
 
 ## Running profiles and URLs
 
@@ -33,7 +31,7 @@ The public role selector demonstrates workflows; it is not server authentication
 
 **Public profile:** Subhanjan’s owned CAD accounts, exact-cent outbound payments and internal transfers, immutable-through-command-interface journals, transactional source events, stable idempotency, simulated settlement, partial returns and analytical date corrections. Business maker/checker reserves funds before a separate approval, rejects self-approval and other organizations, then posts or releases the hold. A Web Worker archives original SHA-256 envelopes, verifies version/source/current-state controls and publishes reconciled daily activity. The control room exposes actual runs and isolated recovery controls. The architecture explorer labels public versus server topology and links to Atlas.
 
-**Six public-browser tests passed** with zero skips/flakes: persistence and live lineage; duplicate/hot-account and ownership attacks; maker/checker and organization isolation; archive interruption and missing-source recovery; partial returns and late correction without extra cash; independent browsers and mobile Dusk topology. The browser test run took 12.368 seconds on the recorded implementation. Genuine captures are `docs/assets/public-*.png`.
+**Eleven public-browser scenarios and one exact production-bundle journey passed** with zero skips/flakes. New acceptance covers the seeded workload's exact effects, stable duplicate scheduling responses after progress, durable pause/reload/resume/stop, staff restrictions, pipeline-paused financial serving, failed-cycle rollback, responsive Dusk dashboard and selected-payment lineage. The six earlier customer/business/recovery scenarios remain passing. Genuine CI captures are `docs/assets/public-*.png`; deployed UI captures are the JPG files above.
 
 **49 backend tests and two server-browser journeys passed**, with audits, actual Compose startup/payment/return/publication and independent backup restore. PostgreSQL migrations 001–008, trusted sessions/CSRF, scoped ownership/roles, service grants, immutable balanced journal constraints, concurrency, two signed OIDC visitors and subprocess crash boundaries remain covered. Data layers here are a PostgreSQL prototype, not Delta Lake.
 
@@ -58,7 +56,7 @@ The public role selector demonstrates workflows; it is not server authentication
 | Fees, interest and statements | Modeled only | Atlas reference; no accrual/statement generation |
 | Reference data and FX | Implemented and tested | Actual BoC reference CLI/cache and recorded fixture; executable FX quotes/cross-border planned |
 | Identity and access | Implemented and tested | Trusted sessions, backend authorization, signed test-provider OIDC; isolated visitor provisioning implemented and tested; deployed provider pending |
-| Data platform operations | Implemented and tested | Polling/archive/projection/publication prototype, process recovery; full distributed lakehouse pending |
+| Data platform operations | Implemented and tested | Seeded observatory, actual rates/lineage and durable workload cursor; polling/archive/projection/publication prototype, process recovery; full distributed lakehouse pending |
 | Real customers, actual money movement, licensed bank/regulatory certification | Out of scope | Never claimed |
 
 
@@ -77,6 +75,13 @@ VITE_PUBLIC_DEMO=true VITE_BASE_PATH=/maple-harbour-bank/ npm run build --prefix
 # Public browser acceptance:
 cd web
 npx playwright test -c playwright.pages.config.ts
+npx playwright test -c playwright.production.config.ts
+```
+
+Independently verify the preserved deployed four-instruction smoke:
+
+```bash
+python scripts/verify_observatory_export.py evidence/live-observatory-smoke.json
 ```
 
 Server profile from the repository root:
@@ -93,7 +98,7 @@ Migration order: `001_core.sql`, `002_journal_trigger.sql`, `003_scenario_bounds
 
 ## Next acceptance gates
 
-1. Keep both public and server tests green and update deployment/source evidence for each increment. Public deployment is operational; no further hosting budget or sign-in step is required for the current release.
+1. Completed this gate: public observatory, seeded activity, exact production bundle and actual payment lineage are deployed and verified. Keep both public and server tests green and update deployment/source evidence for each increment. Public deployment is operational; no further hosting budget or sign-in step is required for the current release.
 2. Add independently controlled batch manifests/files, changed-file identity detection and bounded replay/disposition. Keep browser event contracts explicitly distinct from authoritative core events.
 3. Expand business approvals into the PostgreSQL core with maker/checker and organization authorization; do not count browser-role tests as backend security proof.
 4. Introduce CDC/Kafka/Spark/Delta/Airflow only in bounded local/CI groups after current compatibility and resource evidence. No paid resource is authorized. Preserve one-publisher cutover and original server event identities.

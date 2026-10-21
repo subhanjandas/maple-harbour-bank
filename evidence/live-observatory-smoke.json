@@ -1,0 +1,1729 @@
+{
+  "format": "mhb-public-evidence-v1",
+  "exported_at": "2026-10-21T13:47:47.519Z",
+  "scenario": "65d3a0a6-5059-468a-b764-c52fb0934ab0",
+  "events": [
+    {
+      "seq": 1,
+      "checksum": "c6741bbf7fc1e17244252a5f60581f0d2c0369ffc043f1a1b8799e841df2ed49",
+      "acknowledged_at": "2026-10-21T13:46:36.562Z",
+      "attempts": 1,
+      "envelope": {
+        "schema_version": 1,
+        "source_system": "mhb-browser-simulation",
+        "event_id": "0b51c51d-e1e1-4bf7-8443-2e43431202e2",
+        "aggregate_id": "ee076f27-8274-4750-a5d2-d0d2b0da3544",
+        "aggregate_version": 1,
+        "tenant_id": "65d3a0a6-5059-468a-b764-c52fb0934ab0",
+        "event_time": "2026-10-21T13:46:34.053Z",
+        "correlation_id": "c707d7eb-761e-4891-a6c7-f0e946b58a3e",
+        "causation_id": "sim:dc6d9709-de5f-4b48-a153-356f72af6c86:0",
+        "currency": "CAD",
+        "currency_exponent": 2,
+        "payload": {
+          "id": "ee076f27-8274-4750-a5d2-d0d2b0da3544",
+          "owner_id": "subhanjan",
+          "source_id": "chequing",
+          "kind": "OUTBOUND",
+          "amount_minor": 685,
+          "currency": "CAD",
+          "status": "RECEIVED",
+          "returned_minor": 0,
+          "version": 1,
+          "business_date": "2026-10-21",
+          "created_at": "2026-10-21T13:46:34.052Z",
+          "correlation_id": "c707d7eb-761e-4891-a6c7-f0e946b58a3e",
+          "beneficiary_id": "energy",
+          "returns": []
+        }
+      }
+    },
+    {
+      "seq": 2,
+      "checksum": "b24588ed493733159fcf3a7c449e90dab60f841ec4288d032fb21fb49847860b",
+      "acknowledged_at": "2026-10-21T13:46:36.562Z",
+      "attempts": 1,
+      "envelope": {
+        "schema_version": 1,
+        "source_system": "mhb-browser-simulation",
+        "event_id": "5741da27-b6c8-422d-80ca-33c05fbe6b03",
+        "aggregate_id": "ee076f27-8274-4750-a5d2-d0d2b0da3544",
+        "aggregate_version": 2,
+        "tenant_id": "65d3a0a6-5059-468a-b764-c52fb0934ab0",
+        "event_time": "2026-10-21T13:46:34.053Z",
+        "correlation_id": "c707d7eb-761e-4891-a6c7-f0e946b58a3e",
+        "causation_id": "sim:dc6d9709-de5f-4b48-a153-356f72af6c86:0",
+        "currency": "CAD",
+        "currency_exponent": 2,
+        "payload": {
+          "id": "ee076f27-8274-4750-a5d2-d0d2b0da3544",
+          "owner_id": "subhanjan",
+          "source_id": "chequing",
+          "kind": "OUTBOUND",
+          "amount_minor": 685,
+          "currency": "CAD",
+          "status": "VALIDATED",
+          "returned_minor": 0,
+          "version": 2,
+          "business_date": "2026-10-21",
+          "created_at": "2026-10-21T13:46:34.052Z",
+          "correlation_id": "c707d7eb-761e-4891-a6c7-f0e946b58a3e",
+          "beneficiary_id": "energy",
+          "returns": []
+        }
+      }
+    },
+    {
+      "seq": 3,
+      "checksum": "297bdd56f49cf89cf1b531aafb25412f2e85b7d2cc160676772ab60d40efbff5",
+      "acknowledged_at": "2026-10-21T13:46:36.562Z",
+      "attempts": 1,
+      "envelope": {
+        "schema_version": 1,
+        "source_system": "mhb-browser-simulation",
+        "event_id": "7cceb0f9-8312-482d-8abe-73cbdabb58a0",
+        "aggregate_id": "ee076f27-8274-4750-a5d2-d0d2b0da3544",
+        "aggregate_version": 3,
+        "tenant_id": "65d3a0a6-5059-468a-b764-c52fb0934ab0",
+        "event_time": "2026-10-21T13:46:34.053Z",
+        "correlation_id": "c707d7eb-761e-4891-a6c7-f0e946b58a3e",
+        "causation_id": "sim:dc6d9709-de5f-4b48-a153-356f72af6c86:0",
+        "currency": "CAD",
+        "currency_exponent": 2,
+        "payload": {
+          "id": "ee076f27-8274-4750-a5d2-d0d2b0da3544",
+          "owner_id": "subhanjan",
+          "source_id": "chequing",
+          "kind": "OUTBOUND",
+          "amount_minor": 685,
+          "currency": "CAD",
+          "status": "POSTED",
+          "returned_minor": 0,
+          "version": 3,
+          "business_date": "2026-10-21",
+          "created_at": "2026-10-21T13:46:34.052Z",
+          "correlation_id": "c707d7eb-761e-4891-a6c7-f0e946b58a3e",
+          "beneficiary_id": "energy",
+          "returns": []
+        }
+      }
+    },
+    {
+      "seq": 4,
+      "checksum": "7569f428df104f8693e470a13ce736def0e4bdedd8bb7816ee0b5e2c2c095c2d",
+      "acknowledged_at": "2026-10-21T13:46:36.562Z",
+      "attempts": 1,
+      "envelope": {
+        "schema_version": 1,
+        "source_system": "mhb-browser-simulation",
+        "event_id": "3083c847-d028-41e4-b5b1-1c2c94eaef68",
+        "aggregate_id": "ee076f27-8274-4750-a5d2-d0d2b0da3544",
+        "aggregate_version": 4,
+        "tenant_id": "65d3a0a6-5059-468a-b764-c52fb0934ab0",
+        "event_time": "2026-10-21T13:46:34.054Z",
+        "correlation_id": "c707d7eb-761e-4891-a6c7-f0e946b58a3e",
+        "causation_id": "sim:dc6d9709-de5f-4b48-a153-356f72af6c86:0:settle",
+        "currency": "CAD",
+        "currency_exponent": 2,
+        "payload": {
+          "id": "ee076f27-8274-4750-a5d2-d0d2b0da3544",
+          "owner_id": "subhanjan",
+          "source_id": "chequing",
+          "kind": "OUTBOUND",
+          "amount_minor": 685,
+          "currency": "CAD",
+          "status": "SETTLED",
+          "returned_minor": 0,
+          "version": 4,
+          "business_date": "2026-10-21",
+          "created_at": "2026-10-21T13:46:34.052Z",
+          "correlation_id": "c707d7eb-761e-4891-a6c7-f0e946b58a3e",
+          "beneficiary_id": "energy",
+          "returns": []
+        }
+      }
+    },
+    {
+      "seq": 5,
+      "checksum": "3bc3eec91ad00b6b93f159e8efa0865c0cb1c78b921f1ab10aeddb715ba2ceb6",
+      "acknowledged_at": "2026-10-21T13:46:36.562Z",
+      "attempts": 1,
+      "envelope": {
+        "schema_version": 1,
+        "source_system": "mhb-browser-simulation",
+        "event_id": "2d91b8bb-8a56-4b62-a3f5-eee43bdf73d1",
+        "aggregate_id": "62cfb227-0fba-49a8-af06-18ed7644a340",
+        "aggregate_version": 1,
+        "tenant_id": "65d3a0a6-5059-468a-b764-c52fb0934ab0",
+        "event_time": "2026-10-21T13:46:36.050Z",
+        "correlation_id": "51feea7f-0972-44f8-9675-8c5610a0f0f9",
+        "causation_id": "sim:dc6d9709-de5f-4b48-a153-356f72af6c86:1",
+        "currency": "CAD",
+        "currency_exponent": 2,
+        "payload": {
+          "id": "62cfb227-0fba-49a8-af06-18ed7644a340",
+          "owner_id": "subhanjan",
+          "source_id": "chequing",
+          "kind": "OUTBOUND",
+          "amount_minor": 416,
+          "currency": "CAD",
+          "status": "RECEIVED",
+          "returned_minor": 0,
+          "version": 1,
+          "business_date": "2026-10-21",
+          "created_at": "2026-10-21T13:46:36.049Z",
+          "correlation_id": "51feea7f-0972-44f8-9675-8c5610a0f0f9",
+          "beneficiary_id": "energy",
+          "returns": []
+        }
+      }
+    },
+    {
+      "seq": 6,
+      "checksum": "0423c54cc4216909a04976ff8e0e4225156bc6f5d08151a9bac8213ee1e73aef",
+      "acknowledged_at": "2026-10-21T13:46:36.562Z",
+      "attempts": 1,
+      "envelope": {
+        "schema_version": 1,
+        "source_system": "mhb-browser-simulation",
+        "event_id": "a53da5ff-4fa1-4b1d-b30c-45f7afe62317",
+        "aggregate_id": "62cfb227-0fba-49a8-af06-18ed7644a340",
+        "aggregate_version": 2,
+        "tenant_id": "65d3a0a6-5059-468a-b764-c52fb0934ab0",
+        "event_time": "2026-10-21T13:46:36.050Z",
+        "correlation_id": "51feea7f-0972-44f8-9675-8c5610a0f0f9",
+        "causation_id": "sim:dc6d9709-de5f-4b48-a153-356f72af6c86:1",
+        "currency": "CAD",
+        "currency_exponent": 2,
+        "payload": {
+          "id": "62cfb227-0fba-49a8-af06-18ed7644a340",
+          "owner_id": "subhanjan",
+          "source_id": "chequing",
+          "kind": "OUTBOUND",
+          "amount_minor": 416,
+          "currency": "CAD",
+          "status": "VALIDATED",
+          "returned_minor": 0,
+          "version": 2,
+          "business_date": "2026-10-21",
+          "created_at": "2026-10-21T13:46:36.049Z",
+          "correlation_id": "51feea7f-0972-44f8-9675-8c5610a0f0f9",
+          "beneficiary_id": "energy",
+          "returns": []
+        }
+      }
+    },
+    {
+      "seq": 7,
+      "checksum": "ee156ff4c777bb8af189ed5f276c75bb01eba30d7f985037f37c309d756ccfc7",
+      "acknowledged_at": "2026-10-21T13:46:36.562Z",
+      "attempts": 1,
+      "envelope": {
+        "schema_version": 1,
+        "source_system": "mhb-browser-simulation",
+        "event_id": "56783f35-6598-48da-9099-23616182686d",
+        "aggregate_id": "62cfb227-0fba-49a8-af06-18ed7644a340",
+        "aggregate_version": 3,
+        "tenant_id": "65d3a0a6-5059-468a-b764-c52fb0934ab0",
+        "event_time": "2026-10-21T13:46:36.050Z",
+        "correlation_id": "51feea7f-0972-44f8-9675-8c5610a0f0f9",
+        "causation_id": "sim:dc6d9709-de5f-4b48-a153-356f72af6c86:1",
+        "currency": "CAD",
+        "currency_exponent": 2,
+        "payload": {
+          "id": "62cfb227-0fba-49a8-af06-18ed7644a340",
+          "owner_id": "subhanjan",
+          "source_id": "chequing",
+          "kind": "OUTBOUND",
+          "amount_minor": 416,
+          "currency": "CAD",
+          "status": "POSTED",
+          "returned_minor": 0,
+          "version": 3,
+          "business_date": "2026-10-21",
+          "created_at": "2026-10-21T13:46:36.049Z",
+          "correlation_id": "51feea7f-0972-44f8-9675-8c5610a0f0f9",
+          "beneficiary_id": "energy",
+          "returns": []
+        }
+      }
+    },
+    {
+      "seq": 8,
+      "checksum": "197bd681b62a0e177bee737944939e8b80dffc7c63bd0f1b8bde6750db9d44d9",
+      "acknowledged_at": "2026-10-21T13:46:36.562Z",
+      "attempts": 1,
+      "envelope": {
+        "schema_version": 1,
+        "source_system": "mhb-browser-simulation",
+        "event_id": "78f7d3ac-7705-4222-8f4f-208668468e32",
+        "aggregate_id": "62cfb227-0fba-49a8-af06-18ed7644a340",
+        "aggregate_version": 4,
+        "tenant_id": "65d3a0a6-5059-468a-b764-c52fb0934ab0",
+        "event_time": "2026-10-21T13:46:36.050Z",
+        "correlation_id": "51feea7f-0972-44f8-9675-8c5610a0f0f9",
+        "causation_id": "sim:dc6d9709-de5f-4b48-a153-356f72af6c86:1:settle",
+        "currency": "CAD",
+        "currency_exponent": 2,
+        "payload": {
+          "id": "62cfb227-0fba-49a8-af06-18ed7644a340",
+          "owner_id": "subhanjan",
+          "source_id": "chequing",
+          "kind": "OUTBOUND",
+          "amount_minor": 416,
+          "currency": "CAD",
+          "status": "SETTLED",
+          "returned_minor": 0,
+          "version": 4,
+          "business_date": "2026-10-21",
+          "created_at": "2026-10-21T13:46:36.049Z",
+          "correlation_id": "51feea7f-0972-44f8-9675-8c5610a0f0f9",
+          "beneficiary_id": "energy",
+          "returns": []
+        }
+      }
+    },
+    {
+      "seq": 9,
+      "checksum": "013b503a42b52cec59813eb92d6ce935e0caa568323f33585fe2f0198dd91619",
+      "acknowledged_at": "2026-10-21T13:46:39.053Z",
+      "attempts": 1,
+      "envelope": {
+        "schema_version": 1,
+        "source_system": "mhb-browser-simulation",
+        "event_id": "68c874bd-8396-4aa2-a633-d304042c35e7",
+        "aggregate_id": "f68dcc04-59e3-4bf9-b890-a05fce46bb9c",
+        "aggregate_version": 1,
+        "tenant_id": "65d3a0a6-5059-468a-b764-c52fb0934ab0",
+        "event_time": "2026-10-21T13:46:37.053Z",
+        "correlation_id": "c41603d2-31f4-422f-a384-990a0dfc1b91",
+        "causation_id": "sim:dc6d9709-de5f-4b48-a153-356f72af6c86:2",
+        "currency": "CAD",
+        "currency_exponent": 2,
+        "payload": {
+          "id": "f68dcc04-59e3-4bf9-b890-a05fce46bb9c",
+          "owner_id": "subhanjan",
+          "source_id": "chequing",
+          "kind": "OUTBOUND",
+          "amount_minor": 1087,
+          "currency": "CAD",
+          "status": "RECEIVED",
+          "returned_minor": 0,
+          "version": 1,
+          "business_date": "2026-10-21",
+          "created_at": "2026-10-21T13:46:37.053Z",
+          "correlation_id": "c41603d2-31f4-422f-a384-990a0dfc1b91",
+          "beneficiary_id": "energy",
+          "returns": []
+        }
+      }
+    },
+    {
+      "seq": 10,
+      "checksum": "81f982f8165361a5842a76691a7e128deebaae6d539f7be0a9470f38fb7d7e69",
+      "acknowledged_at": "2026-10-21T13:46:39.053Z",
+      "attempts": 1,
+      "envelope": {
+        "schema_version": 1,
+        "source_system": "mhb-browser-simulation",
+        "event_id": "e04a9efd-5b66-4837-92e3-a2ac13a1b418",
+        "aggregate_id": "f68dcc04-59e3-4bf9-b890-a05fce46bb9c",
+        "aggregate_version": 2,
+        "tenant_id": "65d3a0a6-5059-468a-b764-c52fb0934ab0",
+        "event_time": "2026-10-21T13:46:37.053Z",
+        "correlation_id": "c41603d2-31f4-422f-a384-990a0dfc1b91",
+        "causation_id": "sim:dc6d9709-de5f-4b48-a153-356f72af6c86:2",
+        "currency": "CAD",
+        "currency_exponent": 2,
+        "payload": {
+          "id": "f68dcc04-59e3-4bf9-b890-a05fce46bb9c",
+          "owner_id": "subhanjan",
+          "source_id": "chequing",
+          "kind": "OUTBOUND",
+          "amount_minor": 1087,
+          "currency": "CAD",
+          "status": "VALIDATED",
+          "returned_minor": 0,
+          "version": 2,
+          "business_date": "2026-10-21",
+          "created_at": "2026-10-21T13:46:37.053Z",
+          "correlation_id": "c41603d2-31f4-422f-a384-990a0dfc1b91",
+          "beneficiary_id": "energy",
+          "returns": []
+        }
+      }
+    },
+    {
+      "seq": 11,
+      "checksum": "f704231505851b71fc9482150a6023ea081d924714c0e2a33a78859d6cd3b69f",
+      "acknowledged_at": "2026-10-21T13:46:39.053Z",
+      "attempts": 1,
+      "envelope": {
+        "schema_version": 1,
+        "source_system": "mhb-browser-simulation",
+        "event_id": "d50501a8-807f-4be7-8804-f320f1fef950",
+        "aggregate_id": "f68dcc04-59e3-4bf9-b890-a05fce46bb9c",
+        "aggregate_version": 3,
+        "tenant_id": "65d3a0a6-5059-468a-b764-c52fb0934ab0",
+        "event_time": "2026-10-21T13:46:37.053Z",
+        "correlation_id": "c41603d2-31f4-422f-a384-990a0dfc1b91",
+        "causation_id": "sim:dc6d9709-de5f-4b48-a153-356f72af6c86:2",
+        "currency": "CAD",
+        "currency_exponent": 2,
+        "payload": {
+          "id": "f68dcc04-59e3-4bf9-b890-a05fce46bb9c",
+          "owner_id": "subhanjan",
+          "source_id": "chequing",
+          "kind": "OUTBOUND",
+          "amount_minor": 1087,
+          "currency": "CAD",
+          "status": "POSTED",
+          "returned_minor": 0,
+          "version": 3,
+          "business_date": "2026-10-21",
+          "created_at": "2026-10-21T13:46:37.053Z",
+          "correlation_id": "c41603d2-31f4-422f-a384-990a0dfc1b91",
+          "beneficiary_id": "energy",
+          "returns": []
+        }
+      }
+    },
+    {
+      "seq": 12,
+      "checksum": "c4c791dd6eec91b56a39d496458f788361b43dd8c5d6a18ab59f772d07a58972",
+      "acknowledged_at": "2026-10-21T13:46:39.053Z",
+      "attempts": 1,
+      "envelope": {
+        "schema_version": 1,
+        "source_system": "mhb-browser-simulation",
+        "event_id": "f052102e-4053-43ce-97e4-f1ec1e1e1b7a",
+        "aggregate_id": "f68dcc04-59e3-4bf9-b890-a05fce46bb9c",
+        "aggregate_version": 4,
+        "tenant_id": "65d3a0a6-5059-468a-b764-c52fb0934ab0",
+        "event_time": "2026-10-21T13:46:37.053Z",
+        "correlation_id": "c41603d2-31f4-422f-a384-990a0dfc1b91",
+        "causation_id": "sim:dc6d9709-de5f-4b48-a153-356f72af6c86:2:settle",
+        "currency": "CAD",
+        "currency_exponent": 2,
+        "payload": {
+          "id": "f68dcc04-59e3-4bf9-b890-a05fce46bb9c",
+          "owner_id": "subhanjan",
+          "source_id": "chequing",
+          "kind": "OUTBOUND",
+          "amount_minor": 1087,
+          "currency": "CAD",
+          "status": "SETTLED",
+          "returned_minor": 0,
+          "version": 4,
+          "business_date": "2026-10-21",
+          "created_at": "2026-10-21T13:46:37.053Z",
+          "correlation_id": "c41603d2-31f4-422f-a384-990a0dfc1b91",
+          "beneficiary_id": "energy",
+          "returns": []
+        }
+      }
+    },
+    {
+      "seq": 13,
+      "checksum": "ddcdf5d18c0775ea961708692bbfc7605bf21772e2ccf2e5e79bb5c9639fbb22",
+      "acknowledged_at": "2026-10-21T13:46:39.053Z",
+      "attempts": 1,
+      "envelope": {
+        "schema_version": 1,
+        "source_system": "mhb-browser-simulation",
+        "event_id": "306e11a6-3192-4837-8611-520e0d800017",
+        "aggregate_id": "f68dcc04-59e3-4bf9-b890-a05fce46bb9c",
+        "aggregate_version": 5,
+        "tenant_id": "65d3a0a6-5059-468a-b764-c52fb0934ab0",
+        "event_time": "2026-10-21T13:46:37.054Z",
+        "correlation_id": "c41603d2-31f4-422f-a384-990a0dfc1b91",
+        "causation_id": "sim:dc6d9709-de5f-4b48-a153-356f72af6c86:2:return",
+        "currency": "CAD",
+        "currency_exponent": 2,
+        "payload": {
+          "id": "f68dcc04-59e3-4bf9-b890-a05fce46bb9c",
+          "owner_id": "subhanjan",
+          "source_id": "chequing",
+          "kind": "OUTBOUND",
+          "amount_minor": 1087,
+          "currency": "CAD",
+          "status": "PARTIALLY_RETURNED",
+          "returned_minor": 271,
+          "version": 5,
+          "business_date": "2026-10-21",
+          "created_at": "2026-10-21T13:46:37.053Z",
+          "correlation_id": "c41603d2-31f4-422f-a384-990a0dfc1b91",
+          "beneficiary_id": "energy",
+          "returns": [
+            {
+              "id": "42f91778-f227-4993-8b2b-853a0cc151dd",
+              "amount_minor": 271,
+              "booked_date": "2026-10-21",
+              "reporting_date": "2026-10-21",
+              "revision": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "seq": 14,
+      "checksum": "a3f181fc3ea74fac1fdcb5cc4b69b87a15f4f0586adc2e6537931eca6cf0015a",
+      "acknowledged_at": "2026-10-21T13:46:41.558Z",
+      "attempts": 1,
+      "envelope": {
+        "schema_version": 1,
+        "source_system": "mhb-browser-simulation",
+        "event_id": "c0d81b8f-ebf8-4392-a4b4-5321083fc850",
+        "aggregate_id": "8a963b2a-b756-4956-9eb8-5d88abf8342e",
+        "aggregate_version": 1,
+        "tenant_id": "65d3a0a6-5059-468a-b764-c52fb0934ab0",
+        "event_time": "2026-10-21T13:46:39.061Z",
+        "correlation_id": "1dae2c9e-e1ad-462e-9227-5acf9d372424",
+        "causation_id": "sim:dc6d9709-de5f-4b48-a153-356f72af6c86:3",
+        "currency": "CAD",
+        "currency_exponent": 2,
+        "payload": {
+          "id": "8a963b2a-b756-4956-9eb8-5d88abf8342e",
+          "owner_id": "subhanjan",
+          "source_id": "chequing",
+          "kind": "OUTBOUND",
+          "amount_minor": 826,
+          "currency": "CAD",
+          "status": "RECEIVED",
+          "returned_minor": 0,
+          "version": 1,
+          "business_date": "2026-10-21",
+          "created_at": "2026-10-21T13:46:39.061Z",
+          "correlation_id": "1dae2c9e-e1ad-462e-9227-5acf9d372424",
+          "beneficiary_id": "energy",
+          "returns": []
+        }
+      }
+    },
+    {
+      "seq": 15,
+      "checksum": "43bdf66ff453b73a8d34f3b2f8a66f5d03f48cd37f5035fa28be7bcf17fd6701",
+      "acknowledged_at": "2026-10-21T13:46:41.558Z",
+      "attempts": 1,
+      "envelope": {
+        "schema_version": 1,
+        "source_system": "mhb-browser-simulation",
+        "event_id": "8244bf08-acc4-4b9e-8d8c-6952acec012b",
+        "aggregate_id": "8a963b2a-b756-4956-9eb8-5d88abf8342e",
+        "aggregate_version": 2,
+        "tenant_id": "65d3a0a6-5059-468a-b764-c52fb0934ab0",
+        "event_time": "2026-10-21T13:46:39.061Z",
+        "correlation_id": "1dae2c9e-e1ad-462e-9227-5acf9d372424",
+        "causation_id": "sim:dc6d9709-de5f-4b48-a153-356f72af6c86:3",
+        "currency": "CAD",
+        "currency_exponent": 2,
+        "payload": {
+          "id": "8a963b2a-b756-4956-9eb8-5d88abf8342e",
+          "owner_id": "subhanjan",
+          "source_id": "chequing",
+          "kind": "OUTBOUND",
+          "amount_minor": 826,
+          "currency": "CAD",
+          "status": "VALIDATED",
+          "returned_minor": 0,
+          "version": 2,
+          "business_date": "2026-10-21",
+          "created_at": "2026-10-21T13:46:39.061Z",
+          "correlation_id": "1dae2c9e-e1ad-462e-9227-5acf9d372424",
+          "beneficiary_id": "energy",
+          "returns": []
+        }
+      }
+    },
+    {
+      "seq": 16,
+      "checksum": "5d0cc9c4d5101053f1c6dad317079ccf35bd288611d0f0bcbb0e5692bdd23f89",
+      "acknowledged_at": "2026-10-21T13:46:41.558Z",
+      "attempts": 1,
+      "envelope": {
+        "schema_version": 1,
+        "source_system": "mhb-browser-simulation",
+        "event_id": "c4fae8d6-53ef-40be-8110-0ddcdc02e7b4",
+        "aggregate_id": "8a963b2a-b756-4956-9eb8-5d88abf8342e",
+        "aggregate_version": 3,
+        "tenant_id": "65d3a0a6-5059-468a-b764-c52fb0934ab0",
+        "event_time": "2026-10-21T13:46:39.061Z",
+        "correlation_id": "1dae2c9e-e1ad-462e-9227-5acf9d372424",
+        "causation_id": "sim:dc6d9709-de5f-4b48-a153-356f72af6c86:3",
+        "currency": "CAD",
+        "currency_exponent": 2,
+        "payload": {
+          "id": "8a963b2a-b756-4956-9eb8-5d88abf8342e",
+          "owner_id": "subhanjan",
+          "source_id": "chequing",
+          "kind": "OUTBOUND",
+          "amount_minor": 826,
+          "currency": "CAD",
+          "status": "POSTED",
+          "returned_minor": 0,
+          "version": 3,
+          "business_date": "2026-10-21",
+          "created_at": "2026-10-21T13:46:39.061Z",
+          "correlation_id": "1dae2c9e-e1ad-462e-9227-5acf9d372424",
+          "beneficiary_id": "energy",
+          "returns": []
+        }
+      }
+    },
+    {
+      "seq": 17,
+      "checksum": "1e3fa54038bbb2c43548c157ddb5cae610c702d6d114749c28da325e5e5c15b5",
+      "acknowledged_at": "2026-10-21T13:46:41.558Z",
+      "attempts": 1,
+      "envelope": {
+        "schema_version": 1,
+        "source_system": "mhb-browser-simulation",
+        "event_id": "36781608-04c2-4dcf-b3d4-716ffe84213c",
+        "aggregate_id": "8a963b2a-b756-4956-9eb8-5d88abf8342e",
+        "aggregate_version": 4,
+        "tenant_id": "65d3a0a6-5059-468a-b764-c52fb0934ab0",
+        "event_time": "2026-10-21T13:46:39.061Z",
+        "correlation_id": "1dae2c9e-e1ad-462e-9227-5acf9d372424",
+        "causation_id": "sim:dc6d9709-de5f-4b48-a153-356f72af6c86:3:settle",
+        "currency": "CAD",
+        "currency_exponent": 2,
+        "payload": {
+          "id": "8a963b2a-b756-4956-9eb8-5d88abf8342e",
+          "owner_id": "subhanjan",
+          "source_id": "chequing",
+          "kind": "OUTBOUND",
+          "amount_minor": 826,
+          "currency": "CAD",
+          "status": "SETTLED",
+          "returned_minor": 0,
+          "version": 4,
+          "business_date": "2026-10-21",
+          "created_at": "2026-10-21T13:46:39.061Z",
+          "correlation_id": "1dae2c9e-e1ad-462e-9227-5acf9d372424",
+          "beneficiary_id": "energy",
+          "returns": []
+        }
+      }
+    }
+  ],
+  "bronze": [
+    {
+      "event": {
+        "seq": 1,
+        "checksum": "c6741bbf7fc1e17244252a5f60581f0d2c0369ffc043f1a1b8799e841df2ed49",
+        "acknowledged_at": null,
+        "attempts": 1,
+        "envelope": {
+          "schema_version": 1,
+          "source_system": "mhb-browser-simulation",
+          "event_id": "0b51c51d-e1e1-4bf7-8443-2e43431202e2",
+          "aggregate_id": "ee076f27-8274-4750-a5d2-d0d2b0da3544",
+          "aggregate_version": 1,
+          "tenant_id": "65d3a0a6-5059-468a-b764-c52fb0934ab0",
+          "event_time": "2026-10-21T13:46:34.053Z",
+          "correlation_id": "c707d7eb-761e-4891-a6c7-f0e946b58a3e",
+          "causation_id": "sim:dc6d9709-de5f-4b48-a153-356f72af6c86:0",
+          "currency": "CAD",
+          "currency_exponent": 2,
+          "payload": {
+            "id": "ee076f27-8274-4750-a5d2-d0d2b0da3544",
+            "owner_id": "subhanjan",
+            "source_id": "chequing",
+            "kind": "OUTBOUND",
+            "amount_minor": 685,
+            "currency": "CAD",
+            "status": "RECEIVED",
+            "returned_minor": 0,
+            "version": 1,
+            "business_date": "2026-10-21",
+            "created_at": "2026-10-21T13:46:34.052Z",
+            "correlation_id": "c707d7eb-761e-4891-a6c7-f0e946b58a3e",
+            "beneficiary_id": "energy",
+            "returns": []
+          }
+        }
+      },
+      "received_at": "2026-10-21T13:46:36.549Z",
+      "ingestion_run_id": "d1cf3b6b-4e6e-482c-b90f-de091c458c4c"
+    },
+    {
+      "event": {
+        "seq": 2,
+        "checksum": "b24588ed493733159fcf3a7c449e90dab60f841ec4288d032fb21fb49847860b",
+        "acknowledged_at": null,
+        "attempts": 1,
+        "envelope": {
+          "schema_version": 1,
+          "source_system": "mhb-browser-simulation",
+          "event_id": "5741da27-b6c8-422d-80ca-33c05fbe6b03",
+          "aggregate_id": "ee076f27-8274-4750-a5d2-d0d2b0da3544",
+          "aggregate_version": 2,
+          "tenant_id": "65d3a0a6-5059-468a-b764-c52fb0934ab0",
+          "event_time": "2026-10-21T13:46:34.053Z",
+          "correlation_id": "c707d7eb-761e-4891-a6c7-f0e946b58a3e",
+          "causation_id": "sim:dc6d9709-de5f-4b48-a153-356f72af6c86:0",
+          "currency": "CAD",
+          "currency_exponent": 2,
+          "payload": {
+            "id": "ee076f27-8274-4750-a5d2-d0d2b0da3544",
+            "owner_id": "subhanjan",
+            "source_id": "chequing",
+            "kind": "OUTBOUND",
+            "amount_minor": 685,
+            "currency": "CAD",
+            "status": "VALIDATED",
+            "returned_minor": 0,
+            "version": 2,
+            "business_date": "2026-10-21",
+            "created_at": "2026-10-21T13:46:34.052Z",
+            "correlation_id": "c707d7eb-761e-4891-a6c7-f0e946b58a3e",
+            "beneficiary_id": "energy",
+            "returns": []
+          }
+        }
+      },
+      "received_at": "2026-10-21T13:46:36.549Z",
+      "ingestion_run_id": "d1cf3b6b-4e6e-482c-b90f-de091c458c4c"
+    },
+    {
+      "event": {
+        "seq": 3,
+        "checksum": "297bdd56f49cf89cf1b531aafb25412f2e85b7d2cc160676772ab60d40efbff5",
+        "acknowledged_at": null,
+        "attempts": 1,
+        "envelope": {
+          "schema_version": 1,
+          "source_system": "mhb-browser-simulation",
+          "event_id": "7cceb0f9-8312-482d-8abe-73cbdabb58a0",
+          "aggregate_id": "ee076f27-8274-4750-a5d2-d0d2b0da3544",
+          "aggregate_version": 3,
+          "tenant_id": "65d3a0a6-5059-468a-b764-c52fb0934ab0",
+          "event_time": "2026-10-21T13:46:34.053Z",
+          "correlation_id": "c707d7eb-761e-4891-a6c7-f0e946b58a3e",
+          "causation_id": "sim:dc6d9709-de5f-4b48-a153-356f72af6c86:0",
+          "currency": "CAD",
+          "currency_exponent": 2,
+          "payload": {
+            "id": "ee076f27-8274-4750-a5d2-d0d2b0da3544",
+            "owner_id": "subhanjan",
+            "source_id": "chequing",
+            "kind": "OUTBOUND",
+            "amount_minor": 685,
+            "currency": "CAD",
+            "status": "POSTED",
+            "returned_minor": 0,
+            "version": 3,
+            "business_date": "2026-10-21",
+            "created_at": "2026-10-21T13:46:34.052Z",
+            "correlation_id": "c707d7eb-761e-4891-a6c7-f0e946b58a3e",
+            "beneficiary_id": "energy",
+            "returns": []
+          }
+        }
+      },
+      "received_at": "2026-10-21T13:46:36.549Z",
+      "ingestion_run_id": "d1cf3b6b-4e6e-482c-b90f-de091c458c4c"
+    },
+    {
+      "event": {
+        "seq": 4,
+        "checksum": "7569f428df104f8693e470a13ce736def0e4bdedd8bb7816ee0b5e2c2c095c2d",
+        "acknowledged_at": null,
+        "attempts": 1,
+        "envelope": {
+          "schema_version": 1,
+          "source_system": "mhb-browser-simulation",
+          "event_id": "3083c847-d028-41e4-b5b1-1c2c94eaef68",
+          "aggregate_id": "ee076f27-8274-4750-a5d2-d0d2b0da3544",
+          "aggregate_version": 4,
+          "tenant_id": "65d3a0a6-5059-468a-b764-c52fb0934ab0",
+          "event_time": "2026-10-21T13:46:34.054Z",
+          "correlation_id": "c707d7eb-761e-4891-a6c7-f0e946b58a3e",
+          "causation_id": "sim:dc6d9709-de5f-4b48-a153-356f72af6c86:0:settle",
+          "currency": "CAD",
+          "currency_exponent": 2,
+          "payload": {
+            "id": "ee076f27-8274-4750-a5d2-d0d2b0da3544",
+            "owner_id": "subhanjan",
+            "source_id": "chequing",
+            "kind": "OUTBOUND",
+            "amount_minor": 685,
+            "currency": "CAD",
+            "status": "SETTLED",
+            "returned_minor": 0,
+            "version": 4,
+            "business_date": "2026-10-21",
+            "created_at": "2026-10-21T13:46:34.052Z",
+            "correlation_id": "c707d7eb-761e-4891-a6c7-f0e946b58a3e",
+            "beneficiary_id": "energy",
+            "returns": []
+          }
+        }
+      },
+      "received_at": "2026-10-21T13:46:36.549Z",
+      "ingestion_run_id": "d1cf3b6b-4e6e-482c-b90f-de091c458c4c"
+    },
+    {
+      "event": {
+        "seq": 5,
+        "checksum": "3bc3eec91ad00b6b93f159e8efa0865c0cb1c78b921f1ab10aeddb715ba2ceb6",
+        "acknowledged_at": null,
+        "attempts": 1,
+        "envelope": {
+          "schema_version": 1,
+          "source_system": "mhb-browser-simulation",
+          "event_id": "2d91b8bb-8a56-4b62-a3f5-eee43bdf73d1",
+          "aggregate_id": "62cfb227-0fba-49a8-af06-18ed7644a340",
+          "aggregate_version": 1,
+          "tenant_id": "65d3a0a6-5059-468a-b764-c52fb0934ab0",
+          "event_time": "2026-10-21T13:46:36.050Z",
+          "correlation_id": "51feea7f-0972-44f8-9675-8c5610a0f0f9",
+          "causation_id": "sim:dc6d9709-de5f-4b48-a153-356f72af6c86:1",
+          "currency": "CAD",
+          "currency_exponent": 2,
+          "payload": {
+            "id": "62cfb227-0fba-49a8-af06-18ed7644a340",
+            "owner_id": "subhanjan",
+            "source_id": "chequing",
+            "kind": "OUTBOUND",
+            "amount_minor": 416,
+            "currency": "CAD",
+            "status": "RECEIVED",
+            "returned_minor": 0,
+            "version": 1,
+            "business_date": "2026-10-21",
+            "created_at": "2026-10-21T13:46:36.049Z",
+            "correlation_id": "51feea7f-0972-44f8-9675-8c5610a0f0f9",
+            "beneficiary_id": "energy",
+            "returns": []
+          }
+        }
+      },
+      "received_at": "2026-10-21T13:46:36.549Z",
+      "ingestion_run_id": "d1cf3b6b-4e6e-482c-b90f-de091c458c4c"
+    },
+    {
+      "event": {
+        "seq": 6,
+        "checksum": "0423c54cc4216909a04976ff8e0e4225156bc6f5d08151a9bac8213ee1e73aef",
+        "acknowledged_at": null,
+        "attempts": 1,
+        "envelope": {
+          "schema_version": 1,
+          "source_system": "mhb-browser-simulation",
+          "event_id": "a53da5ff-4fa1-4b1d-b30c-45f7afe62317",
+          "aggregate_id": "62cfb227-0fba-49a8-af06-18ed7644a340",
+          "aggregate_version": 2,
+          "tenant_id": "65d3a0a6-5059-468a-b764-c52fb0934ab0",
+          "event_time": "2026-10-21T13:46:36.050Z",
+          "correlation_id": "51feea7f-0972-44f8-9675-8c5610a0f0f9",
+          "causation_id": "sim:dc6d9709-de5f-4b48-a153-356f72af6c86:1",
+          "currency": "CAD",
+          "currency_exponent": 2,
+          "payload": {
+            "id": "62cfb227-0fba-49a8-af06-18ed7644a340",
+            "owner_id": "subhanjan",
+            "source_id": "chequing",
+            "kind": "OUTBOUND",
+            "amount_minor": 416,
+            "currency": "CAD",
+            "status": "VALIDATED",
+            "returned_minor": 0,
+            "version": 2,
+            "business_date": "2026-10-21",
+            "created_at": "2026-10-21T13:46:36.049Z",
+            "correlation_id": "51feea7f-0972-44f8-9675-8c5610a0f0f9",
+            "beneficiary_id": "energy",
+            "returns": []
+          }
+        }
+      },
+      "received_at": "2026-10-21T13:46:36.549Z",
+      "ingestion_run_id": "d1cf3b6b-4e6e-482c-b90f-de091c458c4c"
+    },
+    {
+      "event": {
+        "seq": 7,
+        "checksum": "ee156ff4c777bb8af189ed5f276c75bb01eba30d7f985037f37c309d756ccfc7",
+        "acknowledged_at": null,
+        "attempts": 1,
+        "envelope": {
+          "schema_version": 1,
+          "source_system": "mhb-browser-simulation",
+          "event_id": "56783f35-6598-48da-9099-23616182686d",
+          "aggregate_id": "62cfb227-0fba-49a8-af06-18ed7644a340",
+          "aggregate_version": 3,
+          "tenant_id": "65d3a0a6-5059-468a-b764-c52fb0934ab0",
+          "event_time": "2026-10-21T13:46:36.050Z",
+          "correlation_id": "51feea7f-0972-44f8-9675-8c5610a0f0f9",
+          "causation_id": "sim:dc6d9709-de5f-4b48-a153-356f72af6c86:1",
+          "currency": "CAD",
+          "currency_exponent": 2,
+          "payload": {
+            "id": "62cfb227-0fba-49a8-af06-18ed7644a340",
+            "owner_id": "subhanjan",
+            "source_id": "chequing",
+            "kind": "OUTBOUND",
+            "amount_minor": 416,
+            "currency": "CAD",
+            "status": "POSTED",
+            "returned_minor": 0,
+            "version": 3,
+            "business_date": "2026-10-21",
+            "created_at": "2026-10-21T13:46:36.049Z",
+            "correlation_id": "51feea7f-0972-44f8-9675-8c5610a0f0f9",
+            "beneficiary_id": "energy",
+            "returns": []
+          }
+        }
+      },
+      "received_at": "2026-10-21T13:46:36.549Z",
+      "ingestion_run_id": "d1cf3b6b-4e6e-482c-b90f-de091c458c4c"
+    },
+    {
+      "event": {
+        "seq": 8,
+        "checksum": "197bd681b62a0e177bee737944939e8b80dffc7c63bd0f1b8bde6750db9d44d9",
+        "acknowledged_at": null,
+        "attempts": 1,
+        "envelope": {
+          "schema_version": 1,
+          "source_system": "mhb-browser-simulation",
+          "event_id": "78f7d3ac-7705-4222-8f4f-208668468e32",
+          "aggregate_id": "62cfb227-0fba-49a8-af06-18ed7644a340",
+          "aggregate_version": 4,
+          "tenant_id": "65d3a0a6-5059-468a-b764-c52fb0934ab0",
+          "event_time": "2026-10-21T13:46:36.050Z",
+          "correlation_id": "51feea7f-0972-44f8-9675-8c5610a0f0f9",
+          "causation_id": "sim:dc6d9709-de5f-4b48-a153-356f72af6c86:1:settle",
+          "currency": "CAD",
+          "currency_exponent": 2,
+          "payload": {
+            "id": "62cfb227-0fba-49a8-af06-18ed7644a340",
+            "owner_id": "subhanjan",
+            "source_id": "chequing",
+            "kind": "OUTBOUND",
+            "amount_minor": 416,
+            "currency": "CAD",
+            "status": "SETTLED",
+            "returned_minor": 0,
+            "version": 4,
+            "business_date": "2026-10-21",
+            "created_at": "2026-10-21T13:46:36.049Z",
+            "correlation_id": "51feea7f-0972-44f8-9675-8c5610a0f0f9",
+            "beneficiary_id": "energy",
+            "returns": []
+          }
+        }
+      },
+      "received_at": "2026-10-21T13:46:36.549Z",
+      "ingestion_run_id": "d1cf3b6b-4e6e-482c-b90f-de091c458c4c"
+    },
+    {
+      "event": {
+        "seq": 9,
+        "checksum": "013b503a42b52cec59813eb92d6ce935e0caa568323f33585fe2f0198dd91619",
+        "acknowledged_at": null,
+        "attempts": 1,
+        "envelope": {
+          "schema_version": 1,
+          "source_system": "mhb-browser-simulation",
+          "event_id": "68c874bd-8396-4aa2-a633-d304042c35e7",
+          "aggregate_id": "f68dcc04-59e3-4bf9-b890-a05fce46bb9c",
+          "aggregate_version": 1,
+          "tenant_id": "65d3a0a6-5059-468a-b764-c52fb0934ab0",
+          "event_time": "2026-10-21T13:46:37.053Z",
+          "correlation_id": "c41603d2-31f4-422f-a384-990a0dfc1b91",
+          "causation_id": "sim:dc6d9709-de5f-4b48-a153-356f72af6c86:2",
+          "currency": "CAD",
+          "currency_exponent": 2,
+          "payload": {
+            "id": "f68dcc04-59e3-4bf9-b890-a05fce46bb9c",
+            "owner_id": "subhanjan",
+            "source_id": "chequing",
+            "kind": "OUTBOUND",
+            "amount_minor": 1087,
+            "currency": "CAD",
+            "status": "RECEIVED",
+            "returned_minor": 0,
+            "version": 1,
+            "business_date": "2026-10-21",
+            "created_at": "2026-10-21T13:46:37.053Z",
+            "correlation_id": "c41603d2-31f4-422f-a384-990a0dfc1b91",
+            "beneficiary_id": "energy",
+            "returns": []
+          }
+        }
+      },
+      "received_at": "2026-10-21T13:46:39.048Z",
+      "ingestion_run_id": "41a5a037-6a42-4997-a4f5-c7845e59b18b"
+    },
+    {
+      "event": {
+        "seq": 10,
+        "checksum": "81f982f8165361a5842a76691a7e128deebaae6d539f7be0a9470f38fb7d7e69",
+        "acknowledged_at": null,
+        "attempts": 1,
+        "envelope": {
+          "schema_version": 1,
+          "source_system": "mhb-browser-simulation",
+          "event_id": "e04a9efd-5b66-4837-92e3-a2ac13a1b418",
+          "aggregate_id": "f68dcc04-59e3-4bf9-b890-a05fce46bb9c",
+          "aggregate_version": 2,
+          "tenant_id": "65d3a0a6-5059-468a-b764-c52fb0934ab0",
+          "event_time": "2026-10-21T13:46:37.053Z",
+          "correlation_id": "c41603d2-31f4-422f-a384-990a0dfc1b91",
+          "causation_id": "sim:dc6d9709-de5f-4b48-a153-356f72af6c86:2",
+          "currency": "CAD",
+          "currency_exponent": 2,
+          "payload": {
+            "id": "f68dcc04-59e3-4bf9-b890-a05fce46bb9c",
+            "owner_id": "subhanjan",
+            "source_id": "chequing",
+            "kind": "OUTBOUND",
+            "amount_minor": 1087,
+            "currency": "CAD",
+            "status": "VALIDATED",
+            "returned_minor": 0,
+            "version": 2,
+            "business_date": "2026-10-21",
+            "created_at": "2026-10-21T13:46:37.053Z",
+            "correlation_id": "c41603d2-31f4-422f-a384-990a0dfc1b91",
+            "beneficiary_id": "energy",
+            "returns": []
+          }
+        }
+      },
+      "received_at": "2026-10-21T13:46:39.048Z",
+      "ingestion_run_id": "41a5a037-6a42-4997-a4f5-c7845e59b18b"
+    },
+    {
+      "event": {
+        "seq": 11,
+        "checksum": "f704231505851b71fc9482150a6023ea081d924714c0e2a33a78859d6cd3b69f",
+        "acknowledged_at": null,
+        "attempts": 1,
+        "envelope": {
+          "schema_version": 1,
+          "source_system": "mhb-browser-simulation",
+          "event_id": "d50501a8-807f-4be7-8804-f320f1fef950",
+          "aggregate_id": "f68dcc04-59e3-4bf9-b890-a05fce46bb9c",
+          "aggregate_version": 3,
+          "tenant_id": "65d3a0a6-5059-468a-b764-c52fb0934ab0",
+          "event_time": "2026-10-21T13:46:37.053Z",
+          "correlation_id": "c41603d2-31f4-422f-a384-990a0dfc1b91",
+          "causation_id": "sim:dc6d9709-de5f-4b48-a153-356f72af6c86:2",
+          "currency": "CAD",
+          "currency_exponent": 2,
+          "payload": {
+            "id": "f68dcc04-59e3-4bf9-b890-a05fce46bb9c",
+            "owner_id": "subhanjan",
+            "source_id": "chequing",
+            "kind": "OUTBOUND",
+            "amount_minor": 1087,
+            "currency": "CAD",
+            "status": "POSTED",
+            "returned_minor": 0,
+            "version": 3,
+            "business_date": "2026-10-21",
+            "created_at": "2026-10-21T13:46:37.053Z",
+            "correlation_id": "c41603d2-31f4-422f-a384-990a0dfc1b91",
+            "beneficiary_id": "energy",
+            "returns": []
+          }
+        }
+      },
+      "received_at": "2026-10-21T13:46:39.048Z",
+      "ingestion_run_id": "41a5a037-6a42-4997-a4f5-c7845e59b18b"
+    },
+    {
+      "event": {
+        "seq": 12,
+        "checksum": "c4c791dd6eec91b56a39d496458f788361b43dd8c5d6a18ab59f772d07a58972",
+        "acknowledged_at": null,
+        "attempts": 1,
+        "envelope": {
+          "schema_version": 1,
+          "source_system": "mhb-browser-simulation",
+          "event_id": "f052102e-4053-43ce-97e4-f1ec1e1e1b7a",
+          "aggregate_id": "f68dcc04-59e3-4bf9-b890-a05fce46bb9c",
+          "aggregate_version": 4,
+          "tenant_id": "65d3a0a6-5059-468a-b764-c52fb0934ab0",
+          "event_time": "2026-10-21T13:46:37.053Z",
+          "correlation_id": "c41603d2-31f4-422f-a384-990a0dfc1b91",
+          "causation_id": "sim:dc6d9709-de5f-4b48-a153-356f72af6c86:2:settle",
+          "currency": "CAD",
+          "currency_exponent": 2,
+          "payload": {
+            "id": "f68dcc04-59e3-4bf9-b890-a05fce46bb9c",
+            "owner_id": "subhanjan",
+            "source_id": "chequing",
+            "kind": "OUTBOUND",
+            "amount_minor": 1087,
+            "currency": "CAD",
+            "status": "SETTLED",
+            "returned_minor": 0,
+            "version": 4,
+            "business_date": "2026-10-21",
+            "created_at": "2026-10-21T13:46:37.053Z",
+            "correlation_id": "c41603d2-31f4-422f-a384-990a0dfc1b91",
+            "beneficiary_id": "energy",
+            "returns": []
+          }
+        }
+      },
+      "received_at": "2026-10-21T13:46:39.048Z",
+      "ingestion_run_id": "41a5a037-6a42-4997-a4f5-c7845e59b18b"
+    },
+    {
+      "event": {
+        "seq": 13,
+        "checksum": "ddcdf5d18c0775ea961708692bbfc7605bf21772e2ccf2e5e79bb5c9639fbb22",
+        "acknowledged_at": null,
+        "attempts": 1,
+        "envelope": {
+          "schema_version": 1,
+          "source_system": "mhb-browser-simulation",
+          "event_id": "306e11a6-3192-4837-8611-520e0d800017",
+          "aggregate_id": "f68dcc04-59e3-4bf9-b890-a05fce46bb9c",
+          "aggregate_version": 5,
+          "tenant_id": "65d3a0a6-5059-468a-b764-c52fb0934ab0",
+          "event_time": "2026-10-21T13:46:37.054Z",
+          "correlation_id": "c41603d2-31f4-422f-a384-990a0dfc1b91",
+          "causation_id": "sim:dc6d9709-de5f-4b48-a153-356f72af6c86:2:return",
+          "currency": "CAD",
+          "currency_exponent": 2,
+          "payload": {
+            "id": "f68dcc04-59e3-4bf9-b890-a05fce46bb9c",
+            "owner_id": "subhanjan",
+            "source_id": "chequing",
+            "kind": "OUTBOUND",
+            "amount_minor": 1087,
+            "currency": "CAD",
+            "status": "PARTIALLY_RETURNED",
+            "returned_minor": 271,
+            "version": 5,
+            "business_date": "2026-10-21",
+            "created_at": "2026-10-21T13:46:37.053Z",
+            "correlation_id": "c41603d2-31f4-422f-a384-990a0dfc1b91",
+            "beneficiary_id": "energy",
+            "returns": [
+              {
+                "id": "42f91778-f227-4993-8b2b-853a0cc151dd",
+                "amount_minor": 271,
+                "booked_date": "2026-10-21",
+                "reporting_date": "2026-10-21",
+                "revision": 1
+              }
+            ]
+          }
+        }
+      },
+      "received_at": "2026-10-21T13:46:39.048Z",
+      "ingestion_run_id": "41a5a037-6a42-4997-a4f5-c7845e59b18b"
+    },
+    {
+      "event": {
+        "seq": 14,
+        "checksum": "a3f181fc3ea74fac1fdcb5cc4b69b87a15f4f0586adc2e6537931eca6cf0015a",
+        "acknowledged_at": null,
+        "attempts": 1,
+        "envelope": {
+          "schema_version": 1,
+          "source_system": "mhb-browser-simulation",
+          "event_id": "c0d81b8f-ebf8-4392-a4b4-5321083fc850",
+          "aggregate_id": "8a963b2a-b756-4956-9eb8-5d88abf8342e",
+          "aggregate_version": 1,
+          "tenant_id": "65d3a0a6-5059-468a-b764-c52fb0934ab0",
+          "event_time": "2026-10-21T13:46:39.061Z",
+          "correlation_id": "1dae2c9e-e1ad-462e-9227-5acf9d372424",
+          "causation_id": "sim:dc6d9709-de5f-4b48-a153-356f72af6c86:3",
+          "currency": "CAD",
+          "currency_exponent": 2,
+          "payload": {
+            "id": "8a963b2a-b756-4956-9eb8-5d88abf8342e",
+            "owner_id": "subhanjan",
+            "source_id": "chequing",
+            "kind": "OUTBOUND",
+            "amount_minor": 826,
+            "currency": "CAD",
+            "status": "RECEIVED",
+            "returned_minor": 0,
+            "version": 1,
+            "business_date": "2026-10-21",
+            "created_at": "2026-10-21T13:46:39.061Z",
+            "correlation_id": "1dae2c9e-e1ad-462e-9227-5acf9d372424",
+            "beneficiary_id": "energy",
+            "returns": []
+          }
+        }
+      },
+      "received_at": "2026-10-21T13:46:41.548Z",
+      "ingestion_run_id": "dcdb8c36-84c5-4172-af8d-e96deabd169e"
+    },
+    {
+      "event": {
+        "seq": 15,
+        "checksum": "43bdf66ff453b73a8d34f3b2f8a66f5d03f48cd37f5035fa28be7bcf17fd6701",
+        "acknowledged_at": null,
+        "attempts": 1,
+        "envelope": {
+          "schema_version": 1,
+          "source_system": "mhb-browser-simulation",
+          "event_id": "8244bf08-acc4-4b9e-8d8c-6952acec012b",
+          "aggregate_id": "8a963b2a-b756-4956-9eb8-5d88abf8342e",
+          "aggregate_version": 2,
+          "tenant_id": "65d3a0a6-5059-468a-b764-c52fb0934ab0",
+          "event_time": "2026-10-21T13:46:39.061Z",
+          "correlation_id": "1dae2c9e-e1ad-462e-9227-5acf9d372424",
+          "causation_id": "sim:dc6d9709-de5f-4b48-a153-356f72af6c86:3",
+          "currency": "CAD",
+          "currency_exponent": 2,
+          "payload": {
+            "id": "8a963b2a-b756-4956-9eb8-5d88abf8342e",
+            "owner_id": "subhanjan",
+            "source_id": "chequing",
+            "kind": "OUTBOUND",
+            "amount_minor": 826,
+            "currency": "CAD",
+            "status": "VALIDATED",
+            "returned_minor": 0,
+            "version": 2,
+            "business_date": "2026-10-21",
+            "created_at": "2026-10-21T13:46:39.061Z",
+            "correlation_id": "1dae2c9e-e1ad-462e-9227-5acf9d372424",
+            "beneficiary_id": "energy",
+            "returns": []
+          }
+        }
+      },
+      "received_at": "2026-10-21T13:46:41.548Z",
+      "ingestion_run_id": "dcdb8c36-84c5-4172-af8d-e96deabd169e"
+    },
+    {
+      "event": {
+        "seq": 16,
+        "checksum": "5d0cc9c4d5101053f1c6dad317079ccf35bd288611d0f0bcbb0e5692bdd23f89",
+        "acknowledged_at": null,
+        "attempts": 1,
+        "envelope": {
+          "schema_version": 1,
+          "source_system": "mhb-browser-simulation",
+          "event_id": "c4fae8d6-53ef-40be-8110-0ddcdc02e7b4",
+          "aggregate_id": "8a963b2a-b756-4956-9eb8-5d88abf8342e",
+          "aggregate_version": 3,
+          "tenant_id": "65d3a0a6-5059-468a-b764-c52fb0934ab0",
+          "event_time": "2026-10-21T13:46:39.061Z",
+          "correlation_id": "1dae2c9e-e1ad-462e-9227-5acf9d372424",
+          "causation_id": "sim:dc6d9709-de5f-4b48-a153-356f72af6c86:3",
+          "currency": "CAD",
+          "currency_exponent": 2,
+          "payload": {
+            "id": "8a963b2a-b756-4956-9eb8-5d88abf8342e",
+            "owner_id": "subhanjan",
+            "source_id": "chequing",
+            "kind": "OUTBOUND",
+            "amount_minor": 826,
+            "currency": "CAD",
+            "status": "POSTED",
+            "returned_minor": 0,
+            "version": 3,
+            "business_date": "2026-10-21",
+            "created_at": "2026-10-21T13:46:39.061Z",
+            "correlation_id": "1dae2c9e-e1ad-462e-9227-5acf9d372424",
+            "beneficiary_id": "energy",
+            "returns": []
+          }
+        }
+      },
+      "received_at": "2026-10-21T13:46:41.548Z",
+      "ingestion_run_id": "dcdb8c36-84c5-4172-af8d-e96deabd169e"
+    },
+    {
+      "event": {
+        "seq": 17,
+        "checksum": "1e3fa54038bbb2c43548c157ddb5cae610c702d6d114749c28da325e5e5c15b5",
+        "acknowledged_at": null,
+        "attempts": 1,
+        "envelope": {
+          "schema_version": 1,
+          "source_system": "mhb-browser-simulation",
+          "event_id": "36781608-04c2-4dcf-b3d4-716ffe84213c",
+          "aggregate_id": "8a963b2a-b756-4956-9eb8-5d88abf8342e",
+          "aggregate_version": 4,
+          "tenant_id": "65d3a0a6-5059-468a-b764-c52fb0934ab0",
+          "event_time": "2026-10-21T13:46:39.061Z",
+          "correlation_id": "1dae2c9e-e1ad-462e-9227-5acf9d372424",
+          "causation_id": "sim:dc6d9709-de5f-4b48-a153-356f72af6c86:3:settle",
+          "currency": "CAD",
+          "currency_exponent": 2,
+          "payload": {
+            "id": "8a963b2a-b756-4956-9eb8-5d88abf8342e",
+            "owner_id": "subhanjan",
+            "source_id": "chequing",
+            "kind": "OUTBOUND",
+            "amount_minor": 826,
+            "currency": "CAD",
+            "status": "SETTLED",
+            "returned_minor": 0,
+            "version": 4,
+            "business_date": "2026-10-21",
+            "created_at": "2026-10-21T13:46:39.061Z",
+            "correlation_id": "1dae2c9e-e1ad-462e-9227-5acf9d372424",
+            "beneficiary_id": "energy",
+            "returns": []
+          }
+        }
+      },
+      "received_at": "2026-10-21T13:46:41.548Z",
+      "ingestion_run_id": "dcdb8c36-84c5-4172-af8d-e96deabd169e"
+    }
+  ],
+  "runs": [
+    {
+      "id": "3a63fd32-133b-43ff-8909-824e1798bb14",
+      "status": "SUCCEEDED",
+      "cutoff": 17,
+      "source_count": 17,
+      "codes": [],
+      "created_at": "2026-10-21T13:46:41.563Z"
+    },
+    {
+      "id": "93bd0faa-2ded-45e1-a2cf-332b54248c29",
+      "status": "SUCCEEDED",
+      "cutoff": 13,
+      "source_count": 13,
+      "codes": [],
+      "created_at": "2026-10-21T13:46:39.057Z"
+    },
+    {
+      "id": "0eda1c53-c983-481e-8328-1c5638849aa4",
+      "status": "SUCCEEDED",
+      "cutoff": 8,
+      "source_count": 8,
+      "codes": [],
+      "created_at": "2026-10-21T13:46:36.573Z"
+    },
+    {
+      "id": "f29afe84-f8bf-4268-96a5-a8ddd37f76c4",
+      "status": "SUCCEEDED",
+      "cutoff": 0,
+      "source_count": 0,
+      "codes": [],
+      "created_at": "2026-10-21T13:28:39.364Z"
+    }
+  ],
+  "publication": {
+    "id": "08aeedf5-2847-4b30-9ade-0445ffa668f4",
+    "run_id": "3a63fd32-133b-43ff-8909-824e1798bb14",
+    "cutoff": 17,
+    "source_count": 17,
+    "source_checksum": "0761cc3eb28bb6a566c8867351797395f4b1ac4207fa844b43dcf72d56372656",
+    "refreshed_at": "2026-10-21T13:46:41.563Z",
+    "source_cutoff_at": "2026-10-21T13:46:39.061Z",
+    "daily": [
+      {
+        "business_date": "2026-10-21",
+        "currency": "CAD",
+        "channel": "WEB",
+        "instruction_count": 4,
+        "instruction_minor": 3014,
+        "return_count": 1,
+        "return_minor": 271,
+        "settled_count": 4
+      }
+    ],
+    "totals": {
+      "instruction_count": 4,
+      "instruction_minor": 3014,
+      "return_count": 1,
+      "return_minor": 271,
+      "settled_count": 4,
+      "reconciled": true,
+      "metric_semantics": "Accepted instruction activity; not settled cash flow"
+    }
+  },
+  "journals": [
+    {
+      "id": "b1574b4f-5cd2-4603-878c-94c3623eb7bc",
+      "kind": "OPENING",
+      "booked_date": "2026-10-21",
+      "line_no": 1,
+      "ledger_id": "cash",
+      "direction": "DEBIT",
+      "amount_minor": 500000,
+      "payment_id": null
+    },
+    {
+      "id": "b1574b4f-5cd2-4603-878c-94c3623eb7bc",
+      "kind": "OPENING",
+      "booked_date": "2026-10-21",
+      "line_no": 2,
+      "ledger_id": "chequing",
+      "direction": "CREDIT",
+      "amount_minor": 500000,
+      "payment_id": null
+    },
+    {
+      "id": "3c656033-dbc8-4956-851e-61491d53b5db",
+      "kind": "OPENING",
+      "booked_date": "2026-10-21",
+      "line_no": 1,
+      "ledger_id": "cash",
+      "direction": "DEBIT",
+      "amount_minor": 1250000,
+      "payment_id": null
+    },
+    {
+      "id": "3c656033-dbc8-4956-851e-61491d53b5db",
+      "kind": "OPENING",
+      "booked_date": "2026-10-21",
+      "line_no": 2,
+      "ledger_id": "savings",
+      "direction": "CREDIT",
+      "amount_minor": 1250000,
+      "payment_id": null
+    },
+    {
+      "id": "5b1021d8-3e03-4d45-af51-a6c341f0561d",
+      "kind": "OPENING",
+      "booked_date": "2026-10-21",
+      "line_no": 1,
+      "ledger_id": "cash",
+      "direction": "DEBIT",
+      "amount_minor": 300000,
+      "payment_id": null
+    },
+    {
+      "id": "5b1021d8-3e03-4d45-af51-a6c341f0561d",
+      "kind": "OPENING",
+      "booked_date": "2026-10-21",
+      "line_no": 2,
+      "ledger_id": "sam",
+      "direction": "CREDIT",
+      "amount_minor": 300000,
+      "payment_id": null
+    },
+    {
+      "id": "16405207-f23e-4ee2-aa6b-4e253ea868d7",
+      "kind": "OPENING",
+      "booked_date": "2026-10-21",
+      "line_no": 1,
+      "ledger_id": "cash",
+      "direction": "DEBIT",
+      "amount_minor": 2500000,
+      "payment_id": null
+    },
+    {
+      "id": "16405207-f23e-4ee2-aa6b-4e253ea868d7",
+      "kind": "OPENING",
+      "booked_date": "2026-10-21",
+      "line_no": 2,
+      "ledger_id": "business",
+      "direction": "CREDIT",
+      "amount_minor": 2500000,
+      "payment_id": null
+    },
+    {
+      "id": "e23c90ec-a98e-46f5-9e46-4d4855093f5e",
+      "kind": "OPENING",
+      "booked_date": "2026-10-21",
+      "line_no": 1,
+      "ledger_id": "cash",
+      "direction": "DEBIT",
+      "amount_minor": 1000000,
+      "payment_id": null
+    },
+    {
+      "id": "e23c90ec-a98e-46f5-9e46-4d4855093f5e",
+      "kind": "OPENING",
+      "booked_date": "2026-10-21",
+      "line_no": 2,
+      "ledger_id": "other-business",
+      "direction": "CREDIT",
+      "amount_minor": 1000000,
+      "payment_id": null
+    },
+    {
+      "id": "1fbf13a2-0aa6-4ac3-918e-618e10c9d02f",
+      "kind": "PAYMENT",
+      "booked_date": "2026-10-21",
+      "line_no": 1,
+      "ledger_id": "chequing",
+      "direction": "DEBIT",
+      "amount_minor": 685,
+      "payment_id": "ee076f27-8274-4750-a5d2-d0d2b0da3544",
+      "created_at": "2026-10-21T13:46:34.052Z"
+    },
+    {
+      "id": "1fbf13a2-0aa6-4ac3-918e-618e10c9d02f",
+      "kind": "PAYMENT",
+      "booked_date": "2026-10-21",
+      "line_no": 2,
+      "ledger_id": "clearing",
+      "direction": "CREDIT",
+      "amount_minor": 685,
+      "payment_id": "ee076f27-8274-4750-a5d2-d0d2b0da3544",
+      "created_at": "2026-10-21T13:46:34.053Z"
+    },
+    {
+      "id": "141807a1-cd77-4de5-8107-85e3c156bab3",
+      "kind": "SETTLEMENT",
+      "booked_date": "2026-10-21",
+      "line_no": 1,
+      "ledger_id": "clearing",
+      "direction": "DEBIT",
+      "amount_minor": 685,
+      "payment_id": "ee076f27-8274-4750-a5d2-d0d2b0da3544",
+      "created_at": "2026-10-21T13:46:34.054Z"
+    },
+    {
+      "id": "141807a1-cd77-4de5-8107-85e3c156bab3",
+      "kind": "SETTLEMENT",
+      "booked_date": "2026-10-21",
+      "line_no": 2,
+      "ledger_id": "cash",
+      "direction": "CREDIT",
+      "amount_minor": 685,
+      "payment_id": "ee076f27-8274-4750-a5d2-d0d2b0da3544",
+      "created_at": "2026-10-21T13:46:34.054Z"
+    },
+    {
+      "id": "b5aa8a4a-7a31-443b-9d70-672003591c12",
+      "kind": "PAYMENT",
+      "booked_date": "2026-10-21",
+      "line_no": 1,
+      "ledger_id": "chequing",
+      "direction": "DEBIT",
+      "amount_minor": 416,
+      "payment_id": "62cfb227-0fba-49a8-af06-18ed7644a340",
+      "created_at": "2026-10-21T13:46:36.050Z"
+    },
+    {
+      "id": "b5aa8a4a-7a31-443b-9d70-672003591c12",
+      "kind": "PAYMENT",
+      "booked_date": "2026-10-21",
+      "line_no": 2,
+      "ledger_id": "clearing",
+      "direction": "CREDIT",
+      "amount_minor": 416,
+      "payment_id": "62cfb227-0fba-49a8-af06-18ed7644a340",
+      "created_at": "2026-10-21T13:46:36.050Z"
+    },
+    {
+      "id": "03936f77-4fe6-4424-8761-e9a357d32823",
+      "kind": "SETTLEMENT",
+      "booked_date": "2026-10-21",
+      "line_no": 1,
+      "ledger_id": "clearing",
+      "direction": "DEBIT",
+      "amount_minor": 416,
+      "payment_id": "62cfb227-0fba-49a8-af06-18ed7644a340",
+      "created_at": "2026-10-21T13:46:36.050Z"
+    },
+    {
+      "id": "03936f77-4fe6-4424-8761-e9a357d32823",
+      "kind": "SETTLEMENT",
+      "booked_date": "2026-10-21",
+      "line_no": 2,
+      "ledger_id": "cash",
+      "direction": "CREDIT",
+      "amount_minor": 416,
+      "payment_id": "62cfb227-0fba-49a8-af06-18ed7644a340",
+      "created_at": "2026-10-21T13:46:36.050Z"
+    },
+    {
+      "id": "55af8e02-41da-409e-b17b-229dd62d8750",
+      "kind": "PAYMENT",
+      "booked_date": "2026-10-21",
+      "line_no": 1,
+      "ledger_id": "chequing",
+      "direction": "DEBIT",
+      "amount_minor": 1087,
+      "payment_id": "f68dcc04-59e3-4bf9-b890-a05fce46bb9c",
+      "created_at": "2026-10-21T13:46:37.053Z"
+    },
+    {
+      "id": "55af8e02-41da-409e-b17b-229dd62d8750",
+      "kind": "PAYMENT",
+      "booked_date": "2026-10-21",
+      "line_no": 2,
+      "ledger_id": "clearing",
+      "direction": "CREDIT",
+      "amount_minor": 1087,
+      "payment_id": "f68dcc04-59e3-4bf9-b890-a05fce46bb9c",
+      "created_at": "2026-10-21T13:46:37.053Z"
+    },
+    {
+      "id": "15c32db5-530a-4b9e-8693-f8632ddd7c23",
+      "kind": "SETTLEMENT",
+      "booked_date": "2026-10-21",
+      "line_no": 1,
+      "ledger_id": "clearing",
+      "direction": "DEBIT",
+      "amount_minor": 1087,
+      "payment_id": "f68dcc04-59e3-4bf9-b890-a05fce46bb9c",
+      "created_at": "2026-10-21T13:46:37.053Z"
+    },
+    {
+      "id": "15c32db5-530a-4b9e-8693-f8632ddd7c23",
+      "kind": "SETTLEMENT",
+      "booked_date": "2026-10-21",
+      "line_no": 2,
+      "ledger_id": "cash",
+      "direction": "CREDIT",
+      "amount_minor": 1087,
+      "payment_id": "f68dcc04-59e3-4bf9-b890-a05fce46bb9c",
+      "created_at": "2026-10-21T13:46:37.053Z"
+    },
+    {
+      "id": "9a1c1dce-f446-45ea-8913-bd91dfc5bf10",
+      "kind": "RETURN",
+      "booked_date": "2026-10-21",
+      "line_no": 1,
+      "ledger_id": "cash",
+      "direction": "DEBIT",
+      "amount_minor": 271,
+      "payment_id": "f68dcc04-59e3-4bf9-b890-a05fce46bb9c",
+      "created_at": "2026-10-21T13:46:37.054Z"
+    },
+    {
+      "id": "9a1c1dce-f446-45ea-8913-bd91dfc5bf10",
+      "kind": "RETURN",
+      "booked_date": "2026-10-21",
+      "line_no": 2,
+      "ledger_id": "chequing",
+      "direction": "CREDIT",
+      "amount_minor": 271,
+      "payment_id": "f68dcc04-59e3-4bf9-b890-a05fce46bb9c",
+      "created_at": "2026-10-21T13:46:37.054Z"
+    },
+    {
+      "id": "44363fa9-8694-4e24-977f-54b925976f1a",
+      "kind": "PAYMENT",
+      "booked_date": "2026-10-21",
+      "line_no": 1,
+      "ledger_id": "chequing",
+      "direction": "DEBIT",
+      "amount_minor": 826,
+      "payment_id": "8a963b2a-b756-4956-9eb8-5d88abf8342e",
+      "created_at": "2026-10-21T13:46:39.061Z"
+    },
+    {
+      "id": "44363fa9-8694-4e24-977f-54b925976f1a",
+      "kind": "PAYMENT",
+      "booked_date": "2026-10-21",
+      "line_no": 2,
+      "ledger_id": "clearing",
+      "direction": "CREDIT",
+      "amount_minor": 826,
+      "payment_id": "8a963b2a-b756-4956-9eb8-5d88abf8342e",
+      "created_at": "2026-10-21T13:46:39.061Z"
+    },
+    {
+      "id": "df540ce6-7cdc-4ae7-9ed8-a915fb517de9",
+      "kind": "SETTLEMENT",
+      "booked_date": "2026-10-21",
+      "line_no": 1,
+      "ledger_id": "clearing",
+      "direction": "DEBIT",
+      "amount_minor": 826,
+      "payment_id": "8a963b2a-b756-4956-9eb8-5d88abf8342e",
+      "created_at": "2026-10-21T13:46:39.061Z"
+    },
+    {
+      "id": "df540ce6-7cdc-4ae7-9ed8-a915fb517de9",
+      "kind": "SETTLEMENT",
+      "booked_date": "2026-10-21",
+      "line_no": 2,
+      "ledger_id": "cash",
+      "direction": "CREDIT",
+      "amount_minor": 826,
+      "payment_id": "8a963b2a-b756-4956-9eb8-5d88abf8342e",
+      "created_at": "2026-10-21T13:46:39.061Z"
+    }
+  ],
+  "audit": [
+    {
+      "id": "6b216bfe-ad77-48c4-a369-54da6f1fe7bb",
+      "actor": "engineer",
+      "action": "/lab/workloads",
+      "at": "2026-10-21T13:46:33.866Z"
+    },
+    {
+      "id": "6afaa6af-cdc0-4024-bc52-8eec220b8c26",
+      "actor": "subhanjan",
+      "action": "/payments",
+      "at": "2026-10-21T13:46:34.053Z"
+    },
+    {
+      "id": "f1bdff32-31d8-4e3d-8677-239a846ac9d2",
+      "actor": "ops",
+      "action": "/operations/payments/ee076f27-8274-4750-a5d2-d0d2b0da3544/settle",
+      "at": "2026-10-21T13:46:34.054Z"
+    },
+    {
+      "id": "7f585d26-1865-4ba2-ba2a-7adde6241e24",
+      "actor": "subhanjan",
+      "action": "/payments",
+      "at": "2026-10-21T13:46:36.050Z"
+    },
+    {
+      "id": "ff456dad-fcb6-4633-89a1-a1db2e536ea5",
+      "actor": "ops",
+      "action": "/operations/payments/62cfb227-0fba-49a8-af06-18ed7644a340/settle",
+      "at": "2026-10-21T13:46:36.050Z"
+    },
+    {
+      "id": "71284779-a47a-48f2-8a42-c1f377468ed0",
+      "actor": "subhanjan",
+      "action": "/payments",
+      "at": "2026-10-21T13:46:37.053Z"
+    },
+    {
+      "id": "119eb81f-3442-4338-934c-5662f7b8c7c5",
+      "actor": "ops",
+      "action": "/operations/payments/f68dcc04-59e3-4bf9-b890-a05fce46bb9c/settle",
+      "at": "2026-10-21T13:46:37.053Z"
+    },
+    {
+      "id": "8fbcad8f-c2f2-4d41-a6a0-9b91823b1a80",
+      "actor": "ops",
+      "action": "/operations/payments/f68dcc04-59e3-4bf9-b890-a05fce46bb9c/returns",
+      "at": "2026-10-21T13:46:37.054Z"
+    },
+    {
+      "id": "bb7dd7cf-5c81-40cc-99b6-56f9a9e2d26e",
+      "actor": "subhanjan",
+      "action": "/payments",
+      "at": "2026-10-21T13:46:39.061Z"
+    },
+    {
+      "id": "45d5db7c-a639-4b53-a9ba-1edeac9521a3",
+      "actor": "ops",
+      "action": "/operations/payments/8a963b2a-b756-4956-9eb8-5d88abf8342e/settle",
+      "at": "2026-10-21T13:46:39.061Z"
+    }
+  ],
+  "workloads": [
+    {
+      "id": "dc6d9709-de5f-4b48-a153-356f72af6c86",
+      "seed": 42,
+      "count": 4,
+      "interval_ms": 1000,
+      "cursor": 4,
+      "status": "COMPLETED",
+      "started_at": "2026-10-21T13:46:33.866Z",
+      "updated_at": "2026-10-21T13:46:39.061Z",
+      "next_at": "2026-10-21T13:46:40.061Z",
+      "payment_ids": [
+        "ee076f27-8274-4750-a5d2-d0d2b0da3544",
+        "62cfb227-0fba-49a8-af06-18ed7644a340",
+        "f68dcc04-59e3-4bf9-b890-a05fce46bb9c",
+        "8a963b2a-b756-4956-9eb8-5d88abf8342e"
+      ],
+      "duplicate_requests": 1
+    }
+  ]
+}
