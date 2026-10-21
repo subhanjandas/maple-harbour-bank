@@ -1,5 +1,16 @@
 # Learning notes
 
+The production-bundle gate caught a preview configuration mismatch: Vite preview needs the same `/maple-harbour-bank/` base as the built Pages asset URLs. Development-server success alone was insufficient. The same candidate also failed an updated certifi security advisory; upgrading only the transitive lock preserves a narrow remediation and forces a fresh image/audit run.
+
+## Live observatory engineering notes · release 0.4
+
+A credible live dashboard needs actual instrumentation and explicit units. Source-event counts and current-state projections have different grains; financial charts must not read unapproved events. A durable synthetic workload can demonstrate meaningful idempotency and recovery without inventing production throughput.
+
+Workload responses exposed a subtle snapshot issue: caching a mutable run object can change the response to a duplicate scheduling request as its cursor advances. The command cache now clones the response when accepted, and acceptance retries after progress to prove stable behaviour.
+
+The first browser run passed all financial/recovery scenarios but rejected mobile overflow. Existing compact summary-card CSS inherited a two-column row inside each new dashboard card; the observatory now declares its own block layout. The test remains strict about actual document width and reports overflow elements. This is recorded as a failed candidate, not hidden as a successful initial test.
+
+
 ## A working increment is narrower than a technology diagram
 
 The payment slice executes a real database transaction and durable pipeline. It is meaningful even before Kafka/Spark are present. Calling PostgreSQL analytical tables “Delta” would erase an important implementation boundary; the application, manifest and documentation label that distinction.

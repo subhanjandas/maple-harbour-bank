@@ -1,5 +1,7 @@
 # Security and access
 
+The 21 October dependency audit rejected the candidate because certifi 2026.7.22 was affected by [GHSA-6q48-6c7w-9gw2](https://github.com/certifi/python-certifi/security/advisories/GHSA-6q48-6c7w-9gw2). The transitive lock is updated to 2026.10.19 with registry-provided hashes; CI rebuilds the server image and reruns audit/acceptance. The audit remains enforced.
+
 Release 0.4 public workload start/pause/resume/stop requires the engineer persona in the command adapter; telemetry requires operations, analyst or engineer. The UI also hides staff navigation. These are simulation contracts in visitor-controlled storage, not a trusted public authorization boundary. No remote admin/load endpoint is introduced. Counts, schedule cadence and retained history are bounded. The PostgreSQL/OIDC security profile remains separate and unchanged.
 
 The [live GitHub Pages profile](PUBLIC_DEMO.md) uses isolated browser storage and synthetic role selection. Its role controls demonstrate banking workflows; they are not production authentication against the device owner. The server authorization guarantees below apply to the independently tested FastAPI/PostgreSQL runtime. Public hosting costs CAD 0 and contains no service credentials.

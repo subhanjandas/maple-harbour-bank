@@ -1,5 +1,17 @@
 # Interview walkthrough
 
+## Live observatory walkthrough · release 0.4
+
+1. Open the Pages app and choose Casey → Live dashboard. Start seed 42 with four instructions. Watch actual event/receipt buckets; expect four instructions, 17 events, 18 non-opening ledger lines and one duplicate request with no duplicate effect. The third instruction produces a 271-cent return.
+2. Open the engineering control room, pause processing, return to the dashboard and generate two more instructions. Backlog and unpublished events grow while approved financial values remain unchanged. Resume processing and inspect the new cutoff.
+3. Choose an approved payment's **Inspect flow** link. Explain the source sequence, aggregate version, event identity, archive receipt/ingestion run and Gold publication/run. Counts have different grains.
+4. Compare Architecture, Guided simulation and Live evidence. Animation is labelled illustrative; evidence is actual stored state. Inspect both public and server topologies, then show their generated README diagrams.
+5. Explain where trust lives: public role simulation and visitor-owned storage versus the independent OIDC/PostgreSQL lab. Show the real backend concurrency/crash evidence and distinguish it from the bounded browser workload.
+6. Use [Platform vision](PLATFORM_VISION.md) to discuss the next domain journey, source manifests and CDC cutover. Explain why planned Spark/Delta/Kafka/Airflow require measured responsibility and resource evidence before introduction.
+
+Closing or sleeping a tab suspends work; reopening resumes a persisted cursor without catch-up bursts. These four instructions demonstrate correctness and lineage, not maximum transaction capacity.
+
+
 Start with the [live public app](https://subhanjandas.github.io/maple-harbour-bank/). Its six roles cover customer, business maker/checker, operations, analytics and engineering. Show a payment and partial return, then the actual processing trace and missing-source recovery lab. Explain that this zero-cost public profile persists on the visitor’s device; the PostgreSQL/OIDC security and process-recovery evidence below belongs to the separately runnable server profile. [Runtime comparison](PUBLIC_DEMO.md).
 
 ## Opening

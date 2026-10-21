@@ -6,6 +6,7 @@
 - Measured live dashboard with source/archive buckets, distinct throughput units, receipt latency, backlog, freshness and approved financial values.
 - Payment-selected actual architecture lineage, accessible evidence tables and shareable deep links.
 - README public/server topology diagrams generated from the same manifests as the explorer.
+- Patch transitive certifi to 2026.10.19 after the enforced audit detected GHSA-6q48-6c7w-9gw2; rebuild and revalidate the server image.
 - Added browser acceptance for exact effects, role restrictions, reload, paused publication, failed-cycle rollback, mobile Dusk and the exact production Pages bundle. Candidate results are pending CI.
 
 ## 0.3.0 · 18 October 2026 · publicly deployed on GitHub Pages

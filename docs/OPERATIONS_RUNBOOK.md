@@ -1,5 +1,12 @@
 # Operations runbook
 
+## Public observatory operations · release 0.4
+
+Choose Casey → Live dashboard to schedule at most 40 instructions at 1–10-second intervals. Generation has independent pause/resume/stop controls from pipeline processing in the control room. To recover a closed page, reopen the same browser/profile/site: the worker resumes the saved cursor; it does not reset funds. A FAILED run records its reason and leaves already accepted cycles intact. Inspect customer funds or scenario quotas before starting another bounded run. Maximum ten retained workload runs and 500 payments; there is no public shared load endpoint.
+
+For backlog demonstrations, pause pipeline processing, generate a short workload, observe unchanged approved financial values, then resume. Inspect event-to-publication lineage and compare source count/cutoff. Missing-source refresh rejection preserves the last good version. Existing archive-interruption controls preserve receipts before acknowledgement and replay idempotently. Export evidence from the engineering control room before clearing browser site data; site-data deletion is not a backup strategy.
+
+
 Start with `docker compose ps`, `/api/health/ready`, worker logs and an engineer's `/api/engineering` view. Never repair a financial history by updating posted lines or disabling constraints.
 
 ## Basic operations
