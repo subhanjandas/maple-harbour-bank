@@ -14,9 +14,11 @@ for p in [root/'README.md',*list((root/'docs').glob('*.md'))]:
   if target.startswith(('https://','http://','#','mailto:')):continue
   local=target.split('#')[0]
   if local and not (p.parent/local).exists():errors.append(f'{p.name}: broken {target}')
-m=json.loads((root/'architecture/manifest.json').read_text());entities={e['id'] for e in json.loads((root/'provenance/atlas-selected-model.json').read_text())['entities']}
-for c in m['components']:
- if c['atlas'] not in entities:errors.append('Unknown Atlas entity: '+c['atlas'])
- if not (root/c['doc']).exists():errors.append('Component documentation missing: '+c['doc'])
+entities={e['id'] for e in json.loads((root/'provenance/atlas-selected-model.json').read_text())['entities']}
+for filename in ['manifest.json','public-manifest.json']:
+ m=json.loads((root/'architecture'/filename).read_text())
+ for c in m['components']:
+  if c['atlas'] not in entities:errors.append('Unknown Atlas entity: '+c['atlas'])
+  if not (root/c['doc']).exists():errors.append('Component documentation missing: '+c['doc'])
 if errors:raise SystemExit('\n'.join(errors))
 print('Documentation, shared manifest and selected Atlas references verified.')
