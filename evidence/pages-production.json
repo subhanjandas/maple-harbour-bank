@@ -1,0 +1,217 @@
+{
+  "config": {
+    "argv": [
+      "/opt/hostedtoolcache/node/24.22.0/x64/bin/node",
+      "/home/runner/work/maple-harbour-bank/maple-harbour-bank/web/node_modules/.bin/playwright",
+      "test",
+      "-c",
+      "playwright.production.config.ts"
+    ],
+    "configFile": "/home/runner/work/maple-harbour-bank/maple-harbour-bank/web/playwright.production.config.ts",
+    "rootDir": "/home/runner/work/maple-harbour-bank/maple-harbour-bank/web/tests-production",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "ci": {
+        "commitHref": "https://github.com/subhanjandas/maple-harbour-bank/commit/9a725a48209043d7a39ec1cf202ec9189c776d84",
+        "commitHash": "9a725a48209043d7a39ec1cf202ec9189c776d84",
+        "buildHref": "https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39609331613"
+      },
+      "gitCommit": {
+        "shortHash": "9a725a4",
+        "hash": "9a725a48209043d7a39ec1cf202ec9189c776d84",
+        "subject": "fix: verify Pages artifact at deployed base and patch certifi trust store",
+        "body": "fix: verify Pages artifact at deployed base and patch certifi trust store",
+        "author": {
+          "name": "Subhanjan Das",
+          "email": "69835617+subhanjandas@users.noreply.github.com",
+          "time": 1792589718000
+        },
+        "committer": {
+          "name": "Subhanjan Das",
+          "email": "69835617+subhanjandas@users.noreply.github.com",
+          "time": 1792589718000
+        },
+        "branch": "feat/live-observatory"
+      },
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/home/runner/work/maple-harbour-bank/maple-harbour-bank/web/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/subhanjandas/maple-harbour-bank/commit/9a725a48209043d7a39ec1cf202ec9189c776d84",
+            "commitHash": "9a725a48209043d7a39ec1cf202ec9189c776d84",
+            "buildHref": "https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39609331613"
+          },
+          "gitCommit": {
+            "shortHash": "9a725a4",
+            "hash": "9a725a48209043d7a39ec1cf202ec9189c776d84",
+            "subject": "fix: verify Pages artifact at deployed base and patch certifi trust store",
+            "body": "fix: verify Pages artifact at deployed base and patch certifi trust store",
+            "author": {
+              "name": "Subhanjan Das",
+              "email": "69835617+subhanjandas@users.noreply.github.com",
+              "time": 1792589718000
+            },
+            "committer": {
+              "name": "Subhanjan Das",
+              "email": "69835617+subhanjandas@users.noreply.github.com",
+              "time": 1792589718000
+            },
+            "branch": "feat/live-observatory"
+          },
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/home/runner/work/maple-harbour-bank/maple-harbour-bank/web/tests-production",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/home/runner/work/maple-harbour-bank/maple-harbour-bank/web/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/subhanjandas/maple-harbour-bank/commit/9a725a48209043d7a39ec1cf202ec9189c776d84",
+            "commitHash": "9a725a48209043d7a39ec1cf202ec9189c776d84",
+            "buildHref": "https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39609331613"
+          },
+          "gitCommit": {
+            "shortHash": "9a725a4",
+            "hash": "9a725a48209043d7a39ec1cf202ec9189c776d84",
+            "subject": "fix: verify Pages artifact at deployed base and patch certifi trust store",
+            "body": "fix: verify Pages artifact at deployed base and patch certifi trust store",
+            "author": {
+              "name": "Subhanjan Das",
+              "email": "69835617+subhanjandas@users.noreply.github.com",
+              "time": 1792589718000
+            },
+            "committer": {
+              "name": "Subhanjan Das",
+              "email": "69835617+subhanjandas@users.noreply.github.com",
+              "time": 1792589718000
+            },
+            "branch": "feat/live-observatory"
+          },
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "/home/runner/work/maple-harbour-bank/maple-harbour-bank/web/tests-production",
+        "snapshotDir": "/home/runner/work/maple-harbour-bank/maple-harbour-bank/web/tests-production",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://localhost:5175/maple-harbour-bank/",
+          "headless": true,
+          "trace": "retain-on-failure"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../evidence/pages-production.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": {
+      "command": "VITE_PUBLIC_DEMO=true VITE_BASE_PATH=/maple-harbour-bank/ npx vite preview --host 127.0.0.1 --port 5175",
+      "url": "http://localhost:5175/maple-harbour-bank/",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "bundle.spec.ts",
+      "file": "bundle.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "production Pages artifact loads its worker and publishes real generated activity",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6708,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-21T13:36:49.138Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a62f301596b1eaa52829-46f1a680f148f1693c85",
+          "file": "bundle.spec.ts",
+          "line": 2,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-21T13:36:48.472Z",
+    "duration": 7522.201999999999,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
