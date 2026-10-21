@@ -1,5 +1,7 @@
 # Acceptance evidence
 
+Release 0.4 candidate adds five public development-browser scenarios and one production-bundle scenario. Results are pending CI; prior passing evidence below still describes release 0.3. New coverage includes exact generated amounts/event/journal counts, duplicate effects, paused Gold publication, durable cursor, role restrictions, failed-cycle rollback and mobile Dusk. A production artifact test prevents development-only imports from masking Pages build errors.
+
 ## Release 0.3 · public deployment verified
 
 Source `37fa7a9f02593655d4dff95ba4d9a646520e6697` passed [six public-browser tests](https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39090563150) in 12.368 seconds with zero skips/failures/flakes, and [49 backend tests plus two server-browser journeys](https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39090563228), build, audits, workloads, Compose journey and restore. Raw JUnit reports 13.371 seconds for the backend suite. Public captures and server evidence follow in commits `08c166e3fd955406578e2aa3c5e9e23dbfc2cbc8` and `0ccfd106e29938ede62373c1b4a6de1a9f3bdd48`.

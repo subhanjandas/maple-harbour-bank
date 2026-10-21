@@ -1,5 +1,7 @@
 # Security and access
 
+Release 0.4 public workload start/pause/resume/stop requires the engineer persona in the command adapter; telemetry requires operations, analyst or engineer. The UI also hides staff navigation. These are simulation contracts in visitor-controlled storage, not a trusted public authorization boundary. No remote admin/load endpoint is introduced. Counts, schedule cadence and retained history are bounded. The PostgreSQL/OIDC security profile remains separate and unchanged.
+
 The [live GitHub Pages profile](PUBLIC_DEMO.md) uses isolated browser storage and synthetic role selection. Its role controls demonstrate banking workflows; they are not production authentication against the device owner. The server authorization guarantees below apply to the independently tested FastAPI/PostgreSQL runtime. Public hosting costs CAD 0 and contains no service credentials.
 
 This is a synthetic banking simulation. Controls are implemented and tested at selected boundaries; regulatory certification, production hardening and a complete banking security program are not claimed.

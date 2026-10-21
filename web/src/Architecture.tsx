@@ -3,6 +3,7 @@ import {Search,Plus,Minus,Maximize,ArrowUpRight,Play,Pause,GitBranch} from 'luci
 import coreManifest from '../../architecture/manifest.json';
 import publicManifest from '../../architecture/public-manifest.json';
 import {PUBLIC_DEMO} from './api';
+import EvidenceFlow from './EvidenceFlow';
 const atlas='https://subhanjandas.github.io/banking-model-atlas/';
 const source='https://github.com/subhanjandas/maple-harbour-bank/blob/main/';
 export default function Architecture(){
@@ -10,7 +11,7 @@ export default function Architecture(){
  const params=new URLSearchParams(location.search);
  const [selected,setSelected]=useState(params.get('node')||'core');
  const [edge,setEdge]=useState('');const [query,setQuery]=useState('');const [layer,setLayer]=useState('all');const [planned,setPlanned]=useState(false);
- const [mode,setMode]=useState('architecture');const [playing,setPlaying]=useState(false);const [step,setStep]=useState(0);
+ const [mode,setMode]=useState(params.get('mode')==='evidence'?'evidence':'architecture');const [playing,setPlaying]=useState(false);const [step,setStep]=useState(0);
  const [zoom,setZoom]=useState(1);const [pan,setPan]=useState({x:0,y:0});const drag=useRef<{x:number;y:number;px:number;py:number}|null>(null);
  const journey=manifest.journeys[0].components;
  useEffect(()=>{if(!playing)return;const id=setInterval(()=>setStep(s=>(s+1)%journey.length),1300);return()=>clearInterval(id);},[playing]);
@@ -20,8 +21,8 @@ export default function Architecture(){
  function select(id:string){setSelected(id);setEdge('');const p=new URLSearchParams(location.search);p.set('node',id);history.replaceState(null,'','?'+p);}
  return <><div className="workspace-intro"><span className="eyebrow">THE SYSTEM, EXPLAINED</span><h1>Follow the flow.</h1><p>One payment. Two connected systems. Every boundary has a purpose and a guarantee.</p></div>
  <div className="profile-choice"><label>Runtime topology <select aria-label="Runtime topology" value={profile} onChange={e=>setProfile(e.target.value)}><option value="public">Public demo · browser persistence</option><option value="core">Server lab · PostgreSQL & FastAPI</option></select></label><span className="pill">{profile===(PUBLIC_DEMO?'public':'core')?'Current runtime':'Reference topology · not running here'}</span></div>
- <div className="tabbar" role="tablist" aria-label="Explorer mode">{[['architecture','Architecture'],['simulation','Guided simulation'],['evidence','Live evidence']].map(([id,label])=><button role="tab" aria-selected={mode===id} key={id} onClick={()=>{setMode(id);setPlaying(false);}}>{label}</button>)}</div>
- {mode==='evidence'?<div className="notice"><GitBranch size={20}/><div><b>Evidence comes from the running platform.</b><p>Open a payment’s trace to inspect its ledger, event IDs, archive receipt, ingestion run and publication. Engineers can inspect actual worker runs in the control room. There is no fabricated live animation.</p><a className="text-link" href="?page=engineering">Open control room →</a></div></div>:<>
+ <div className="tabbar" role="tablist" aria-label="Explorer mode">{[['architecture','Architecture'],['simulation','Guided simulation'],['evidence','Live evidence']].map(([id,label])=><button role="tab" aria-selected={mode===id} key={id} onClick={()=>{setMode(id);setPlaying(false);const p=new URLSearchParams(location.search);p.set('mode',id);history.replaceState(null,'','?'+p);}}>{label}</button>)}</div>
+ {mode==='evidence'&&PUBLIC_DEMO?<EvidenceFlow/>:mode==='evidence'?<div className="notice"><GitBranch size={20}/><div><b>Evidence comes from the running platform.</b><p>Open a payment’s trace to inspect its ledger, event IDs, archive receipt, ingestion run and publication. Engineers can inspect actual worker runs in the control room. There is no fabricated live animation.</p><a className="text-link" href="?page=engineering">Open control room →</a></div></div>:<>
  {mode==='simulation'&&<div className="notice"><button className="primary" onClick={()=>setPlaying(!playing)}>{playing?<Pause size={15}/>:<Play size={15}/>} {playing?'Pause':'Play'} example</button><div><b>Guided simulation · illustration only</b><p>Step {step+1} of {journey.length}: {manifest.components.find(c=>c.id===journey[step])?.label}. This animation creates no transactions and represents no live telemetry.</p></div></div>}
  <div className="explorer-layout"><div className="graph-panel"><div className="graph-toolbar"><label className="search"><Search size={16}/><input aria-label="Search architecture" placeholder="Find a component…" value={query} onChange={e=>setQuery(e.target.value)}/></label><select aria-label="Architecture path" value={layer} onChange={e=>setLayer(e.target.value)}><option value="all">All paths</option><option value="operational">Operational</option><option value="analytical">Analytical</option></select><label className="check"><input type="checkbox" checked={planned} onChange={e=>setPlanned(e.target.checked)}/> Planned</label></div>
  <div className="graph-viewport"><svg viewBox="0 0 1080 650" aria-label="Architecture graph. Text alternative follows below." onPointerDown={e=>{if(e.target===e.currentTarget){drag.current={x:e.clientX,y:e.clientY,px:pan.x,py:pan.y};e.currentTarget.setPointerCapture(e.pointerId);}}} onPointerMove={e=>{if(drag.current)setPan({x:drag.current.px+(e.clientX-drag.current.x)/zoom,y:drag.current.py+(e.clientY-drag.current.y)/zoom});}} onPointerUp={()=>{drag.current=null;}}>

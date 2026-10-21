@@ -10,6 +10,8 @@ Built by **Subhanjan Das** · customer and business banking · operations · ana
 
 The live app connects owned CAD accounts, payments, business maker/checker approvals, balanced journals, settlement/partial returns, preserved source events and reconciled analytical publications. Choose Subhanjan, Avery/Morgan, Taylor, Jordan or Casey to explore each workspace.
 
+The new [live observatory](docs/LIVE_OBSERVATORY.md) adds a seeded banking workload, measured source/archive activity and payment-selected architecture lineage. Choose **Casey → Live dashboard** to start activity, or Jordan to inspect approved metrics. [Architecture, stack and domain expansion](docs/PLATFORM_VISION.md). Release 0.4 acceptance is pending CI.
+
 The public profile runs in a Web Worker and persists each visitor’s isolated simulation in IndexedDB. The separately runnable FastAPI/PostgreSQL profile proves server authorization, database constraints and fault recovery in CI. [Runtime guarantees and trade-offs](docs/PUBLIC_DEMO.md).
 
 **Release 0.3:** 6 public-browser tests, 49 backend tests and 2 server-browser tests passed, along with actual container startup, HTTP payment/return processing and backup/restore. [Exact evidence and tested commit →](docs/TEST_EVIDENCE.md)
@@ -48,22 +50,83 @@ No real customer data or payment rails. This is not a licensed bank, certified c
 | Engineering evidence | Actual scenario events, runs and recovery controls | Actual financial concurrency, authorization and subprocess recovery tests |
 | Hosting cost | CAD 0, GitHub Pages | CAD 0, local host or bounded public-repository CI |
 
-## Two connected systems · server profile
+<!-- MHB:TOPOLOGIES:START -->
+
+## Runtime architecture · generated from the explorer manifests
+
+<details>
+<summary>Public demo: implemented browser topology and planned expansion</summary>
+
+The public runtime uses per-visitor browser persistence. Dotted paths are planned; Kafka/Spark/Delta/Airflow do not run on GitHub Pages.
 
 ```mermaid
 flowchart TD
-  Web["Role-aware web application"] --> API["Authorized banking API"]
-  API --> Core["PostgreSQL accounts and immutable ledger"]
-  Core --> Outbox["Transactional outbox"]
-  Outbox --> Worker["Durable polling worker"]
-  Worker --> Bronze["Bronze original envelopes"]
-  Bronze --> Silver["Silver history and current projections"]
-  Silver --> Gold["Gold versioned publication"]
-  Gold --> Serving["Approved analytical serving API"]
-  Serving --> Web
+  web["Public banking application (implemented)"]
+  api["Browser command engine (implemented)"]
+  core["IndexedDB journal store (implemented)"]
+  outbox["Transactional outbox (implemented)"]
+  worker["Browser Web Worker (implemented)"]
+  bronze["Bronze event archive (implemented)"]
+  silver["Silver projections (implemented)"]
+  gold["Gold publication (implemented)"]
+  serving["Approved scenario views (implemented)"]
+  cdc["Debezium → Kafka (planned)"]
+  delta["Spark + Delta Lake (planned)"]
+  airflow["Airflow orchestration (planned)"]
+  generator["Seeded source simulator (implemented)"]
+  web --> api
+  api --> core
+  core --> outbox
+  outbox --> worker
+  worker --> bronze
+  bronze --> silver
+  silver --> gold
+  gold --> serving
+  outbox -.-> cdc
+  cdc -.-> delta
+  airflow -.-> delta
+  generator --> api
 ```
 
-Spending always uses operational funds protected by database locks. Dashboards use a published analytical version and expose staleness. The architecture explorer and [generated topology](docs/ARCHITECTURE_GENERATED.md) share [one versioned manifest](architecture/manifest.json).
+</details>
+
+<details>
+<summary>Server lab: transactional core and target analytical platform</summary>
+
+PostgreSQL is authoritative for accepted spending. Dashboards read a versioned analytical publication; the distributed components remain planned.
+
+```mermaid
+flowchart TD
+  web["Banking application (implemented)"]
+  api["FastAPI core (implemented)"]
+  core["PostgreSQL ledger (implemented)"]
+  outbox["Transactional outbox (implemented)"]
+  worker["Durable worker (implemented)"]
+  bronze["Bronze archive (implemented)"]
+  silver["Silver projections (implemented)"]
+  gold["Gold publication (implemented)"]
+  serving["Approved serving API (implemented)"]
+  cdc["Debezium → Kafka (planned)"]
+  delta["Spark + Delta Lake (planned)"]
+  airflow["Airflow orchestration (planned)"]
+  web --> api
+  api --> core
+  core --> outbox
+  outbox --> worker
+  worker --> bronze
+  bronze --> silver
+  silver --> gold
+  gold --> serving
+  outbox -.-> cdc
+  cdc -.-> delta
+  airflow -.-> delta
+```
+
+</details>
+
+[Interactive architecture](https://subhanjandas.github.io/maple-harbour-bank/?page=architecture) · [Actual live lineage](https://subhanjandas.github.io/maple-harbour-bank/?page=architecture&mode=evidence) · [Technology ownership and domain expansion](docs/PLATFORM_VISION.md)
+
+<!-- MHB:TOPOLOGIES:END -->
 
 ## Engineering claims and boundaries
 

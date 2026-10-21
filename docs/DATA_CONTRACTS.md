@@ -1,5 +1,7 @@
 # Data contracts and replay
 
+Release 0.4 preserves the event envelope contract. Workload scheduling/control adds durable seed, count, interval, cursor and status to optional schema-1 browser state. The command-response cache stores a snapshot, so later workload mutation cannot change a duplicate command response. Journal creation timestamps are added only to new postings; legacy financial records are not rewritten. Telemetry exposes operational metadata and only approved financial projections to staff personas. [Workload and metric contract](LIVE_OBSERVATORY.md).
+
 The operational outbox publishes `payment.snapshot`, schema version 1. `contracts/payment-snapshot-v1.schema.json` is generated from Pydantic models in `backend/mhb/contracts.py`; unknown fields and unknown versions are rejected. An additive optional field still requires a deliberate compatibility review because the current v1 reader is strict. Do not silently relax financial semantics.
 
 ## Event and archive evidence

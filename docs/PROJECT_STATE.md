@@ -1,4 +1,10 @@
-# Project state · release 0.3 · publicly deployed
+# Project state · release 0.4 candidate; release 0.3 publicly deployed
+
+## Current implementation checkpoint
+
+Branch `feat/live-observatory`, based on exact main `0004655db84e67cd5426a80cba40be15167e13e6`. Release 0.4 adds the [live observatory](LIVE_OBSERVATORY.md), seeded durable synthetic activity and selected-payment actual lineage. Local TypeScript/production builds pass; new acceptance and deployment are pending CI. No database migration or dependency change. Browser schema 1 is extended additively; existing records and posted history remain intact.
+
+Next gate: run all public/server acceptance, preserve actual captures, merge and verify Pages. The release 0.3 deployment identity below remains authoritative until then.
 
 ## Reproducible identity
 

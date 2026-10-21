@@ -1,5 +1,7 @@
 # Performance evidence
 
+The release 0.4 observatory is not a capacity benchmark. Its bounded generator schedules at most one banking cycle per eligible tick, while the visible dashboard reads retained metadata every two seconds and charts actual event/receipt timestamps. No catch-up burst is attempted after a sleeping or closed tab. Existing measured server-command and 100K/1M source-query evidence below remains separate; no new peak TPS result is claimed.
+
 No maximum transaction-per-second target or production capacity is claimed. `scripts/benchmark.py` measures two distinct workloads. Latest raw samples, plans, tested commit and hardware are in `evidence/benchmark.json`. The numerical baseline below is intentionally frozen at release 0.1; its [original raw report](https://github.com/subhanjandas/maple-harbour-bank/blob/c0fd0924328d1e5b8010652784a9d9851f2bd4b8/evidence/benchmark.json) and [original resource sample](https://github.com/subhanjandas/maple-harbour-bank/blob/c0fd0924328d1e5b8010652784a9d9851f2bd4b8/evidence/compose-resources.json) remain immutable. Release 0.2 reruns the same workloads; use each raw report’s source commit rather than comparing different runner samples as an optimization.
 
 ## Verified release baseline

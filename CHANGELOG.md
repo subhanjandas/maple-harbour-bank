@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.0 · 21 October 2026 · live observatory candidate
+
+- Seeded, bounded synthetic payment/settlement/return workload with durable cursor, pause/resume/stop and stable duplicate responses; shared financial commands, no balance reset.
+- Measured live dashboard with source/archive buckets, distinct throughput units, receipt latency, backlog, freshness and approved financial values.
+- Payment-selected actual architecture lineage, accessible evidence tables and shareable deep links.
+- README public/server topology diagrams generated from the same manifests as the explorer.
+- Added browser acceptance for exact effects, role restrictions, reload, paused publication, failed-cycle rollback, mobile Dusk and the exact production Pages bundle. Candidate results are pending CI.
+
 ## 0.3.0 · 18 October 2026 · publicly deployed on GitHub Pages
 
 - Zero-cost public build with per-browser IndexedDB persistence and real Web Worker event processing.
