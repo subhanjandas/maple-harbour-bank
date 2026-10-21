@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "release": "0.3.0",
+  "release": "0.4.0",
   "deployment": "PUBLIC DEMO \u00b7 GitHub Pages + browser worker + IndexedDB \u00b7 no hosted API",
   "owner": "Subhanjan Das",
   "components": [
@@ -10,7 +10,7 @@
       "layer": "operational",
       "status": "implemented",
       "owner": "Experience",
-      "purpose": "Role-aware customer, business, operations, analytics and engineering journeys.",
+      "purpose": "Role-aware banking, business approvals and a live observatory driven by actual scenario commands, arrivals and publications.",
       "inputs": "Browser session; approved API responses",
       "outputs": "Commands and authorized queries",
       "tradeoff": "Browser-local role simulation; visitors control their own data and code.",
@@ -195,6 +195,22 @@
       "atlas": "payment_order",
       "x": 810,
       "y": 500
+    },
+    {
+      "id": "generator",
+      "label": "Seeded source simulator",
+      "layer": "operational",
+      "status": "implemented",
+      "owner": "Engineering lab",
+      "purpose": "Schedule bounded, reproducible synthetic banking cycles with a durable cursor and stable command keys.",
+      "inputs": "Seed; 1\u201340 instructions; minimum one-second interval; operator pause/resume/stop",
+      "outputs": "Same banking commands, settlement/return acknowledgements, duplicate retries and audit records",
+      "tradeoff": "Runs in the existing browser worker, not an extra service. One cycle per tick; no catch-up burst, fund reset or maximum-TPS claim.",
+      "trust": "visitor-browser",
+      "doc": "docs/LIVE_OBSERVATORY.md",
+      "atlas": "payment_order",
+      "x": 310,
+      "y": 0
     }
   ],
   "connections": [
@@ -296,6 +312,15 @@
       "contract": "Bounded input, run identity and publication gate",
       "semantics": "Planned; orchestration owns schedules, Spark owns transformations.",
       "path": "planned"
+    },
+    {
+      "id": "simulate",
+      "from": "generator",
+      "to": "api",
+      "protocol": "Worker schedule / IndexedDB cursor",
+      "contract": "Seed + bounded count + stable actor/command idempotency keys",
+      "semantics": "Banking cycle and cursor commit atomically. Reopen resumes progress; a rejected cycle rolls back and receives a failed disposition.",
+      "path": "operational"
     }
   ],
   "journeys": [

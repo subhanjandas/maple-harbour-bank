@@ -12,13 +12,14 @@ export const people:Record<string,Principal>={
 };
 export type BankAccount=Account & {owner:string;org?:string;opening:number};
 export type BankPayment=Payment & {owner_id:string;destination_id?:string;beneficiary_id?:string;org?:string};
-export type Journal=Detail['journals'][number] & {payment_id:string|null};
+export type Journal=Detail['journals'][number] & {payment_id:string|null;created_at?:string};
 export type Envelope={schema_version:number;source_system:string;event_id:string;aggregate_id:string;aggregate_version:number;tenant_id:string;event_time:string;correlation_id:string;causation_id:string;currency:string;currency_exponent:number;payload:BankPayment & {returns:Detail['returns']}};
 export type Event={seq:number;envelope:Envelope;checksum:string;acknowledged_at:string|null;attempts:number};
 export type Archive={event:Event;received_at:string;ingestion_run_id:string};
 export type Approval={id:string;org:string;maker:string;amount_minor:number;status:'PENDING'|'APPROVED'|'REJECTED';created_at:string;checker?:string;payment_id?:string};
 export type Run={id:string;status:string;cutoff:number;source_count:number;codes:string[];created_at:string};
-export type State={schema:1;revision:number;scenario:string;accounts:BankAccount[];payments:BankPayment[];journals:Journal[];returns:Record<string,Detail['returns']>;events:Event[];bronze:Archive[];silver:Record<string,Envelope>;runs:Run[];publication:Publication|null;commands:Record<string,{signature:string;response:unknown}>;approvals:Approval[];paused:boolean;fault:'none'|'after_archive'|'missing_source';fault_fired:boolean;audit:{id:string;actor:string;action:string;at:string}[]};
+export type Workload={id:string;seed:number;count:number;interval_ms:number;cursor:number;status:'RUNNING'|'PAUSED'|'COMPLETED'|'STOPPED'|'FAILED';started_at:string;updated_at:string;next_at:string;payment_ids:string[];duplicate_requests:number;last_error?:string};
+export type State={schema:1;revision:number;workloads?:Workload[];scenario:string;accounts:BankAccount[];payments:BankPayment[];journals:Journal[];returns:Record<string,Detail['returns']>;events:Event[];bronze:Archive[];silver:Record<string,Envelope>;runs:Run[];publication:Publication|null;commands:Record<string,{signature:string;response:unknown}>;approvals:Approval[];paused:boolean;fault:'none'|'after_archive'|'missing_source';fault_fired:boolean;audit:{id:string;actor:string;action:string;at:string}[]};
 export const now=()=>new Date().toISOString();
 export const id=()=>crypto.randomUUID();
 export const day=()=>new Intl.DateTimeFormat('en-CA',{timeZone:'America/Toronto',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
@@ -30,7 +31,7 @@ export function seed():State{
 }
 export function fail(message:string):never{throw Error(message);}
 export function amount(value:unknown):number{if(typeof value!=='number'||!Number.isSafeInteger(value)||value<1||value>100000000)fail('INVALID_EXACT_CAD_AMOUNT');return value;}
-export function post(s:State,payment:string|null,kind:string,n:number,debit:string,credit:string){amount(n);const jid=id();s.journals.push(...([['DEBIT',debit],['CREDIT',credit]] as const).map(([direction,ledger_id],i)=>({id:jid,kind,booked_date:day(),line_no:i+1,ledger_id,direction,amount_minor:n,payment_id:payment})));}
+export function post(s:State,payment:string|null,kind:string,n:number,debit:string,credit:string){amount(n);const jid=id();s.journals.push(...([['DEBIT',debit],['CREDIT',credit]] as const).map(([direction,ledger_id],i)=>({id:jid,kind,booked_date:day(),line_no:i+1,ledger_id,direction,amount_minor:n,payment_id:payment,created_at:now()})));}
 export function assertMoney(s:State){
  const totals=new Map<string,number>();for(const j of s.journals){amount(j.amount_minor);totals.set(j.id,(totals.get(j.id)||0)+(j.direction==='DEBIT'?j.amount_minor:-j.amount_minor));}
  if([...totals.values()].some(n=>n!==0))fail('UNBALANCED_JOURNAL');
@@ -48,4 +49,11 @@ export function createPayment(s:State,actor:Principal,b:Record<string,unknown>,k
  if(internal&&!dest)fail('DESTINATION_NOT_FOUND');if(!internal&&b.beneficiary_id!=='energy')fail('BENEFICIARY_NOT_FOUND');
  const p:BankPayment={id:id(),owner_id:actor.id,source_id:a.id,kind:internal?'INTERNAL':'OUTBOUND',amount_minor:n,currency:'CAD',status:'RECEIVED',returned_minor:0,version:0,business_date:day(),created_at:now(),correlation_id:id(),...(dest?{destination_id:dest.id}:{beneficiary_id:'energy'}),...(org?{org}:{})};
  a.booked_minor-=n;if(dest)dest.booked_minor+=n;s.payments.push(p);post(s,p.id,'PAYMENT',n,a.id,dest?.id||'clearing');for(const status of ['RECEIVED','VALIDATED','POSTED'])emit(s,p,status,key);return {payment_id:p.id,correlation_id:p.correlation_id,status:p.status};
+}
+
+/** Shared idempotency effects: a repeated intent returns its first response and creates no extra audit/posting. */
+export function idempotent<T>(s:State,actor:Principal,path:string,body:Record<string,unknown>,key:string,fn:()=>T):T{
+ const identity=actor.id+':'+key,signature=canonical({path,body}),prior=s.commands[identity];
+ if(prior){if(prior.signature!==signature)fail('IDEMPOTENCY_CONFLICT');return prior.response as T;}
+ const response=fn();s.commands[identity]={signature,response:structuredClone(response)};s.audit.push({id:id(),actor:actor.id,action:path,at:now()});return response;
 }

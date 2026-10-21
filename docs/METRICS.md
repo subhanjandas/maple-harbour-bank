@@ -1,5 +1,7 @@
 # Metric definitions
 
+Release 0.4 adds an observed live dashboard. Its rates distinguish accepted command audits, new instructions, newly timestamped ledger lines, source events and archive receipts. Rates are trailing 60-second counts divided by 60; p95 is event-to-receipt latency over retained non-negative samples. Financial totals remain the last approved Gold version. See [exact definitions and coverage limitations](LIVE_OBSERVATORY.md).
+
 Money is integer CAD cents. The daily fact grain is **Toronto business date × WEB channel × CAD currency**. No segment or customer SCD2 dimension is needed for this product. A later historical segment analysis must define valid/effective time, receipt time and an as-of join; joining today's segment to past activity is not acceptable.
 
 | Metric | Definition / time attribution | Important exclusions |

@@ -20,26 +20,26 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/subhanjandas/maple-harbour-bank/commit/37fa7a9f02593655d4dff95ba4d9a646520e6697",
-        "commitHash": "37fa7a9f02593655d4dff95ba4d9a646520e6697",
-        "buildHref": "https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39090534428"
+        "commitHref": "https://github.com/subhanjandas/maple-harbour-bank/commit/401547e0cdd96162684baabd61b9d4b3db22c31d",
+        "commitHash": "401547e0cdd96162684baabd61b9d4b3db22c31d",
+        "buildHref": "https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39609873304"
       },
       "gitCommit": {
-        "shortHash": "37fa7a9",
-        "hash": "37fa7a9f02593655d4dff95ba4d9a646520e6697",
-        "subject": "feat: zero-cost public banking platform with persistent simulation and approvals",
-        "body": "feat: zero-cost public banking platform with persistent simulation and approvals",
+        "shortHash": "401547e",
+        "hash": "401547e0cdd96162684baabd61b9d4b3db22c31d",
+        "subject": "fix: preserve complete regenerated dependency lockfile",
+        "body": "fix: preserve complete regenerated dependency lockfile",
         "author": {
           "name": "Subhanjan Das",
           "email": "69835617+subhanjandas@users.noreply.github.com",
-          "time": 1792290816000
+          "time": 1792589948000
         },
         "committer": {
           "name": "Subhanjan Das",
           "email": "69835617+subhanjandas@users.noreply.github.com",
-          "time": 1792290816000
+          "time": 1792589948000
         },
-        "branch": "feat/public-pages"
+        "branch": "feat/live-observatory"
       },
       "actualWorkers": 1
     },
@@ -51,26 +51,26 @@
         "retries": 0,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/subhanjandas/maple-harbour-bank/commit/37fa7a9f02593655d4dff95ba4d9a646520e6697",
-            "commitHash": "37fa7a9f02593655d4dff95ba4d9a646520e6697",
-            "buildHref": "https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39090534428"
+            "commitHref": "https://github.com/subhanjandas/maple-harbour-bank/commit/401547e0cdd96162684baabd61b9d4b3db22c31d",
+            "commitHash": "401547e0cdd96162684baabd61b9d4b3db22c31d",
+            "buildHref": "https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39609873304"
           },
           "gitCommit": {
-            "shortHash": "37fa7a9",
-            "hash": "37fa7a9f02593655d4dff95ba4d9a646520e6697",
-            "subject": "feat: zero-cost public banking platform with persistent simulation and approvals",
-            "body": "feat: zero-cost public banking platform with persistent simulation and approvals",
+            "shortHash": "401547e",
+            "hash": "401547e0cdd96162684baabd61b9d4b3db22c31d",
+            "subject": "fix: preserve complete regenerated dependency lockfile",
+            "body": "fix: preserve complete regenerated dependency lockfile",
             "author": {
               "name": "Subhanjan Das",
               "email": "69835617+subhanjandas@users.noreply.github.com",
-              "time": 1792290816000
+              "time": 1792589948000
             },
             "committer": {
               "name": "Subhanjan Das",
               "email": "69835617+subhanjandas@users.noreply.github.com",
-              "time": 1792290816000
+              "time": 1792589948000
             },
-            "branch": "feat/public-pages"
+            "branch": "feat/live-observatory"
           },
           "actualWorkers": 1
         },
@@ -93,26 +93,26 @@
         "retries": 0,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/subhanjandas/maple-harbour-bank/commit/37fa7a9f02593655d4dff95ba4d9a646520e6697",
-            "commitHash": "37fa7a9f02593655d4dff95ba4d9a646520e6697",
-            "buildHref": "https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39090534428"
+            "commitHref": "https://github.com/subhanjandas/maple-harbour-bank/commit/401547e0cdd96162684baabd61b9d4b3db22c31d",
+            "commitHash": "401547e0cdd96162684baabd61b9d4b3db22c31d",
+            "buildHref": "https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39609873304"
           },
           "gitCommit": {
-            "shortHash": "37fa7a9",
-            "hash": "37fa7a9f02593655d4dff95ba4d9a646520e6697",
-            "subject": "feat: zero-cost public banking platform with persistent simulation and approvals",
-            "body": "feat: zero-cost public banking platform with persistent simulation and approvals",
+            "shortHash": "401547e",
+            "hash": "401547e0cdd96162684baabd61b9d4b3db22c31d",
+            "subject": "fix: preserve complete regenerated dependency lockfile",
+            "body": "fix: preserve complete regenerated dependency lockfile",
             "author": {
               "name": "Subhanjan Das",
               "email": "69835617+subhanjandas@users.noreply.github.com",
-              "time": 1792290816000
+              "time": 1792589948000
             },
             "committer": {
               "name": "Subhanjan Das",
               "email": "69835617+subhanjandas@users.noreply.github.com",
-              "time": 1792290816000
+              "time": 1792589948000
             },
-            "branch": "feat/public-pages"
+            "branch": "feat/live-observatory"
           },
           "actualWorkers": 1
         },
@@ -163,6 +163,184 @@
   },
   "suites": [
     {
+      "title": "observatory.spec.ts",
+      "file": "observatory.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "seeded activity posts through banking commands, deduplicates and drives a traceable dashboard",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 14530,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-21T13:39:55.680Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2d68d06cf89477466321-d8c636c03aa3ab56d861",
+          "file": "observatory.spec.ts",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "pipeline pause creates real backlog while Gold financial values retain the last approved version",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6020,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-21T13:40:10.447Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2d68d06cf89477466321-96cd654413df618b40e2",
+          "file": "observatory.spec.ts",
+          "line": 16,
+          "column": 1
+        },
+        {
+          "title": "workload cursor survives reload, can pause and stop, and controls remain role-restricted",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6234,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-21T13:40:16.483Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2d68d06cf89477466321-c86f1431bf828745c72b",
+          "file": "observatory.spec.ts",
+          "line": 22,
+          "column": 1
+        },
+        {
+          "title": "dashboard is usable on mobile and engineering topology has an accessible shared definition",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8336,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-21T13:40:22.734Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2d68d06cf89477466321-50abc98da10d4c3915da",
+          "file": "observatory.spec.ts",
+          "line": 31,
+          "column": 1
+        },
+        {
+          "title": "a failed generated cycle leaves no partial command, journal or source event",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3948,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-21T13:40:31.085Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2d68d06cf89477466321-83d08c90a38febc6784d",
+          "file": "observatory.spec.ts",
+          "line": 36,
+          "column": 1
+        }
+      ]
+    },
+    {
       "title": "public.spec.ts",
       "file": "public.spec.ts",
       "column": 0,
@@ -184,12 +362,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 5336,
+                  "duration": 7635,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-18T02:34:18.668Z",
+                  "startTime": "2026-10-21T13:40:35.062Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -218,12 +396,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 973,
+                  "duration": 1006,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-18T02:34:24.242Z",
+                  "startTime": "2026-10-21T13:40:42.709Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -252,12 +430,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1022,
+                  "duration": 1072,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-18T02:34:25.231Z",
+                  "startTime": "2026-10-21T13:40:43.725Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -286,12 +464,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1092,
+                  "duration": 1063,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-18T02:34:26.271Z",
+                  "startTime": "2026-10-21T13:40:44.811Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -320,12 +498,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 702,
+                  "duration": 720,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-18T02:34:27.377Z",
+                  "startTime": "2026-10-21T13:40:45.886Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -354,12 +532,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1758,
+                  "duration": 1836,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-18T02:34:28.089Z",
+                  "startTime": "2026-10-21T13:40:46.619Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -377,9 +555,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-18T02:34:17.565Z",
-    "duration": 12367.762,
-    "expected": 6,
+    "startTime": "2026-10-21T13:39:54.151Z",
+    "duration": 54403.329,
+    "expected": 11,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0

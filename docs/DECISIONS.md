@@ -1,5 +1,9 @@
 # Architecture decisions
 
+## ADR · bounded public observatory (21 October 2026)
+
+Use existing browser banking commands with a durable schedule/cursor, rather than fabricated charts or a second financial implementation. A generated cycle commits command effects and cursor together; retries use stable keys. Financial metrics come from approved Gold, operational telemetry from actual source/receipt state. This costs periodic bounded scans and per-device storage, and requires an open browser for progress. It can be omitted in the server profile. A shared backend is justified only when trusted multi-user coordination is required; distributed lakehouse tools require measured compatibility/resource evidence. [Component ownership, alternatives, costs and introduction gates](PLATFORM_VISION.md).
+
 ## ADR 001 · Connected core and analytical platform
 
 Accepted for release 0.1. A modular monolith and PostgreSQL keep the first money-movement transaction atomic. A separately runnable durable worker gives independent processing and recovery. Service extraction requires a measured bottleneck, different ownership lifecycle or failure isolation benefit sufficient to pay for distributed consistency and operational cost.

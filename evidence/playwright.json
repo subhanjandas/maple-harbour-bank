@@ -18,26 +18,26 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/subhanjandas/maple-harbour-bank/commit/37fa7a9f02593655d4dff95ba4d9a646520e6697",
-        "commitHash": "37fa7a9f02593655d4dff95ba4d9a646520e6697",
-        "buildHref": "https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39090533987"
+        "commitHref": "https://github.com/subhanjandas/maple-harbour-bank/commit/401547e0cdd96162684baabd61b9d4b3db22c31d",
+        "commitHash": "401547e0cdd96162684baabd61b9d4b3db22c31d",
+        "buildHref": "https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39609873204"
       },
       "gitCommit": {
-        "shortHash": "37fa7a9",
-        "hash": "37fa7a9f02593655d4dff95ba4d9a646520e6697",
-        "subject": "feat: zero-cost public banking platform with persistent simulation and approvals",
-        "body": "feat: zero-cost public banking platform with persistent simulation and approvals",
+        "shortHash": "401547e",
+        "hash": "401547e0cdd96162684baabd61b9d4b3db22c31d",
+        "subject": "fix: preserve complete regenerated dependency lockfile",
+        "body": "fix: preserve complete regenerated dependency lockfile",
         "author": {
           "name": "Subhanjan Das",
           "email": "69835617+subhanjandas@users.noreply.github.com",
-          "time": 1792290816000
+          "time": 1792589948000
         },
         "committer": {
           "name": "Subhanjan Das",
           "email": "69835617+subhanjandas@users.noreply.github.com",
-          "time": 1792290816000
+          "time": 1792589948000
         },
-        "branch": "feat/public-pages"
+        "branch": "feat/live-observatory"
       },
       "actualWorkers": 1
     },
@@ -49,26 +49,26 @@
         "retries": 0,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/subhanjandas/maple-harbour-bank/commit/37fa7a9f02593655d4dff95ba4d9a646520e6697",
-            "commitHash": "37fa7a9f02593655d4dff95ba4d9a646520e6697",
-            "buildHref": "https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39090533987"
+            "commitHref": "https://github.com/subhanjandas/maple-harbour-bank/commit/401547e0cdd96162684baabd61b9d4b3db22c31d",
+            "commitHash": "401547e0cdd96162684baabd61b9d4b3db22c31d",
+            "buildHref": "https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39609873204"
           },
           "gitCommit": {
-            "shortHash": "37fa7a9",
-            "hash": "37fa7a9f02593655d4dff95ba4d9a646520e6697",
-            "subject": "feat: zero-cost public banking platform with persistent simulation and approvals",
-            "body": "feat: zero-cost public banking platform with persistent simulation and approvals",
+            "shortHash": "401547e",
+            "hash": "401547e0cdd96162684baabd61b9d4b3db22c31d",
+            "subject": "fix: preserve complete regenerated dependency lockfile",
+            "body": "fix: preserve complete regenerated dependency lockfile",
             "author": {
               "name": "Subhanjan Das",
               "email": "69835617+subhanjandas@users.noreply.github.com",
-              "time": 1792290816000
+              "time": 1792589948000
             },
             "committer": {
               "name": "Subhanjan Das",
               "email": "69835617+subhanjandas@users.noreply.github.com",
-              "time": 1792290816000
+              "time": 1792589948000
             },
-            "branch": "feat/public-pages"
+            "branch": "feat/live-observatory"
           },
           "actualWorkers": 1
         },
@@ -91,26 +91,26 @@
         "retries": 0,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/subhanjandas/maple-harbour-bank/commit/37fa7a9f02593655d4dff95ba4d9a646520e6697",
-            "commitHash": "37fa7a9f02593655d4dff95ba4d9a646520e6697",
-            "buildHref": "https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39090533987"
+            "commitHref": "https://github.com/subhanjandas/maple-harbour-bank/commit/401547e0cdd96162684baabd61b9d4b3db22c31d",
+            "commitHash": "401547e0cdd96162684baabd61b9d4b3db22c31d",
+            "buildHref": "https://github.com/subhanjandas/maple-harbour-bank/actions/runs/39609873204"
           },
           "gitCommit": {
-            "shortHash": "37fa7a9",
-            "hash": "37fa7a9f02593655d4dff95ba4d9a646520e6697",
-            "subject": "feat: zero-cost public banking platform with persistent simulation and approvals",
-            "body": "feat: zero-cost public banking platform with persistent simulation and approvals",
+            "shortHash": "401547e",
+            "hash": "401547e0cdd96162684baabd61b9d4b3db22c31d",
+            "subject": "fix: preserve complete regenerated dependency lockfile",
+            "body": "fix: preserve complete regenerated dependency lockfile",
             "author": {
               "name": "Subhanjan Das",
               "email": "69835617+subhanjandas@users.noreply.github.com",
-              "time": 1792290816000
+              "time": 1792589948000
             },
             "committer": {
               "name": "Subhanjan Das",
               "email": "69835617+subhanjandas@users.noreply.github.com",
-              "time": 1792290816000
+              "time": 1792589948000
             },
-            "branch": "feat/public-pages"
+            "branch": "feat/live-observatory"
           },
           "actualWorkers": 1
         },
@@ -189,12 +189,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 3896,
+                  "duration": 7068,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-18T02:35:03.428Z",
+                  "startTime": "2026-10-21T13:40:36.959Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -229,12 +229,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1063,
+                  "duration": 1492,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-18T02:35:07.538Z",
+                  "startTime": "2026-10-21T13:40:44.325Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -258,8 +258,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-18T02:35:02.591Z",
-    "duration": 6080.111999999999,
+    "startTime": "2026-10-21T13:40:35.315Z",
+    "duration": 10598.673999999999,
     "expected": 2,
     "skipped": 0,
     "unexpected": 0,

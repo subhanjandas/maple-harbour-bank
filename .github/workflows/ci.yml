@@ -43,7 +43,7 @@ jobs:
       - name: Financial, authorization, concurrency and recovery acceptance
         working-directory: backend
         run: uv run pytest -q --junitxml=../evidence/pytest.xml
-      - run: python scripts/render_architecture.py && git diff --exit-code docs/ARCHITECTURE_GENERATED.md
+      - run: python scripts/render_architecture.py && git diff --exit-code docs/ARCHITECTURE_GENERATED.md docs/PUBLIC_ARCHITECTURE_GENERATED.md README.md
       - run: npm ci --prefix web && npm run build --prefix web
       - name: Initialize app with distinct service logins
         run: |

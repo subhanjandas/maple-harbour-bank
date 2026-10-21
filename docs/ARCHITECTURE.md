@@ -1,5 +1,12 @@
 # Architecture
 
+## Live observatory · release 0.4
+
+The public worker runs a bounded seeded source scheduler beside the existing archive/projection/publication loop. It uses shared banking commands, stable request keys and an atomic financial-effect/cursor transaction. Read-only staff telemetry combines actual operational metadata with last-approved analytical values. Interactive event/receipt buckets and selected-payment lineage expose these boundaries without fabricated activity. [Detailed contracts](LIVE_OBSERVATORY.md) · [Public topology generated from manifest](PUBLIC_ARCHITECTURE_GENERATED.md) · [Stack responsibilities and domain expansion](PLATFORM_VISION.md).
+
+README topology sections and both generated diagrams come from the same version-controlled manifests as the explorer. CI checks generated output and validates component documentation/Atlas mappings for both runtime profiles.
+
+
 The first slice uses a modular FastAPI monolith and separately runnable worker. Its domains are identity/access, deposit accounts, payment commands, ledger, integration and analytical serving. These boundaries live in modules and database grants; they are not separately deployed microservices.
 
 PostgreSQL is authoritative for accepted commands and financial postings. The React application cannot supply a trusted actor, role, organization or account balance. An opaque server session resolves the principal; every command checks its permissions inside the backend.

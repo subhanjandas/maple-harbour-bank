@@ -1,5 +1,7 @@
 # Source catalog
 
+Release 0.4 public source simulator is owned by the engineering persona: deterministic seed/cursor, 1–40 instructions, 1–10 seconds per eligible worker tick, one active run, maximum ten retained runs. Each cycle uses the existing customer payment and employee simulated-settlement commands; every third cycle adds a partial return, every fourth retries the payment key. Insufficient funds roll back a complete cycle. Source remains `mhb-browser-simulation`, synthetic and device-local. See [source inventory and planned contracts](PLATFORM_VISION.md).
+
 Only implemented payment/deposit domains emit operational events. An account opening is currently explicit seed data rather than an operational onboarding journey.
 
 | Source | Owner / contract | Frequency, delivery and expected volume | Classification | Failure behavior / status |

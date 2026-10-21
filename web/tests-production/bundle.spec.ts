@@ -1,0 +1,4 @@
+import {test,expect} from '@playwright/test';
+test('production Pages artifact loads its worker and publishes real generated activity',async({page})=>{
+ const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));await page.goto('./');await page.getByRole('button',{name:'Casey Roy Engineer',exact:false}).click();await page.getByRole('button',{name:'Live dashboard',exact:true}).click();await page.getByLabel('Workload instructions',{exact:true}).fill('2');await page.getByRole('button',{name:'Start synthetic activity',exact:true}).click();await expect(page.getByText('COMPLETED',{exact:true})).toBeVisible({timeout:20000});await expect(page.getByRole('link',{name:'Inspect flow',exact:false})).toHaveCount(2,{timeout:15000});await page.getByRole('link',{name:'Inspect flow',exact:false}).first().click();await expect(page.getByRole('table')).toContainText('Validated');expect(errors).toEqual([]);
+});
